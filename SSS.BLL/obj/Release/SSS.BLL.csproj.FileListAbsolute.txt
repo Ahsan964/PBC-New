@@ -1,0 +1,210 @@
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\SSS\Release8\SSS.BLL\bin\Release\FluentValidation.dll
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.Property.dll
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\SSS\Release8\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\SSS\Release8\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\SSS\Release8\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\SSS\Release8\SSS.BLL\obj\Release\SSS.BLL.pdb
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+G:\Projects\SSND\Code\branches\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+G:\Projects\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\SSS\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\SSS\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\SSS\SSS.BLL\bin\Release\FluentValidation.dll
+D:\SSS\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\SSS\SSS.BLL\bin\Release\SSS.Property.dll
+D:\SSS\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\SSS\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\SSS\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\SSS\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\SSS\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\SSND\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\SSS Development in SFPL\SSS-Complete\Code\LatestUpdatedRelease\SSS Development in SFPL\SSS\CODE\Branches\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\Projects\Latest Update Release\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\Projects\Latest Update Release\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Latest Update Release\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\Projects\Latest Update Release\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\FluentValidation.dll
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.Property.dll
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\C Drive\Projects\Release9\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\C Drive\Projects\Release9\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\C Drive\Projects\Release9\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\C Drive\Projects\Release9\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\FluentValidation.dll
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.Property.dll
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\Projects\MS\SSS-SHEZAN\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\FluentValidation.dll
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.Property.dll
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\Projects\MS\SSS-SHEZAN-Intigrated25012018\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\FluentValidation.dll
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.Property.dll
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\C Drive\Projects\Live Projects\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\C Drive\Projects\Live Projects\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\C Drive\Projects\Live Projects\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\C Drive\Projects\Live Projects\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\FluentValidation.dll
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.Property.dll
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\Talha\Main Projects\OSDA CCL Pharma\Live Projects\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\FluentValidation.dll
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.Property.dll
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\Umer\OSDA E\Live Projects\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\Umer\OSDA E\Live Projects\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\Umer\OSDA E\Live Projects\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\Umer\OSDA E\Live Projects\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\FluentValidation.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.Property.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\Updated\Updated\SSS.BLL\bin\Release\FluentValidation.dll
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.Property.dll
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\Updated\Updated\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\Updated\Updated\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\Updated\Updated\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\Updated\Updated\SSS.BLL\obj\Release\SSS.BLL.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.BLL.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.BLL.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\FluentValidation.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.DAL.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.Property.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.DAL.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\bin\Release\SSS.Property.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\obj\Release\SSS.BLL.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\FluentValidation.dll
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.Property.dll
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\Updated\Umer17-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.BLL.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.BLL.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\FluentValidation.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.DAL.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.Property.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.DAL.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\bin\Release\SSS.Property.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\FluentValidation.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\FluentValidation.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\FluentValidation.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.pdb

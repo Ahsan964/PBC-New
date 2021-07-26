@@ -1,0 +1,501 @@
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\ApplicationInsights.config
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\csc.exe
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\vbc.exe
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SMSYSTEM.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.BLL.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.Property.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.Utility.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Razor.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.DAL.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\FluentValidation.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.BLL.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.Property.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.Utility.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Razor.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\bin\SSS.DAL.pdb
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\Arsalan\11-02-21UpdatedProject\Updated\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+D:\Updated\Updated\SMSYSTEM\bin\ApplicationInsights.config
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\csc.exe
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\vbc.exe
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\Updated\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\Updated\Updated\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\Updated\Updated\SMSYSTEM\bin\SMSYSTEM.dll
+D:\Updated\Updated\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\Updated\Updated\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\Updated\Updated\SMSYSTEM\bin\SSS.BLL.dll
+D:\Updated\Updated\SMSYSTEM\bin\SSS.Property.dll
+D:\Updated\Updated\SMSYSTEM\bin\SSS.Utility.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Razor.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\Updated\Updated\SMSYSTEM\bin\SSS.DAL.dll
+D:\Updated\Updated\SMSYSTEM\bin\FluentValidation.dll
+D:\Updated\Updated\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\Updated\Updated\SMSYSTEM\bin\SSS.BLL.pdb
+D:\Updated\Updated\SMSYSTEM\bin\SSS.Property.pdb
+D:\Updated\Updated\SMSYSTEM\bin\SSS.Utility.pdb
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\Updated\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Updated\Updated\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Razor.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\Updated\Updated\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\Updated\Updated\SMSYSTEM\bin\SSS.DAL.pdb
+D:\Updated\Updated\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\Updated\Updated\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\Updated\Updated\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\ApplicationInsights.config
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\csc.exe
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\vbc.exe
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SMSYSTEM.dll.config
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SMSYSTEM.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SMSYSTEM.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.Web.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.BLL.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.Property.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.Utility.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Helpers.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Mvc.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Razor.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.DAL.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\FluentValidation.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\AjaxControlToolkit.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\stdole.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.BLL.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.Property.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.Utility.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.Web.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\bin\SSS.DAL.pdb
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\obj\Release\SMSYSTEM.dll
+C:\Users\Administrator\Desktop\LeapTechSystems\ABdul Ghafoor\4-10-2021\PBC\Updated\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\ApplicationInsights.config
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\csc.exe
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\vbc.exe
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.BLL.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.Property.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.Utility.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Razor.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.DAL.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\FluentValidation.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.BLL.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.Property.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.Utility.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Razor.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\bin\SSS.DAL.pdb
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\Updated\Umer17-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\ApplicationInsights.config
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\csc.exe
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\vbc.exe
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.dll.config
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SMSYSTEM.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportSource.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.Shared.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Web.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Newtonsoft.Json.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.BLL.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.Property.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.Utility.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Helpers.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Mvc.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Razor.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.DAL.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\FluentValidation.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\AjaxControlToolkit.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\stdole.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.BLL.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.Property.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.Utility.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.Web.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\Newtonsoft.Json.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Razor.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Helpers.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\System.Web.Mvc.xml
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\bin\SSS.DAL.pdb
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.dll
+E:\Visual Studio Projects\MangoTechProjects\ABDUL GHAFOOR\19-04-21\Updated\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\ApplicationInsights.config
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\csc.exe
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\vbc.exe
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.CrystalReports.Engine.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportSource.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.Shared.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\FluentValidation.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\stdole.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.pdb
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\Arsalan\UmerDeploy07-05-21Project\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\ApplicationInsights.config
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\csc.exe
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\vbc.exe
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Reports\Purchase_Report.rpt
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Reports\Purchase_Report.cs
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\FluentValidation.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.pdb
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\salman\MAIN PROJECT FILES\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\ApplicationInsights.config
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\csc.exe
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Collections.Immutable.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\System.Reflection.Metadata.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\vbc.exe
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\roslyn\VBCSCompiler.exe.config
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Reports\Purchase_Report.rpt
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Reports\Purchase_Report.cs
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll.config
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SMSYSTEM.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Agent.Intercept.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\FluentValidation.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\AjaxControlToolkit.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.DependencyCollector.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.Web.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Razor.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Deployment.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Webpages.Razor.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Helpers.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.xml
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.pdb
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.csprojResolveAssemblyReference.cache
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.dll
+D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SMSYSTEM\obj\Release\SMSYSTEM.pdb

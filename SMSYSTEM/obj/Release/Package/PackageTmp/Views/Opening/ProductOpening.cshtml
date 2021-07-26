@@ -1,0 +1,280 @@
+﻿@model SSS.Property.Setups.ProductOpening
+@{
+    ViewBag.Title = "Product Opening";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-body">
+    <h3>Product Opening</h3>
+    <br />
+    <form role="form" id="purchaseform">
+        @Html.HiddenFor(model => model.OpeningType, new { id = "idx", value = 0 })
+        <div class="row">
+
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Select Product File*:</label>
+                    <input type="file" id="excelfile"  class="form-control">
+                </div>
+               
+            </div>
+            
+        </div>
+        <hr />
+        
+
+        <br />
+
+        
+        <div class="row">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnAddMRN">Submit</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+@section MyScripts {
+    <script type="text/javascript">
+
+    var errmsg;
+    //Add Project Button Event start
+    $("#qty").keyup(function () {
+        var qtyval = $(this).val();
+        //var unitpriceval = $("#unitPrice").val();
+        //var totalamount = qtyval * unitpriceval;
+
+        //$("#amount").val(totalamount);
+    });
+
+
+
+
+    $("#btnaddtogrid").click(function (e) {
+        if (!(gridValidation($("#itemIdx option:selected").val()))) {
+           // alert("Product Alreaty Exist")
+            displayerror();
+            return;
+        }
+
+
+       // alert("hello");
+        $('#milestones').show();
+        var closebutton = '<button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button>';
+            //'<button type="button" class="close" style="float:left" id="deleterow" aria-label="Close">' +
+                         //'<span aria-hidden="true" styel="color:red">&times;</span>' +
+                         // '</button>'
+        var productname = $("#itemIdx option:selected").text();
+        var ProductID = $("#itemIdx option:selected").val();
+        var Qty = $("#qty").val();
+        //var unitprice = $("#unitPrice").val();
+        //var totalamount = $("#amount").val();
+        //var duedate = $("#DueDate").val();
+        var markup = "<tr><td style='display:none;'>" + ProductID + "</td><td>" + productname + "</td><td>" + Qty + "</td><td>" + closebutton + "</td></tr>";
+        //if (milestone == "") {
+        //    alert("Enter milestone");
+        //    return;
+        //} else {
+
+        $("#example2 tbody").append(markup);
+        var tamount = 0;
+
+
+
+    });
+    $('#mrnDate').change(function () {
+        var date = $(this).val();
+        console.log(date, 'change')
+        var GivenDate = date;
+        var CurrentDate = new Date();
+        GivenDate = new Date(GivenDate);
+
+        if (GivenDate > CurrentDate) {
+            alert('Given date is greater than the current date.');
+            var today = moment().format('YYYY-MM-DD');
+            $('#mrnDate').val(today);
+        } else {
+           // alert('Given date is not greater than the current date.');
+        }
+    });
+    function SomeDeleteRowFunction(o) {
+        //alert(id);
+        var $row = $(this).closest("tr"),        // Finds the closest row <tr>
+             $tds = $row.find("td:nth-child(2)");
+        console.log($tds);
+
+        $.each($tds, function () {                // Visits every single <td> element
+            console.log($(this).text());         // Prints out the text within the <td>
+        });
+
+
+        var p = o.parentNode.parentNode;
+
+        p.parentNode.removeChild(p);
+        $(this).closest('tr').remove();
+
+
+    };
+
+    function gridValidation(Id) {
+        errmsg = [];
+        var myTab = $("#example2 tbody");
+        var rtrn = true;
+
+        // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+        myTab.find('tr').each(function (i) {
+            var $tds = $(this).find('td'),
+                productid = $tds.eq(0).text();
+
+            if(Id==productid){
+                rtrn = false;
+                errmsg.push("Product Already exist");
+            }
+        })
+        if ($('#itemIdx option:selected').val() =='') {
+            rtrn = false;
+            errmsg.push("Select Product");
+        }
+        if ($('#qty').val() <= 0) {
+            rtrn = false;
+            errmsg.push("Qty value is zero");
+        }
+
+        //if ($('#DueDate').val() < 0) {
+        //    rtrn = false;
+        //    errmsg.push("DUE date is Invalid");
+        //}
+        //var dat = $('#DueDate').val()
+        //console.log(moment((new Date())).format("DD-MM-YYYY"));
+        //var today = moment((new Date())).format("DD-MM-YYYY");
+        //var slctddte = moment(dat).format("DD-MM-YYYY");
+
+        //if ((new Date($('#DueDate').val())) == 'Invalid Date') {
+        //    rtrn = false;
+        //    errmsg.push("DUE date is invalid ");
+        //    // alert(errorarray.length);
+        //}
+        //if (slctddte < today) {
+        //    rtrn = false;
+        //    errmsg.push("DUE date is INVALID /Should be greater than current date");
+        //    // alert(errorarray.length);
+        //}
+        return rtrn;
+    }
+
+    function displayerror() {
+        for (var i = 0; i < errmsg.length; i++) {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            Command: toastr["error"](errmsg[i], "")
+        }
+    }
+
+    $("#btnAddMRN").click(function (e) {
+        e.preventDefault();
+        var form = $("#purchaseform")[0];
+
+        var file = $("#excelfile").get(0).files;
+        if (file.length > 0) {
+
+            console.log(file);
+            var formdata = new FormData(form);
+            formdata.append("OpeningType",1);
+            formdata.append("ExcelFile", file[0]);
+            console.log(formdata)
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Opening/UploadExcel",
+                    data: formdata,
+                    contentType: false,
+                    processData: false,
+
+                    success: function (res) {
+                        console.log(res);
+                        if (res.success) {
+                            Command: toastr["success"]("", "Added Successfuly")
+
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            }
+                            window.location.href = "/Opening/ProductOpening"
+                        }
+                        else if (res.success == false && res.msg == 'Failed') {
+                                Command: toastr["error"]("Invalid ", " Failed")
+
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-top-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            }
+                        }
+                    },
+                    failure: function (res) {
+                        console.log(res);
+                    },
+                    err: function (res) {
+                        console.log(res);
+                    }
+
+                })
+            }
+            else {
+                return false;
+            }
+        }
+
+        else {
+            alert("Please Select File");
+        }
+    });
+    </script>
+}

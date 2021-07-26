@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InvRportDS" targetNamespace="http://tempuri.org/InvRportDS.xsd" xmlns:mstns="http://tempuri.org/InvRportDS.xsd" xmlns="http://tempuri.org/InvRportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InvRportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="InvRportDS" msprop:Generator_UserDSName="InvRportDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="INVREPORT" msprop:Generator_TableClassName="INVREPORTDataTable" msprop:Generator_TableVarName="tableINVREPORT" msprop:Generator_RowChangedName="INVREPORTRowChanged" msprop:Generator_TablePropName="INVREPORT" msprop:Generator_RowDeletingName="INVREPORTRowDeleting" msprop:Generator_RowChangingName="INVREPORTRowChanging" msprop:Generator_RowEvHandlerName="INVREPORTRowChangeEventHandler" msprop:Generator_RowDeletedName="INVREPORTRowDeleted" msprop:Generator_RowClassName="INVREPORTRow" msprop:Generator_UserTableName="INVREPORT" msprop:Generator_RowEvArgName="INVREPORTRowChangeEvent">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,262 @@
+﻿@model SSS.Property.Setups.Accounts.OpenigEntryVM
+@{
+    ViewBag.Title = "opening";
+}
+
+<div class="card-body">
+    <h3><b>Opening</b></h3>
+    <br />
+    <form role="form" id="purchaseform">
+        @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>OP Number*:</label>
+                    @Html.EditorFor(model => model.voucherNo, new { htmlAttributes = new { @placeholder = "SO Number*:", @class = "form-control", @readonly = true } })
+                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                </div>
+                @Html.ValidationMessageFor(model => model.voucherNo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Date*:</label>
+                    @Html.EditorFor(model => model.voucherDate, new { htmlAttributes = new { @placeholder = "Sales Order Date*:", @class = "form-control" } })
+                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                </div>
+                @Html.ValidationMessageFor(model => model.voucherDate, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Memo:</label>
+                    @Html.EditorFor(model => model.memo, new { htmlAttributes = new { @placeholder = "Memo:", @class = "form-control" } })
+                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                </div>
+                @Html.ValidationMessageFor(model => model.memo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Type:</label>
+                    <select id="openingType" class="form-control">
+                        <option value="">
+                            Select Type
+                        </option>
+                        <option value="1">
+                            Customer
+                        </option>
+                        <option value="2">
+                            Vendor
+                        </option>
+                    </select>
+                </div>
+                @Html.ValidationMessageFor(model => model.openingType, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3 " id="ddlAccount">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Account#:</label>
+                    @Html.DropDownListFor(m => m.accountIdx,
+       new SelectList(Enumerable.Empty<SelectListItem>(), "idx", "childHeadName"),
+              "Select Account",
+              new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.accountIdx, "", new { @class = "text-danger" })
+                    @*@Html.DropDownListFor(model => model.orderIdx, new SelectList(Model.salesOrderLST, "idx", "soNumber"), "Select Order", new { @Class = "form-control font-weight-bold" })*@
+                </div>
+                @*@Html.ValidationMessageFor(model => model.orderIdx, "", new { @class = "text-danger" })*@
+            </div>
+            <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Amount:</label>
+                    @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @placeholder = "Amount:", @class = "form-control ",@type ="number" } })
+                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                </div>
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+     
+        <hr />
+
+        <div class="row">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnAddSale">Submit</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section MyScripts
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#ddlAccount').hide();
+        });
+        $("#openingType").on('change', function () {
+            var value = $("#openingType option:selected").val();
+            if (value == 1)
+            {
+                $.getJSON("@Url.Action("getCustomers", "Finance")", null,
+                       function (data) {
+
+                           $("#accountIdx").empty();
+                           $("#ddlAccount").show();
+                           $('#accountIdx').append($('<option>',
+                                {
+                                    value: "",
+                                    text: "Select Account"
+                                }));
+                           for (var i = 0; i < data.data.length; i++) {
+
+                               $('#accountIdx').append($('<option>',
+                                       {
+                                           value: data.data[i].idx,
+                                           text: data.data[i].childHeadName
+                                       }));
+
+                           }
+
+
+
+
+                       });
+            }
+            else if (value == 2) {
+                $.getJSON("@Url.Action("getVendors", "Finance")", null,
+                       function (data) {
+
+                           $("#accountIdx").empty();
+                           $("#ddlAccount").show();
+                           $('#accountIdx').append($('<option>',
+                                {
+                                    value: "",
+                                    text: "Select Account"
+                                }));
+                           for (var i = 0; i < data.data.length; i++) {
+
+                               $('#accountIdx').append($('<option>',
+                                       {
+                                           value: data.data[i].idx,
+                                           text: data.data[i].childHeadName
+                                       }));
+
+                           }
+
+
+
+
+                       });
+            }
+            else
+            {
+                $("#accountIdx").html("");
+
+                $('#accountIdx').append($('<option>',
+                                {
+                                    value: "",
+                                    text: "Select Account"
+                                }));
+                $('#ddlAccount').hide();
+            }
+        });
+
+
+        function displayerror() {
+            for (var i = 0; i < errmsg.length; i++) {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                Command: toastr["error"](errmsg[i], "")
+            }
+        }
+
+        $("#btnAddSale").click(function (e) {
+
+            e.preventDefault();
+            var form = $("#purchaseform");
+            console.log($('#activityPrice').val());
+            console.log($('#size').val())
+            var datatosend = {
+                objVoucher: {
+                    idx: $('#idx').val(),
+                    voucherNo: $('#voucherNo').val(),
+                    openingType: $('#openingType option:selected').val(),
+                    voucherDate: $('#voucherDate').val(),
+                    memo: $('#memo').val(),
+                    Amount: $('#Amount').val(),
+                    accountIdx: $('#accountIdx option:selected').val(),
+                    openingType: $('#openingType').val(),
+
+                }
+
+            }
+
+
+            console.log(JSON.stringify(datatosend));
+
+
+
+            var form = $("#purchaseform");
+            console.log(datatosend)
+            $(this).removeData("validator").removeData("unobtrusiveValidation");//remove the form validation
+            $.validator.unobtrusive.parse($(this));//add the form validation
+            //$.validator.unobtrusive.parse(form);
+            //if ($(form).valid()) // using not operator for a time being
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Finance/AddUpdateOP",
+                    data: JSON.stringify(datatosend),// JSON.stringify(milestonearray),// $(form).serialize(),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        if (res.success) {
+
+                            window.location.href = "/Finance/opening"
+                        }
+                        else if (res.success == false && res.msg == 'Failed') {
+
+                        }
+                    },
+                    failure: function (res) {
+                        console.log(res);
+                    },
+                    err: function (res) {
+                        console.log(res);
+                    }
+
+                })
+            }
+            else {
+                return false;
+            }
+
+        });
+
+
+    </script>
+}
+
+

@@ -1,0 +1,81 @@
+﻿@model SSS.Property.Setups.Customers_Property
+@{
+    ViewBag.Title = "";
+    Layout = null;
+}
+
+<form id="addnewform">
+    @Html.HiddenFor(model => model.idx, new { id = "natureOfVisitField", value = 0 })
+    <div class="row">
+        <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+                <label>Type*:</label>
+                @Html.DropDownListFor(model => model.customerTypeIdx, new SelectList(ViewBag.CustomersLST, "idx", "customerType"), "Select Customer Type ", new { @Class = "form-control font-weight-bold" })
+                @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+            </div>
+            @Html.ValidationMessageFor(model => model.customerTypeIdx, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Code#*:</label>
+                @Html.EditorFor(model => model.customerCode, new { htmlAttributes = new { @placeholder = "Customer-Code", @class = "form-control",@readOnly="true" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.customerCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Name*:</label>
+                @Html.EditorFor(model => model.customerName, new { htmlAttributes = new { @placeholder = "Customer Name", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.customerName, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Contact#*:</label>
+                @Html.EditorFor(model => model.contact, new { htmlAttributes = new { @placeholder = "Contact", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.contact, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Email Address*:</label>
+                @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @placeholder = "Email Address", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.emailAddress, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Address*:</label>
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @placeholder = "Address", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>NTN*:</label>
+                @Html.EditorFor(model => model.ntn, new { htmlAttributes = new { @placeholder = "NTN", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.emailAddress, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>STRN*:</label>
+                @Html.EditorFor(model => model.strnNo, new { htmlAttributes = new { @placeholder = "STRN", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+</form>

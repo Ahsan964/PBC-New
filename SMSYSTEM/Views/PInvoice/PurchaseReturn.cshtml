@@ -1,0 +1,802 @@
+﻿@model SSS.Property.Transactions.LP_PurchaseReturnVM_Property
+@{
+    ViewBag.Title = "PurchaseReturn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="col-sm-3" id="ddlInvoice">*@
+    <!-- text input -->
+    @*<div class="form-group">
+        <label>Invoice*:</label>*@
+        @*@Html.DropDownListFor(m => m.PurhaseInvoiceNumber,
+       new SelectList(Enumerable.Empty<SelectListItem>(), "idx", "InvoiceNo"),
+              "Select Invoice",
+              new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PurhaseInvoiceNumber, "", new { @class = "text-danger" })*@
+
+    @*</div>
+
+</div>*@
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Purchase Return</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Purchase Return</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <!-- /.card -->
+            <div class="card">
+                <div class="card-header">
+                    <form role="form" id="formadddemptype">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Vendor*:</label>
+                                    @Html.DropDownListFor(model => model.vendorIdx, new SelectList(Model.VendorLST, "idx", "vendorName"), "Select Vendor", new { @Class = "form-control font-weight-bold", @onchange = "FillInvoice()" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.vendorIdx, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label>Vendor*:</label>
+                                   @Html.DropDownListFor(m => m.PurhaseInvoiceNumber, new SelectList(Enumerable.Empty<SelectListItem>(), "idx", "InvoiceNo"),"Select Invoice",new { @class = "form-control" })
+
+                                </div>
+                                @Html.ValidationMessageFor(m => m.PurhaseInvoiceNumber, "", new { @class = "text-danger" })
+                            </div>
+            
+                        </div>
+                    </form>
+                    @*btnserach*@
+
+                    <h3 class="card-title"><button class="btn btn-primary" id="btnSearchPI">Search Purchase</button></h3>
+                </div>
+                <!-- /.card-header -->
+                @*<div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Product Name</th>
+                                <th>QTY</th>
+                                <th>Unit Price</th>
+                                <th>Product Total</th>
+                                <th>INVUP</th>
+                                <th>Actions(s)</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot align="right">
+                            <tr><th></th><th></th><th></th></tr>
+                        </tfoot>
+                    </table>
+                </div>*@
+
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Invoice#</th>
+                                <th>Total </th>
+                                <th>Paid </th>
+                                <th>Balance</th>
+                                <th>INVUP</th>
+                                <th>Actions(s)</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot align="right">
+                            <tr><th></th><th></th><th></th></tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+<div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Return</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modelbody">
+                <div class="card-body">
+                    <form role="form" id="paymentform">
+                        @Html.HiddenFor(model => model.PurchaseMasterID)
+                        @Html.HiddenFor(model => model.PurchaseDetailsID)
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Purchase Weight(KG)*:</label>
+                                    @Html.EditorFor(model => model.qty, new { htmlAttributes = new { @placeholder = "", @class = "form-control", @readonly = true } })
+                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Purchase Rate(KG):</label>
+                                @Html.EditorFor(model => model.unitPrice, new { htmlAttributes = new { @placeholder = "", @class = "form-control", @readonly = true } })
+                                @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                            </div>
+                            <div class="col-sm-3">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Paid Amount</label>
+                                    @Html.EditorFor(model => model.PaidAmount, new { htmlAttributes = new { @placeholder = "Paid Amount*:", @class = "form-control", @readonly = true } })
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Invoice Balance Amount*:</label>
+                                    @Html.EditorFor(model => model.BalanceRemaining, new { htmlAttributes = new { @placeholder = "Paid Amount*:", @class = "form-control", @readonly = true } })
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Weight To Return*:</label>
+                                    @Html.EditorFor(model => model.returnqty, new { htmlAttributes = new { @placeholder = "Return Qty*:", @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="paytovendor" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+<!-- /.modal -->
+<!-- /.modal -->
+<!-- ./wrapper -->
+@section MyScripts{
+    <script type="text/javascript">
+        var dataTable;
+        var searchdata;
+        var allInvoice = {};
+        var filtered;
+        $(document).ready(function () {
+            $('#ddlInvoice').hide();
+        });
+        function FillInvoice() {
+            var customerid = $('#vendorIdx').val();
+            if (customerid > 0) {
+                $.ajax({
+                    url: '/payment/SearchPIInvoiceForVendors',
+                    type: "get",
+                    datatype: "json",
+                    data: {
+                        id: customerid
+                    },
+                    success: function (data) {
+
+                        console.log(data.data);
+                       
+                        if (data.data.length > 0)
+                        {
+                            bindVendorsInDataTable(data.data);
+                        }
+                        
+
+                    }
+                });
+            }
+            else {
+
+                //$("#purhaseinvoicenumber").empty();
+                //$("#purhaseinvoicenumber").append($('<option>',
+                //                        {
+                //                            value: "",
+                //                            text: "select invoice"
+                //                        }));
+                //$("#ddlinvoice").hide();
+
+            }
+        }
+        function gridValidation(Id) {
+            errmsg = [];
+            var myTab = $("#example2 tbody");
+            var rtrn = true;
+
+            // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+            myTab.find('tr').each(function (i) {
+                var $tds = $(this).find('td'),
+                    invoiceId = $tds.eq(0).text();
+
+                if (Id == invoiceId) {
+                    rtrn = false;
+                    errmsg.push("Invoice Already exist");
+                }
+            })
+            if ($('#PurchaseInvoiceNumber option:selected').val() == '') {
+                rtrn = false;
+                errmsg.push("Select Invoice");
+            }
+            if ($('#vendorIdx option:selected').val() <= 0) {
+                rtrn = false;
+                errmsg.push("Please Select Customer");
+            }
+
+
+            return rtrn;
+        }
+
+        $("#btnSearchPI").click(function (e) {
+            if (!(gridValidation($("#PurchaseInvoiceNumber option:selected").val()))) {
+                 alert("Product Alreaty Exist")
+                displayerror();
+                return;
+            }
+            e.preventDefault();
+
+            var form = $("#formadddemptype");
+
+            $.validator.unobtrusive.parse(form);
+            $.ajax({
+                type: 'POST',
+                url: "/PInvoice/SearchPurchases",
+                data: $(form).serialize(),
+                cache: false,
+                processData: false,
+                success: function (res) {
+                    //alert("afd");
+                    console.log(res);
+                    console.log(res.data);
+                    bindCustomersInDataTable(res.data);
+
+                },
+                failure: function (res) {
+                    console.log(res);
+                },
+                err: function (res) {
+                    console.log(res);
+                }
+
+            })
+
+            //$('#milestones').show();
+            //var closebutton = '<input type="button" value="x" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="fa fa-window-close close" />';
+            //var Invoice = $("#InvoiceNo option:selected").text();
+            //var InvoiceID = $("#InvoiceNo option:selected").val();
+            //var balanceAmount = $("#BalanceAmount").val();
+            //var Amount = $("#Amount").val();
+            //var markup = "<tr><td style='display:none;'>" + InvoiceID + "</td><td>" + Invoice + "</td><td>" + balanceAmount + "</td><td class='tamnt'>" + Amount + "</td><td>" + closebutton + "</td></tr>";
+
+            //$("#example2 tbody").append(markup);
+
+            //calculation()
+
+
+        });
+
+
+
+
+
+        function bindDataToTable() {
+            $.ajax({
+                // url: "/Product/ViewALLProductType",
+                url: '/payment/SearchPIInvoiceForVendors',
+                success: function (data) {
+
+                    bindCustomersInDataTable(data);
+                }
+            });
+        }
+
+        function bindCustomersInDataTable(data) {
+           // bindvaluesinModal(data);
+            $('#example1').DataTable().clear().destroy();
+            var status = "Blocked".toString();
+            var table = $('#example1').DataTable({
+                data: JSON.parse(data),// JSON.parse(data.data),
+                columns: [
+
+                    { data: 'productname' },
+                    { data: 'PurchaseQty' },
+                    { data: 'PurchasesRate' },
+                    { data: 'PurchaseTotalAmount' },
+                    { data: 'inventoryunitprice' },
+                    {
+                        "data": "dtlid",
+                        "render": function (ID, type, full, meta) {
+
+                            return '<a href="#" class="btn btn-info" onclick="ShowEmployee(' + ID + ')"><i class="fa fa-eye"></i></a>'
+
+                        },
+                        "orderable": true,
+                        "searchable": true,
+
+
+                    }
+                ]//,
+                //"footerCallback": function (row, data, start, end, display) {
+                //    var api = this.api(), data;
+
+                //    // converting to interger to find total
+                //    var intVal = function (i) {
+                //        return typeof i === 'string' ?
+                //            i.replace(/[\$,]/g, '') * 1 :
+                //            typeof i === 'number' ?
+                //            i : 0;
+                //    };
+
+                //    // computing column Total of the complete result
+                //    var monTotal = api
+                //        .column(1)
+                //        .data()
+                //        .reduce(function (a, b) {
+                //            return intVal(a) + intVal(b);
+                //        }, 0);
+
+
+
+
+
+
+                //    // Update footer by showing the total with the reference of the column index
+                //    $(api.column(0).footer()).html('Total');
+                //    $(api.column(1).footer()).html(monTotal);
+
+                //}
+
+
+            });
+
+
+        }
+
+        function bindVendorsInDataTable(data) {
+            // bindvaluesinModal(data);
+            $('#example1').DataTable().clear().destroy();
+            var status = "Blocked".toString();
+            var table = $('#example1').DataTable({
+                data: data,// JSON.parse(data.data),
+                columns: [
+
+                    { data: 'InvoiceNo' },
+                    { data: 'NetAmount' },
+                    { data: 'PaidAmount' },
+                    { data: 'BalanceAmount' },
+                    { data: 'inventoryunitprice' },
+                    {
+                        "data": "dtlid",
+                        "render": function (ID, type, full, meta) {
+
+                            return '<a href="#" class="btn btn-info" onclick="ShowEmployee(' + ID + ')"><i class="fa fa-eye"></i></a>'
+
+                        },
+                        "orderable": true,
+                        "searchable": true,
+
+
+                    }
+                ]//,
+                //"footerCallback": function (row, data, start, end, display) {
+                //    var api = this.api(), data;
+
+                //    // converting to interger to find total
+                //    var intVal = function (i) {
+                //        return typeof i === 'string' ?
+                //            i.replace(/[\$,]/g, '') * 1 :
+                //            typeof i === 'number' ?
+                //            i : 0;
+                //    };
+
+                //    // computing column Total of the complete result
+                //    var monTotal = api
+                //        .column(1)
+                //        .data()
+                //        .reduce(function (a, b) {
+                //            return intVal(a) + intVal(b);
+                //        }, 0);
+
+
+
+
+
+
+                //    // Update footer by showing the total with the reference of the column index
+                //    $(api.column(0).footer()).html('Total');
+                //    $(api.column(1).footer()).html(monTotal);
+
+                //}
+
+
+            });
+
+
+        }
+        function bindvaluesinModal(data) {
+            // console.log(data);
+            searchdata = data;
+            console.log(data);
+            $("#PurchasesMasterID").val(data[0].Purchasesmasterid);
+            $("#PurchaseDetailsID").val(data[0].Purchasedtlid);
+            $("#Purchaseqty").val(data[0].Purchaseqty);
+            $("#Purchaserate").val(data[0].Purchaserate);
+            $("#BalanceRemaining").val(data[0].balance);
+            $("#PaidAmount").val(data[0].paidamount);
+          //  $("#unitprice").val(data[0].purchaseunitprice);
+
+        }
+        function ShowEmployee(paymentid) {
+            //$.get("/PurchasesOrder/CheckInverntoryforProductStock?id=" + paymentid, function (data) {
+            //    bindvaluesinModal(data.data);
+            //    // $("#modal-default").html(data);
+            //});
+
+            $.ajax({
+                type: "GET",
+                url: "/PurchasesOrder/CheckInverntoryforProductStock?id=" + paymentid,
+                //data: paymentid,
+
+                success: function (res) {
+                    //alert("afd");
+                    bindvaluesinModal(data.data);
+
+                },
+                failure: function (res) {
+                    console.log(res);
+                },
+                err: function (res) {
+                    console.log(res);
+                }
+
+            })
+            $("#AccountId").val(paymentid);
+            $("#modal-default").modal("show");
+            //});
+        }
+
+        function ConfirmDelete(CustomerID) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Delete!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Employee/DeleteEmployee?id=' + CustomerID,
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                    )
+                                window.location.href = "/Employee/ViewEmployee"
+                            }
+                            else {
+                                swalWithBootstrapButtons.fire(
+                                    'Error!',
+                                    'Failes',
+                                    'success'
+                                    )
+                            }
+                        },
+                        failure: function (res) {
+                            console.log(res);
+                        },
+                        err: function (res) {
+                            console.log(res);
+                        }
+                    })
+
+
+
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                  result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                      'Cancelled',
+                      '',
+                      'error'
+                    )
+                }
+            })
+
+        }
+        //$("#PaidAmount").keyup(function () {
+        //    var PaidAmount = $(this).val();
+        //    var totalAmount = $("#totalAmount").val();
+        //    var balnceamount = totalAmount - PaidAmount;
+
+        //    $("#balanceamount").val(balnceamount);
+        //});
+
+
+        function displayerror() {
+            for (var i = 0; i < errmsg.length; i++) {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                Command: toastr["error"](errmsg[i], "")
+            }
+        }
+        //add milestone button event
+        //$('#btnSearchPI').click(function (e) {
+        //    e.preventDefault();
+
+        //    var form = $("#formadddemptype");
+
+
+        //    //console.log(ch);
+        //    //formdata.append("RemeberMe", ch);
+        //    //console.log(formdata);
+        //    //    debugger;
+        //    $.validator.unobtrusive.parse(form);
+        //    if ($(form).valid()) {
+        //        $.ajax({
+        //            type: "POST",
+        //            url: "/PInvoice/SearchPurchase",
+        //            data: $(form).serialize(),
+        //            cache : false,
+        //            processData: false,
+        //            success: function (res) {
+        //                //alert("afd");
+        //                bindCustomersInDataTable(res.data);
+        //                //if (res.success && res.statuscode == 200) {
+        //                //    Command: toastr["success"]("success", res.msg)
+
+        //                //    toastr.options = {
+        //                //        "closeButton": false,
+        //                //        "debug": false,
+        //                //        "newestOnTop": false,
+        //                //        "progressBar": true,
+        //                //        "positionClass": "toast-top-center",
+        //                //        "preventDuplicates": false,
+        //                //        "onclick": null,
+        //                //        "showDuration": "300",
+        //                //        "hideDuration": "1000",
+        //                //        "timeOut": "5000",
+        //                //        "extendedTimeOut": "1000",
+        //                //        "showEasing": "swing",
+        //                //        "hideEasing": "linear",
+        //                //        "showMethod": "fadeIn",
+        //                //        "hideMethod": "fadeOut"
+        //                 // }
+        //                //    window.location.href = res.url;
+        //                //}
+        //                //else if (res.success == true && res.statuscode == 300) {
+        //                //        Command: toastr["error"]("Error", res.msg)
+
+        //                //    toastr.options = {
+        //                //        "closeButton": false,
+        //                //        "debug": false,
+        //                //        "newestOnTop": false,
+        //                //        "progressBar": true,
+        //                //        "positionClass": "toast-top-center",
+        //                //        "preventDuplicates": false,
+        //                //        "onclick": null,
+        //                //        "showDuration": "300",
+        //                //        "hideDuration": "1000",
+        //                //        "timeOut": "5000",
+        //                //        "extendedTimeOut": "1000",
+        //                //        "showEasing": "swing",
+        //                //        "hideEasing": "linear",
+        //                //        "showMethod": "fadeIn",
+        //                //        "hideMethod": "fadeOut"
+        //                //    }
+        //               // }
+        //            },
+        //            failure: function (res) {
+        //                console.log(res);
+        //            },
+        //            err: function (res) {
+        //                console.log(res);
+        //            }
+
+        //        })
+        //    }
+        //    else {
+        //        return false;
+        //    }
+
+
+
+        //});
+        function checkvalidationofQty() {
+            var qtyrtn = $("#returnqty").val();
+            var itemblnceamount = $("#itembalance").val();
+            var purchaseunitprice = $("#unitprice").val();
+            var rtrngamnt = qtyrtn * purchaseunitprice;
+            if (rtrngamnt > itemblnceamount) {
+
+
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                Command: toastr["error"]("Returning Qty Amount is greator then remaining amount", "Returning Qty amount is greater then Balnce amount!")
+                return false;
+            }
+            else {
+                return true;
+            }
+            $('#paytovendor').css('display', 'block');
+        }
+        $('#paytovendor').click(function (e) {
+            $('#paytovendor').css('display', 'none');
+            e.preventDefault();
+            if (searchdata[0].Purchaseqty < $("#returnqty").val()) {
+                alert("Return Qty ust be less then or equal to Purchase Qty");
+                $('#paytovendor').css('display', 'block');
+                return;
+            }
+            //if ($("#returnqty").val() >searchdata[0].purchasedstock  ) {
+            //    alert("Return Qty ust be less then/equal to Purchased Qty");
+            //    return;
+            //}
+            //if (!checkvalidationofQty()) {
+            //    //alert("Return Qty ust be less then/equal to Purchased Qty");
+            //    return;
+            //}
+            var form = $("#paymentform");
+            var formdata = new FormData(form[0]);
+
+
+            console.log(searchdata);
+           // formdata.append("vendor_Id", searchdata[0].vendorIdx);
+           // formdata.append("DueDate", moment(searchdata[0].DueDate).format('YYYY-MM-DD'));
+            for (var value of formdata.values()) {
+                console.log(value);
+            }
+            console.log(formdata);
+
+           // $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Purchase/ReturnPurchase",
+                    data:formdata,// $(form).serialize(),
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    success: function (res) {
+                        //alert("afd");
+                        window.location.href = "/Purchase/PurchasesReturn";
+                        bindCustomersInDataTable(res.data);
+                        //if (res.success && res.statuscode == 200) {
+                        //    Command: toastr["success"]("success", res.msg)
+
+                        //    toastr.options = {
+                        //        "closeButton": false,
+                        //        "debug": false,
+                        //        "newestOnTop": false,
+                        //        "progressBar": true,
+                        //        "positionClass": "toast-top-center",
+                        //        "preventDuplicates": false,
+                        //        "onclick": null,
+                        //        "showDuration": "300",
+                        //        "hideDuration": "1000",
+                        //        "timeOut": "5000",
+                        //        "extendedTimeOut": "1000",
+                        //        "showEasing": "swing",
+                        //        "hideEasing": "linear",
+                        //        "showMethod": "fadeIn",
+                        //        "hideMethod": "fadeOut"
+                        // }
+                        //    window.location.href = res.url;
+                        //}
+                        //else if (res.success == true && res.statuscode == 300) {
+                        //        Command: toastr["error"]("Error", res.msg)
+
+                        //    toastr.options = {
+                        //        "closeButton": false,
+                        //        "debug": false,
+                        //        "newestOnTop": false,
+                        //        "progressBar": true,
+                        //        "positionClass": "toast-top-center",
+                        //        "preventDuplicates": false,
+                        //        "onclick": null,
+                        //        "showDuration": "300",
+                        //        "hideDuration": "1000",
+                        //        "timeOut": "5000",
+                        //        "extendedTimeOut": "1000",
+                        //        "showEasing": "swing",
+                        //        "hideEasing": "linear",
+                        //        "showMethod": "fadeIn",
+                        //        "hideMethod": "fadeOut"
+                        //    }
+                        // }
+                    },
+                    failure: function (res) {
+                        console.log(res);
+                    },
+                    err: function (res) {
+                        console.log(res);
+                    }
+
+                })
+            }
+            else {
+                $('#paytovendor').css('display', 'block');
+                return false;
+            }
+
+
+
+        });
+
+
+
+
+    </script>
+}
+
+
+
+
+

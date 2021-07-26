@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C858052-FCA5-41D1-B418-8A1B916EB570}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMSYSTEM</RootNamespace>
+    <AssemblyName>SMSYSTEM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Dist\css\style.css" />
+    <Content Include="Dist\fonts\Roboto\LICENSE.txt" />
+    <Content Include="Dist\images\company-logo.png" />
+    <Content Include="Dist\images\favicon.png" />
+    <Content Include="Dist\images\lightbox\play-button.png" />
+    <Content Include="Dist\images\logo-mini.svg" />
+    <Content Include="Dist\images\logo.svg" />
+    <Content Include="Dist\images\main_logo.png" />
+    <Content Include="Dist\images\samples\angular-4.png" />
+    <Content Include="Dist\images\samples\Banner_bg.jpg" />
+    <Content Include="Dist\images\samples\bootstrap-stack.png" />
+    <Content Include="Dist\images\samples\charts.png" />
+    <Content Include="Dist\images\samples\dashboard.png" />
+    <Content Include="Dist\images\samples\e-commerce.png" />
+    <Content Include="Dist\images\samples\editors.png" />
+    <Content Include="Dist\images\samples\email.png" />
+    <Content Include="Dist\images\samples\footer_bg.jpg" />
+    <Content Include="Dist\images\samples\forms.png" />
+    <Content Include="Dist\images\samples\html5.png" />
+    <Content Include="Dist\images\samples\Mac.png" />
+    <Content Include="Dist\images\samples\modal.png" />
+    <Content Include="Dist\images\samples\popup.png" />
+    <Content Include="Dist\images\samples\widgets.png" />
+    <Content Include="Dist\images\sprites\blue.png" />
+    <Content Include="Dist\images\sprites\dark.png" />
+    <Content Include="Dist\images\sprites\green.png" />
+    <Content Include="Dist\images\sprites\jsgrid-icons.png" />
+    <Content Include="Dist\images\sprites\red.png" />
+    <Content Include="Dist\images\sprites\yellow.png" />
+    <Content Include="Dist\js\ace.js" />
+    <Content Include="Dist\js\alerts.js" />
+    <Content Include="Dist\js\avgrund.js" />
+    <Content Include="Dist\js\bootstrap-table.js" />
+    <Content Include="Dist\js\bt-maxLength.js" />
+    <Content Include="Dist\js\c3.js" />
+    <Content Include="Dist\js\calendar.js" />
+    <Content Include="Dist\js\chart.js" />
+    <Content Include="Dist\js\chartist.js" />
+    <Content Include="Dist\js\circle-progress.js" />
+    <Content Include="Dist\js\clipboard.js" />
+    <Content Include="Dist\js\codeEditor.js" />
+    <Content Include="Dist\js\codemirror.js" />
+    <Content Include="Dist\js\context-menu.js" />
+    <Content Include="Dist\js\cropper.js" />
+    <Content Include="Dist\js\dashboard.js" />
+    <Content Include="Dist\js\data-table.js" />
+    <Content Include="Dist\js\db.js" />
+    <Content Include="Dist\js\demo.js" />
+    <Content Include="Dist\js\desktop-notification.js" />
+    <Content Include="Dist\js\dragula.js" />
+    <Content Include="Dist\js\dropify.js" />
+    <Content Include="Dist\js\dropzone.js" />
+    <Content Include="Dist\js\editorDemo.js" />
+    <Content Include="Dist\js\file-upload.js" />
+    <Content Include="Dist\js\float-chart.js" />
+    <Content Include="Dist\js\form-addons.js" />
+    <Content Include="Dist\js\form-repeater.js" />
+    <Content Include="Dist\js\form-validation.js" />
+    <Content Include="Dist\js\formpickers.js" />
+    <Content Include="Dist\js\google-charts.js" />
+    <Content Include="Dist\js\google-maps.js" />
+    <Content Include="Dist\js\hoverable-collapse.js" />
+    <Content Include="Dist\js\iCheck.js" />
+    <Content Include="Dist\js\ion-range-slider.js" />
+    <Content Include="Dist\js\jq.tablesort.js" />
+    <Content Include="Dist\js\jquery-file-upload.js" />
+    <Content Include="Dist\js\js-grid.js" />
+    <Content Include="Dist\js\just-gage.js" />
+    <Content Include="Dist\js\light-gallery.js" />
+    <Content Include="Dist\js\listify.js" />
+    <Content Include="Dist\js\mapeal.js" />
+    <Content Include="Dist\js\mapeal_example_2.js" />
+    <Content Include="Dist\js\mapeal_example_3.js" />
+    <Content Include="Dist\js\mapiel.js" />
+    <Content Include="Dist\js\maps.js" />
+    <Content Include="Dist\js\misc.js" />
+    <Content Include="Dist\js\modal-demo.js" />
+    <Content Include="Dist\js\morris.js" />
+    <Content Include="Dist\js\no-ui-slider.js" />
+    <Content Include="Dist\js\off-canvas.js" />
+    <Content Include="Dist\js\owl-carousel.js" />
+    <Content Include="Dist\js\paginate.js" />
+    <Content Include="Dist\js\popover.js" />
+    <Content Include="Dist\js\progress-bar.js" />
+    <Content Include="Dist\js\select2.js" />
+    <Content Include="Dist\js\settings.js" />
+    <Content Include="Dist\js\sparkline.js" />
+    <Content Include="Dist\js\tablesorter.js" />
+    <Content Include="Dist\js\tabs.js" />
+    <Content Include="Dist\js\tight-grid.js" />
+    <Content Include="Dist\js\toastDemo.js" />
+    <Content Include="Dist\js\todolist.js" />
+    <Content Include="Dist\js\tooltips.js" />
+    <Content Include="Dist\js\tour.js" />
+    <Content Include="Dist\js\typeahead.js" />
+    <Content Include="Dist\js\wizard.js" />
+    <Content Include="Dist\js\x-editable.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Dist\css\maps\style.css.map" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="Dist\fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <Content Include="Dist\images\.DS_Store" />
+    <None Include="Properties\PublishProfiles\Arsalan.pubxml" />
+    <Content Include="Reports\account_payable_Report132701194841884929.Pdf" />
+    <Content Include="Reports\account_payable_Report132701207626882221.Pdf" />
+    <Content Include="Reports\account_payable_Report132701207936794270.Pdf" />
+    <Content Include="Reports\account_payable_Report132701236583546582.Pdf" />
+    <Content Include="Reports\account_payable_Report132701260835700094.Pdf" />
+    <Content Include="Reports\account_payable_Report132701269720639978.Pdf" />
+    <Content Include="Reports\account_payable_Report132701271622452958.Pdf" />
+    <Content Include="Reports\account_payable_Report132701286959348541.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701195398392198.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701199159021375.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701207846296599.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701234300382846.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701235915644287.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701236108511682.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701238802413553.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701239148248871.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701270956452034.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701271073260552.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701285001357402.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701286869849770.Pdf" />
+    <Content Include="Reports\Arsalan PaySlip feb.pdf" />
+    <Content Include="Reports\Arsalan PaySlip jan.pdf" />
+    <Content Include="Reports\Arsalan PaySlip Mar.pdf" />
+    <Content Include="Reports\Customer_Report132701181329939981.Pdf" />
+    <Content Include="Reports\Customer_Report132701197323701053.Pdf" />
+    <Content Include="Reports\Customer_Report132701200233719310.Pdf" />
+    <Content Include="Reports\Customer_Report132701203077703582.Pdf" />
+    <Content Include="Reports\Customer_Report132701227510142880.Pdf" />
+    <Content Include="Reports\Customer_Report132701286426868212.Pdf" />
+    <Content Include="Reports\GRNReport132701274231732928.Pdf" />
+    <Content Include="Reports\Inventory_Report132701181230637004.Pdf" />
+    <Content Include="Reports\Inventory_Report132701199031063645.Pdf" />
+    <Content Include="Reports\Inventory_Report132701220268447377.Pdf" />
+    <Content Include="Reports\Inventory_Report132701221823961070.Pdf" />
+    <Content Include="Reports\Inventory_Report132701277202116568.Pdf" />
+    <Content Include="Reports\Inventory_Report132701286336879951.Pdf" />
+    <Content Include="Reports\MRNReport132701273270861377.Pdf" />
+    <Content Include="Reports\PO_Report132701273942268501.Pdf" />
+    <Content Include="Reports\product_Report132701195653368778.Pdf" />
+    <Content Include="Reports\product_Report132701205887847921.Pdf" />
+    <Content Include="Reports\product_Report132701286655683808.Pdf" />
+    <Content Include="Reports\Purchase_report132701198559772508.Pdf" />
+    <Content Include="Reports\Purchase_report132701214799101122.Pdf" />
+    <Content Include="Reports\Purchase_report132701283945428953.Pdf" />
+    <Content Include="Reports\Purchase_report132701284806970495.Pdf" />
+    <Content Include="Reports\sales_Report132701180549119878.Pdf" />
+    <Content Include="Reports\sales_Report132701180686476306.Pdf" />
+    <Content Include="Reports\sales_Report132701198781398447.Pdf" />
+    <Content Include="Reports\sales_Report132701215814638711.Pdf" />
+    <Content Include="Reports\sales_Report132701219814427372.Pdf" />
+    <Content Include="Reports\sales_Report132701277616704015.Pdf" />
+    <Content Include="Reports\sales_Report132701278668415928.Pdf" />
+    <Content Include="Reports\sales_Report132701284909308566.Pdf" />
+    <Content Include="Reports\Vendors_Report132701231183598948.Pdf" />
+    <Content Include="Reports\Vendors_Report132701232218982314.Pdf" />
+    <Content Include="Reports\Vendors_Report132701232462073952.Pdf" />
+    <Content Include="Reports\Vendors_Report132701286545305942.Pdf" />
+    <Content Include="Reports\account_payable_Report132701320592237873.Pdf" />
+    <Content Include="Reports\account_payable_Report132701393769893751.Pdf" />
+    <Content Include="Reports\account_payable_Report132701393776793664.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701309921283467.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701320323684009.Pdf" />
+    <Content Include="Reports\Account_Recivable_Report132701393537716797.Pdf" />
+    <Content Include="Reports\Customer_Report132701309635627532.Pdf" />
+    <Content Include="Reports\Customer_Report132701393219204020.Pdf" />
+    <Content Include="Reports\Customer_Report132703045257774556.Pdf" />
+    <Content Include="Reports\Customer_Report132703045268122328.Pdf" />
+    <Content Include="Reports\GDNReport132642526891667831.Pdf" />
+    <Content Include="Reports\GDNReport132642528797398891.Pdf" />
+    <Content Include="Reports\GDNReport132644535311108678.Pdf" />
+    <Content Include="Reports\GRNReport132692548735687861.Pdf" />
+    <Content Include="Reports\GRNReport132692581215159740.Pdf" />
+    <Content Include="Reports\GRNReport132692592828791594.Pdf" />
+    <Content Include="Reports\GRNReport132692593763162471.Pdf" />
+    <Content Include="Reports\GRNReport132693371700492304.Pdf" />
+    <Content Include="Reports\GRNReport132693399777800232.Pdf" />
+    <Content Include="Reports\GRNReport132693400022797018.Pdf" />
+    <Content Include="Reports\GRNReport132693412175476995.Pdf" />
+    <Content Include="Reports\GRNReport132693412385663844.Pdf" />
+    <Content Include="Reports\GRNReport132693412390523759.Pdf" />
+    <Content Include="Reports\InventoryReport.Pdf" />
+    <Content Include="Reports\Inventory_Report132701309558188536.Pdf" />
+    <Content Include="Reports\Inventory_Report132701394000389467.Pdf" />
+    <Content Include="Reports\MRNReport132639777324000236.Pdf" />
+    <Content Include="Reports\MRNReport132646204627244014.Pdf" />
+    <Content Include="Reports\MRNReport132692547843140596.Pdf" />
+    <Content Include="Reports\MRNReport132692579955879270.Pdf" />
+    <Content Include="Reports\MRNReport132692591752307796.Pdf" />
+    <Content Include="Reports\MRNReport132693369957944337.Pdf" />
+    <Content Include="Reports\MRNReport132703044144084372.Pdf" />
+    <Content Include="Reports\PO_Report132692548157252739.Pdf" />
+    <Content Include="Reports\PO_Report132692580913783585.Pdf" />
+    <Content Include="Reports\PO_Report132692592118330897.Pdf" />
+    <Content Include="Reports\PO_Report132692592411889417.Pdf" />
+    <Content Include="Reports\PO_Report132693370505974589.Pdf" />
+    <Content Include="Reports\PO_Report132693371125433358.Pdf" />
+    <Content Include="Reports\PO_Report132693398947168685.Pdf" />
+    <Content Include="Reports\product_Report132701952247124741.Pdf" />
+    <Content Include="Reports\Purchase_report132701301765819723.Pdf" />
+    <Content Include="Reports\Purchase_report132701302098555283.Pdf" />
+    <Content Include="Reports\Purchase_report132701309447470662.Pdf" />
+    <Content Include="Reports\Purchase_report132701392923088162.Pdf" />
+    <Content Include="Reports\Purchase_report132701392940217853.Pdf" />
+    <Content Include="Reports\Purchase_report132701394426305973.Pdf" />
+    <Content Include="Reports\SaleOrderReport132639983232326787.Pdf" />
+    <Content Include="Reports\SaleOrderReport132642528723876725.Pdf" />
+    <Content Include="Reports\SaleOrderReport132642528897881040.Pdf" />
+    <Content Include="Reports\Vendors_Report132701309816994925.Pdf" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_navbar.cshtml" />
+    <Content Include="Views\Shared\_settings_panel.cshtml" />
+    <Content Include="Views\Shared\_sidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
+    <Compile Include="Controllers\BankController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\companyCurrencyController.cs" />
+    <Compile Include="Controllers\CustomerBanksController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerTypeController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\FinanceController.cs" />
+    <Compile Include="Controllers\FirstTierController.cs" />
+    <Compile Include="Controllers\FourthTierController.cs" />
+    <Compile Include="Controllers\GRNController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\itemUnitController.cs" />
+    <Compile Include="Controllers\MRNController.cs" />
+    <Compile Include="Controllers\OpeningController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PInvoiceController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\Product_CategoryController.cs" />
+    <Compile Include="Controllers\Product_SubCategoryController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Controllers\ReceiptController.cs" />
+    <Compile Include="Controllers\ReportingController.cs" />
+    <Compile Include="Controllers\SalesOrderController.cs" />
+    <Compile Include="Controllers\SalesPersonController.cs" />
+    <Compile Include="Controllers\TaxesController.cs" />
+    <Compile Include="Controllers\ThirdTierController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VendorBanksController.cs" />
+    <Compile Include="Controllers\VendorController.cs" />
+    <Compile Include="Controllers\Vendor_CategoryController.cs" />
+    <Compile Include="Controllers\WareHouseController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LP_Inventory_Report_Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GDNReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GDNReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GRNReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GRNReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InventoryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Ledger_Report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ledger_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MRNReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MRNReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Payment_Report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PO_Report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PO_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Purchase_Report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Purchase_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\SaleOrderReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleOrderReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SaleQouteReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleQouteReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Test_Pakistan_Consultant.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Test_Pakistan_Consultant.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Test_Pakistan_ConsultantDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Customer\ViewCustomers.cshtml" />
+    <Content Include="Views\Customer\AddNewCustomer.cshtml" />
+    <Content Include="Views\Company\ViewCompany.cshtml" />
+    <Content Include="Views\Company\AddNewCompany.cshtml" />
+    <Content Include="Views\Branch\ViewBranch.cshtml" />
+    <Content Include="Views\Branch\_AddNewBranch.cshtml" />
+    <Content Include="Views\User\ViewUser.cshtml" />
+    <Content Include="Views\User\_AddNewUser.cshtml" />
+    <Content Include="Views\Product_Category\ViewProductCategory.cshtml" />
+    <Content Include="Views\Product_Category\_AddNewProductCategory.cshtml" />
+    <Content Include="Views\Product_SubCategory\ViewProductSubCategory.cshtml" />
+    <Content Include="Views\Product_SubCategory\_AddNewProductSubCategory.cshtml" />
+    <Content Include="Views\itemUnit\ViewItemUnit.cshtml" />
+    <Content Include="Views\itemUnit\_AddNewItemUnit.cshtml" />
+    <Content Include="Views\Product\ViewProduct.cshtml" />
+    <Content Include="Views\Product\_AddNewProduct.cshtml" />
+    <Content Include="Views\Taxes\ViewTaxes.cshtml" />
+    <Content Include="Views\Taxes\_AddNewTaxes.cshtml" />
+    <Content Include="Views\Vendor_Category\ViewVendorCategory.cshtml" />
+    <Content Include="Views\Vendor_Category\_AddNewVendorCategory.cshtml" />
+    <Content Include="Views\Vendor\ViewVendors.cshtml" />
+    <Content Include="Views\Vendor\_AddNewVendors.cshtml" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\WareHouse\ViewWareHouse.cshtml" />
+    <Content Include="Views\WareHouse\_AddNewWareHouse.cshtml" />
+    <Content Include="Views\Bank\ViewBanks.cshtml" />
+    <Content Include="Views\Bank\_AddNewBank.cshtml" />
+    <Content Include="Views\Bank\ViewCompanyBanks.cshtml" />
+    <Content Include="Views\Bank\_AddCompanyNewBank.cshtml" />
+    <Content Include="Views\Purchase\ViewPurchase.cshtml" />
+    <Content Include="Views\MRN\ViewMRN.cshtml" />
+    <Content Include="Views\GRN\ViewGRN.cshtml" />
+    <Content Include="Views\PInvoice\ViewPInvoice.cshtml" />
+    <Content Include="Views\PInvoice\ViewPI.cshtml" />
+    <Content Include="Views\PInvoice\_AddNewPI.cshtml" />
+    <Content Include="Views\Quotation\ViewQuotation.cshtml" />
+    <Content Include="Views\Sale\AddSale.cshtml" />
+    <Content Include="Views\ThirdTier\ViewthirdTiers.cshtml" />
+    <Content Include="Views\ThirdTier\_AddNew.cshtml" />
+    <Content Include="Views\FourthTier\ViewfourthTiers.cshtml" />
+    <Content Include="Views\FourthTier\_AddNew.cshtml" />
+    <Content Include="Views\Departments\AddNewDepartments.cshtml" />
+    <Content Include="Views\Departments\ViewDepartments.cshtml" />
+    <Content Include="Views\Departments\_AddNewDepartments.cshtml" />
+    <Content Include="Views\SalesOrder\ViewSalesOrder.cshtml" />
+    <Content Include="Views\Receipt\Receipts.cshtml" />
+    <Content Include="Views\Purchase\AddNewPurchase.cshtml" />
+    <Content Include="Views\MRN\AddNewMRN.cshtml" />
+    <Content Include="Views\GRN\_AddNewGRN.cshtml" />
+    <Content Include="Views\SalesOrder\AddNewSalesOrder.cshtml" />
+    <Content Include="Views\Receipt\_AddReceipt.cshtml" />
+    <Content Include="Views\Quotation\AddQuotaion.cshtml" />
+    <Content Include="Views\Inventory\ViewInventory.cshtml" />
+    <Content Include="Views\SalesOrder\SalesReturn.cshtml" />
+    <Content Include="Views\Activity\Activity.cshtml" />
+    <Content Include="Views\Activity\FinsihProducts.cshtml" />
+    <Content Include="Views\companyCurrency\_AddCompanyNewCurrency.cshtml" />
+    <Content Include="Views\companyCurrency\ViewCompanyCurrency.cshtml" />
+    <Content Include="Views\VendorBanks\ViewVendorBanks.cshtml" />
+    <Content Include="Views\VendorBanks\AddNewVendorBank.cshtml" />
+    <Content Include="Views\CustomerBanks\ViewCustomerBanks.cshtml" />
+    <Content Include="Views\CustomerBanks\AddNewCustomerBank.cshtml" />
+    <Content Include="Views\Inventory\InventoryMovement.cshtml" />
+    <Content Include="Views\Opening\ProductOpening.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Finance\opening.cshtml" />
+    <Content Include="Views\Account\PageUser.cshtml" />
+    <Content Include="Views\CustomerType\ViewCustomerType.cshtml" />
+    <Content Include="Views\CustomerType\_AddNewCustomerType.cshtml" />
+    <Content Include="Views\Finance\GeneralVoucher.cshtml" />
+    <Content Include="Views\FirstTier\ViewfirstTier.cshtml" />
+    <Content Include="Views\PInvoice\PurchaseReturn.cshtml" />
+    <Content Include="Views\Reporting\ViewReports.cshtml" />
+    <Content Include="Views\SalesPerson\ViewSalesPerson.cshtml" />
+    <Content Include="Views\SalesPerson\AddNewSalesPerson.cshtml" />
+    <Content Include="Views\Payment\Vouchers.cshtml" />
+    <Content Include="Views\Payment\_AddVoucher.cshtml" />
+    <Content Include="Test_Pakistan_ConsultantDataSet.xsc">
+      <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Test_Pakistan_Consultant.xsc">
+      <DependentUpon>Test_Pakistan_Consultant.xsd</DependentUpon>
+    </Content>
+    <None Include="Test_Pakistan_Consultant.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Test_Pakistan_Consultant.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Test_Pakistan_Consultant.xss">
+      <DependentUpon>Test_Pakistan_Consultant.xsd</DependentUpon>
+    </Content>
+    <None Include="Test_Pakistan_ConsultantDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Test_Pakistan_ConsultantDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Test_Pakistan_ConsultantDataSet.xss">
+      <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="ExcelFiles\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Expense\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SSS.BLL\SSS.BLL.csproj">
+      <Project>{1a4694b0-b48e-4c41-afc6-f4225523fb70}</Project>
+      <Name>SSS.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSS.Property\SSS.Property.csproj">
+      <Project>{8a15cb57-ff17-429c-b014-671625167421}</Project>
+      <Name>SSS.Property</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSS.Utility\SSS.Utility.csproj">
+      <Project>{ba84e779-d245-4ca1-a6ec-2b78de356eb2}</Project>
+      <Name>SSS.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GDNReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GDNReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GRNReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GRNReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InventoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InventoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Ledger_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Ledger_Report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MRNReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MRNReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Payment_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PO_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PO_Report.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Purchase_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Purchase_Report.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\SaleOrderReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleOrderReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleQouteReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleQouteReport.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59041</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59041/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

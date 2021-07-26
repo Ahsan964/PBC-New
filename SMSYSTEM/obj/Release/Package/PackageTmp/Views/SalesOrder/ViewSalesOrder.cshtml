@@ -1,0 +1,261 @@
+﻿
+@{
+    ViewBag.Title = "ViewSalesOrder";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row float-right">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="btnaddnew" onclick="@("window.location.href='" + @Url.Action("AddNewSalesOrder", "SalesOrder") + "'");">Add new Sales Invoice<i class="mdi mdi-play-circle ml-1"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <h4 class="card-title">Sales Invoice List</h4>
+
+        <div class="row">
+
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-striped table-bordered table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>SO-Number</th>
+                                @*<th>Branch</th>*@
+                                <th>Customer</th>
+                                <th>SO-Date</th>
+                                <th>Gross Amount</th>
+                                <th>Net Amount</th>
+                                <th>Description</th>
+                                <th>status</th>
+                                @*<th>Created By</th>*@
+                                @*<th>Action</th>*@
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal starts -->
+@*<div class="text-center">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Click for demo<i class="mdi mdi-play-circle ml-1"></i></button>
+    </div>*@
+
+<!-- Modal Ends -->
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">*@
+@section MyScripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+           
+            $.ajax({
+                url: "/SalesOrder/GetAllSalesOrder",
+                success: function (data) {
+                    bindCustomersInDataTable(data);
+                }
+            });
+
+
+
+            //add customer button event
+            function ConfirmReturn(pIdx) {
+                if (Number(pIdx) > 0) {
+                    var url = "/SalesOrder/ReturnSales?id=" + pIdx;
+
+                    window.location.href = url;
+                }
+                else {
+                }
+
+            }
+
+            function bindCustomersInDataTable(data) {
+                console.log(data);
+                console.log(JSON.parse(data.data));
+                var status = "Blocked".toString();
+                var table = $('#example1').DataTable({
+                    data: JSON.parse(data.data),
+                    columns: [
+
+                        { data: 'soNumber' },
+                        { data: 'customerName' },
+
+
+                         { data: 'salesorderDate' },
+                         { data: 'totalAmount' },
+                         { data: 'netAmount' },
+                         { data: 'description' },
+                         { data: 'statusCode' },
+
+                   //{
+                   //    "data": "idx",
+                   //    "render": function (idx, type, full, meta) {
+
+                   //        return '';
+                   //        //<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a></a> <a href="#" class="btn btn-warning" onclick="ConfirmReturn(' + idx + ')"><i class="fa fa-edit"></i></a> <a href="#" class="btn btn-secondary" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a> <a href="#" class="btn btn-danger" onclick="GenerateGDN(' + idx + ')"><i class="fa fa-car"></i></a>';
+                   //    },
+                   //    "orderable": true,
+                   //    "searchable": true,
+
+
+                   //}
+                    ]
+                });
+
+            }
+            
+            function calculatepercentage(tamt, taxpercent)
+            {
+                var amountInNumber = parseFloat(taxpercent / 100).toFixed(2);
+                return parseFloat(amountInNumber + tamt).toFixed(2);
+            }
+
+        });
+
+        function ShowCustomer(CustomerID) {
+
+            console.log(CustomerID);
+            //$("#isMainBranch").attr("disabled", true);
+
+            var url = "/SalesOrder/AddNewSalesOrder?Id=" + CustomerID;
+            $("#modelbody").load(url, function (e) {
+                //var id = $('#CustomerID').val();
+                //if (id > 0) {
+                //    $('#btnaddnewclient').html("update ");
+
+                //}
+                $("#exampleModal").modal("show");
+            });
+            // window.location.href = url;
+
+
+        }
+
+        function ConfirmDelete(CustomerID) {
+
+            $.ajax({
+                type: 'GET',
+                url: '/SalesOrder/Delete?id=' + CustomerID,
+                dataType: 'JSON',
+                success: function (res) {
+                    if (res.success) {
+                        swalWithBootstrapButtons.fire(
+                            'Done!',
+                            'Blocked',
+                            'success'
+                            )
+                        window.location.href = "/Client/ViewClient"
+                    }
+                    else {
+                        swalWithBootstrapButtons.fire(
+                            'Error!',
+                            'Failes',
+                            'success'
+                            )
+                    }
+                },
+                failure: function (res) {
+                    console.log(res);
+                },
+                err: function (res) {
+                    console.log(res);
+                }
+            })
+
+
+
+        }
+
+        function GenerateReport(CustomerID) {
+
+            console.log(CustomerID);
+            var reportname = "SaleOrderReport";
+            // window.location.href = '/MRN/AddNewMRN?id=' + CustomerID;
+            $.ajax({
+                url: "/MRN/GenerateReport?id=" + CustomerID + '&query=' + 1 + '&ReportName=' + reportname,
+                success: function (res) {
+                    window.location.href = res.data;
+                }
+            });
+        }
+        //function GenerateGDN(CustomerID) {
+
+        //    console.log(CustomerID);
+        //    var reportname = "GDNReport";
+        //    // window.location.href = '/MRN/AddNewMRN?id=' + CustomerID;
+        //    $.ajax({
+        //        url: "/MRN/GenerateReport?id=" + CustomerID + '&query=' + 1 + '&ReportName=' + reportname,
+        //        success: function (res) {
+        //            window.location.href = res.data;
+        //        }
+        //    });
+        //}
+
+
+        function GenerateGDN(CustomerID) {
+            var driver, numberplate;
+            swal.mixin({
+                input: 'text',
+                confirmButtonText: 'Next &rarr;',
+                showCancelButton: true,
+                progressSteps: ['1', '2']
+            }).queue([
+   {
+       title: 'Question 1',
+       text: 'Enter Driver Name'
+   },
+     {
+         title: 'Question 2',
+         text: 'Enter Vehicle Number'
+     }
+            ]).then((result) => {
+                if (result.value) {
+                    console.log(result);
+                    driver = result.value[0];
+                    numberplate = result.value[1];
+                    //const answers = JSON.stringify(result.value)
+                    console.log(driver);
+                    console.log(numberplate);
+                    //ans = answers;
+                    Swal.fire({
+                        //                  title: 'All done!',
+                        //                  html: `
+                        //  Your answers:
+                        //  <pre><code>${answers}</code></pre>
+                        //`,
+                        confirmButtonText: 'Submit & Print Gate Pass'
+                    }).then((result) => {
+                        var reportname = "GDNReport";
+                        $.ajax({
+                            url: "/SalesOrder/GenerateGDNReport?id=" + CustomerID + '&query=' + 1 + '&ReportName=' + reportname + '&driver=' + driver + '&vhcl=' + numberplate,
+                                    success: function (res) {
+                                        window.location.href = res.data;
+                                    }
+                                });
+                    })
+
+
+                }
+            })
+
+
+            //var url = "/GatePass/GatePass?driver=" + driver + "&numberplate=" + numberplate + "&sale=" + CustomerID;
+            //    //  var url = "/GatePass/GatePass?Id=" + CustomerID;
+            //     window.location.href = url;
+            //$("#modelbody").load(url, function (e) {
+            //    var id = $('#Customer_Id').val();
+            //    if (id > 0) {
+            //        $('#btnaddnewcustomer').html("update ");
+            //    }
+            //    $("#modal-default").modal("show");
+            //});
+        }
+    </script>
+}
+
