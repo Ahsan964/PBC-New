@@ -44,9 +44,9 @@
 
                                                 foreach (var items in Model.InvoiceDetails)
                                                 {
-                                        <tr>
-                                            <td style="display:none">@items.ItemIdx</td>
-                                            @{
+                                                    <tr>
+                                                        <td style="display:none">@items.ItemIdx</td>
+                                                        @{
                                                             string Productname = "";
                                                             for (int i = 0; i < Model.ProductList.Count; i++)
                                                             {
@@ -55,14 +55,14 @@
                                                                     Productname = @Model.ProductList[i].itemName;
                                                                 }
                                                             }
-                                                        <td>@Productname</td>
-                                            }
-                                            @*<td>@items.Qty</td>*@
-                                            <td>@items.Qty</td>
-                                            <td>@items.UnitPrice</td>
-                                            <td>@items.TotalAmount</td>
-                                            <td><input type="text" placeholder="Enter Return Price" onkeyup="CheckForReturn(this)" value="0" id="returnQty" class="form-control" /></td>
-                                        </tr>
+                                                            <td>@Productname</td>
+                                                        }
+                                                        @*<td>@items.Qty</td>*@
+                                                        <td>@items.Qty</td>
+                                                        <td>@items.UnitPrice</td>
+                                                        <td>@items.TotalAmount</td>
+                                                        <td><input type="text" placeholder="Enter Return Price" onkeyup="CheckForReturn(this)" value="0" id="returnQty" class="form-control" /></td>
+                                                    </tr>
 
                                                                 }
                                                             }
@@ -121,11 +121,11 @@
                         @{
                             if (Model.ParentDocID > 0)
                             {
-                        <button type="button" class="btn btn-success" disabled="disabled">Submit</button>
+                                <button type="button" class="btn btn-success" disabled="disabled">Submit</button>
                             }
                             else
                             {
-                        <button type="button" class="btn btn-success" id="btnsubmit">Submit</button>
+                                <button type="button" class="btn btn-success" id="btnsubmit">Submit</button>
                             }
                         }
                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
@@ -137,7 +137,7 @@
         @section MyScripts {
             <script type="text/javascript">
                 $(document).ready(function () {
-                      $("#ddlTax").trigger("change");
+                    $("#ddlTax").trigger("change");
                 });
                 function CheckForReturn(o) {
                     //alert(id);
@@ -289,6 +289,7 @@
                     else {
                         $("#example2 tbody").empty();
                         $('#btnaddtogrid').attr('disabled', false);
+                        $("#WarerHouseID")[0].selectedIndex=0;
                         $("#totalAmount").val("0");
                     }
 
@@ -308,6 +309,7 @@
                             console.log(POData);
                             $('#VendorID').val(POData[0].vendorIdx);
                             $('#ParentDocID').val(POData[0].idx);
+                            //$('#WarerHouseID').val(POData[0].WarerHouseID);
                             $("#example2 tbody").empty();
                             $('#milestones').show();
                             var markup;
@@ -424,7 +426,7 @@
                     //console.log(pagelistdata);
                     for (var i = 0; i < pagelistdata.length; i++) {
                         var divopen = '<div class="col-sm-2"><div class="form-check">';
-                        var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value=' + pagelistdata[i].taxPercent + ' data-Id=' + pagelistdata[i].idx + ' type="checkbox" name="tax">';
+                        var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value=' + pagelistdata[i].taxPercent + ' data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox" name="tax">';
                         var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
                         var divclose = '</div></div>';
                         var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -441,7 +443,7 @@
                     console.log(pagelistdata);
                     for (var i = 0; i < pagelistdata.length; i++) {
                         var divopen = '<div class="col-sm-2"><div class="form-check">';
-                        var createcheckbox = '<input class="form-check-input" data-Id=' + pagelistdata[i].idx + ' type="checkbox">';
+                        var createcheckbox = '<input class="form-check-input" data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox">';
                         var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
                         var divclose = '</div></div>';
                         //var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -705,28 +707,28 @@
                 $('#PaymentType').on('change', function () {
                     if ($('#PaymentType option:selected').val() == 0) {
                         $('#paymntmethodoptions').hide();
-                       // $('#divTxtPaid').hide();
+                        // $('#divTxtPaid').hide();
                         $('#PaidAmount').val('0.00');
                     }
                     if ($('#PaymentType option:selected').val() == 1) {
                         $('#paymntmethodoptions').hide();
-                      //  $('#divTxtPaid').show();
+                        //  $('#divTxtPaid').show();
                     }
                     if ($('#PaymentType option:selected').val() == 2) {
                         $('#paymntmethodoptions').show();
                         $('#cheqno').hide();
-                      //  $('#divTxtPaid').show();
+                        //  $('#divTxtPaid').show();
                     }
 
                     if ($('#PaymentType option:selected').val() == 3) {
                         $('#paymntmethodoptions').show();
                         $('#cheqno').show();
-                     //   $('#divTxtPaid').show();
+                        //   $('#divTxtPaid').show();
                     }
                 });
                 if ($('#PaymentType').val() == 0) {
                     $('#divTxtPaid').hide();
-                   // $('#paidAmount').val('0.00');
+                    // $('#paidAmount').val('0.00');
                 }
                 $('#PaidAmount').keyup(function () {
                     //var paidAmount = Number($('#PaidAmount').val());
@@ -776,17 +778,35 @@
                                     <br />
                                     <form role="form" id="purchaseform">
                                         @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
+                                    <div class="row">
+                                    @{
+                                            if (Model.idx > 0)
+                                            {
+                                                <div class="col-sm-3">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Select GRN:</label>
+                                                        @Html.EditorFor(model => model.ParentDocID, new { htmlAttributes = new { @placeholder = "PO Number*:", @class = "form-control", @readonly = true } })
 
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Select GRN:</label>
-                                                    @*@Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "idx", "PoNumber"), "Select PO", new { @Class = "form-control font-weight-bold" })*@
-                                                    @Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "GRNMasterID", "Doc_No"), "Select GRN", new { @Class = "form-control font-weight-bold" })
+                                                         </div>
+                                                    @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
                                                 </div>
-                                                @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
-                                            </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-sm-3">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Select GRN:</label>
+                                                        @*@Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "idx", "PoNumber"), "Select PO", new { @Class = "form-control font-weight-bold" })*@
+                                                        @Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "GRNMasterID", "Doc_No"), "Select GRN", new { @Class = "form-control font-weight-bold" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
+                                                </div>
+                                            }
+                                        }
+
+                                            
                                             <div class="col-sm-3">
                                                 <!-- text input -->
                                                 <div class="form-group">
@@ -823,6 +843,14 @@
                                                     @*<input type="text" class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
                                                 </div>
                                                 @Html.ValidationMessageFor(model => model.Reference, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Select WareHouse*:</label>
+                                                    @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.WareHouseList, "idx", "WareHouseName"), "Select WareHouse", new { @Class = "form-control font-weight-bold" })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
                                         <hr />
@@ -1043,7 +1071,7 @@
                                                         <option value="1">Cash</option>
                                                         <option value="3">Bank</option>
                                                         <option value="2">Cheque</option>
-                                                        <option value="4">Customer Payment</option>
+                                                        @*<option value="4">Customer Payment</option>*@
                                                     </select>
 
                                                 </div>
@@ -1146,7 +1174,62 @@
                                                 //$('#PaymentType').hide();//.....
                                             }
                                         }
-
+                                        //Added By Arsalan For Submition Validations on 07-07-21
+                                        function onSubmitValdaitions()
+                                        {
+                                            var result =true;
+                                            var paidAmount = $("#PaidAmount").val();
+                                            var paymentType = $("#paymenttype").val();
+                                            var bankIdx = $("#bankIdx").val();
+                                            var WarerHouseID = $("#WarerHouseID").val();
+                                            var chequeNumber = $("#accorChequeNumber").val();
+                                            var rowsCount = Number($('#example2 tr').length)-1;
+                                            if(Number(paidAmount)>0)
+                                            {   
+                                                if(Number(paymentType)>0)
+                                                {
+                                                    if(Number(paymentType)==1)
+                                                    {
+                                                        result= true;
+                                                    }
+                                                    else if(Number(paymentType)==2)
+                                                    {
+                                                        if(Number(bankIdx)>0 && chequeNumber!='')
+                                                        {
+                                                            result=true;
+                                                        }
+                                                        else
+                                                        {
+                                                            result=false;
+                                                        }
+                                                    }
+                                                    else if(Number(paymentType)==3)
+                                                    {
+                                                        if(Number(bankIdx)>0)
+                                                        {
+                                                            result=true;
+                                                        }
+                                                        else
+                                                        {
+                                                            result=false;
+                                                        }
+                                                    }
+                                                    if (Number(WarerHouseID)<0 && Number(rowsCount)<=0)
+                                                    {
+                                                        result =false;
+                                                    }
+                                                    else
+                                                    {
+                                                        result=true;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    result=false;
+                                                }
+                                            }
+                                            return result;
+                                        }
                                         $("#btnaddtogrid").click(function (e) {
                                             if (!(gridValidation($("#itemIdx option:selected").val()))) {
                                                 // alert("Product Alreaty Exist")
@@ -1201,139 +1284,149 @@
                                                 // alert('Given date is not greater than the current date.');
                                             }
                                         });
+
                                         $("#btnsubmit").click(function (e) {
                                             //console.log("here");
                                             e.preventDefault();
-
-                                            var datatosend = {
-                                                objPI: {
-                                                    idx: $('#idx').val(),
-                                                    InvoiceNo: $('#InvoiceNo').val(),
-                                                    ParentDocID: $('#ParentDocID').val(),
-                                                    TotalAmount: $('#TotalAmount').val(),
-                                                    NetAmount: $('#NetAmount').val(),
-                                                    PaymentType: $('#PaymentType option:selected').val(),
-                                                    BalanceAmount: $('#BalanceAmount').val(),
-                                                    Description: $('#Description').val(),
-                                                    VendorID: $("#VendorID").val(),
-                                                    Reference: $("#Reference").val(),
-                                                    PaidAmount: $('#PaidAmount').val(),
-                                                    bankIdx: $('#bankIdx option:selected').val(),
-                                                    accorChequeNumber: $('#accorChequeNumber').val(),
-                                                    TaxAmount: $('#TaxAmount').val(),
-                                                    //PageList:[{ID:1},{ID:2},{ID:3}]
-                                                    PITAXLIST: [],
-                                                    InvoiceDetails: []
-                                                }
-
-                                            }
-                                            $("#purchaseform input:checkbox:checked").each(function () {
-                                                if ($(this).val() > 0) {
-
-                                                    //var taxpercnt = $(this).attr('data-id'); backend p percent chaye mjhe
-                                                    var taxIdx = $(this).attr('data-id');
-                                                    datatosend.objPI.PITAXLIST.push({
-                                                        Tax_Id: taxIdx,
-                                                        TaxPercent: $(this).val()
-
-                                                    })
-
-                                                }
-
-                                                // add $(this).val() to your array
-                                            });
-
-                                            var table = $("#example2 tbody");
-                                            table.find('tr').each(function (i) {
-                                                var $tds = $(this).find('td'),
-                                                    ItemIdx = $tds.eq(0).text(),
-                                                    Qty = $tds.eq(3).text();
-                                                UnitPrice = $tds.eq(4).text(),
-                                                TotalAmount = Qty * UnitPrice,// $tds.eq(4).text(),
-                                                Status = true
-                                                ;
-
-                                                datatosend.objPI.InvoiceDetails.push({
-                                                    ItemIdx: $tds.eq(0).text(),
-                                                    Qty: $tds.eq(3).text(),
-                                                    UnitPrice: $tds.eq(4).text(),
-                                                    TotalAmount: Qty * UnitPrice,
-                                                    Status: true
-                                                })
-
-
-                                            });
-                                            console.log(datatosend);
-                                            var form = $("#purchaseform");
-
-                                            // $.validator.unobtrusive.parse(form);
-                                            // if ($(form).valid()){
-                                            console.log("here1");
-                                            if (true) {
-                                                $.ajax({
-                                                    type: "POST",
-                                                    url: "/PInvoice/AddUpdate",
-                                                    data: JSON.stringify(datatosend),// $(form).serialize(),
-                                                    contentType: 'application/json',
-                                                    dataType: 'json',
-                                                    success: function (res) {
-                                                        console.log(res);
-                                                        if (res.success) {
-                                                            //Command: toastr["success"]("", "Added Successfuly")
-
-                                                            //toastr.options = {
-                                                            //    "closeButton": false,
-                                                            //    "debug": false,
-                                                            //    "newestOnTop": false,
-                                                            //    "progressBar": true,
-                                                            //    "positionClass": "toast-top-center",
-                                                            //    "preventDuplicates": false,
-                                                            //    "onclick": null,
-                                                            //    "showDuration": "300",
-                                                            //    "hideDuration": "1000",
-                                                            //    "timeOut": "5000",
-                                                            //    "extendedTimeOut": "1000",
-                                                            //    "showEasing": "swing",
-                                                            //    "hideEasing": "linear",
-                                                            //    "showMethod": "fadeIn",
-                                                            //    "hideMethod": "fadeOut"
-                                                            //}
-                                                            window.location.href = "/PInvoice/ViewPI"
-                                                        }
-                                                        else if (res.success == false && res.msg == 'Failed') {
-                                                            //    Command: toastr["error"]("Invalid ", " Failed")
-
-                                                            //toastr.options = {
-                                                            //    "closeButton": false,
-                                                            //    "debug": false,
-                                                            //    "newestOnTop": false,
-                                                            //    "progressBar": true,
-                                                            //    "positionClass": "toast-top-center",
-                                                            //    "preventDuplicates": false,
-                                                            //    "onclick": null,
-                                                            //    "showDuration": "300",
-                                                            //    "hideDuration": "1000",
-                                                            //    "timeOut": "5000",
-                                                            //    "extendedTimeOut": "1000",
-                                                            //    "showEasing": "swing",
-                                                            //    "hideEasing": "linear",
-                                                            //    "showMethod": "fadeIn",
-                                                            //    "hideMethod": "fadeOut"
-                                                            //}
-                                                        }
-                                                    },
-                                                    failure: function (res) {
-                                                        console.log(res);
-                                                    },
-                                                    err: function (res) {
-                                                        console.log(res);
+                                            var result=onSubmitValdaitions();//Added By Arsalan Validations
+                                            if(result)
+                                            {
+                                                var datatosend = {
+                                                    objPI: {
+                                                        idx: $('#idx').val(),
+                                                        InvoiceNo: $('#InvoiceNo').val(),
+                                                        ParentDocID: $('#ParentDocID').val(),
+                                                        TotalAmount: $('#TotalAmount').val(),
+                                                        NetAmount: $('#NetAmount').val(),
+                                                        PaymentType: $('#PaymentType option:selected').val(),
+                                                        BalanceAmount: $('#BalanceAmount').val(),
+                                                        Description: $('#Description').val(),
+                                                        VendorID: $("#VendorID").val(),
+                                                        Reference: $("#Reference").val(),
+                                                        PaidAmount: $('#PaidAmount').val(),
+                                                        bankIdx: $('#bankIdx option:selected').val(),
+                                                        accorChequeNumber: $('#accorChequeNumber').val(),
+                                                        TaxAmount: $('#TaxAmount').val(),
+                                                        WarerHouseID :$('#WarerHouseID option:selected').val(),
+                                                        //PageList:[{ID:1},{ID:2},{ID:3}]
+                                                        PITAXLIST: [],
+                                                        InvoiceDetails: []
                                                     }
 
-                                                })
+                                                }
+                                                $("#purchaseform input:checkbox:checked").each(function () {
+                                                    if ($(this).val() > 0) {
+
+                                                        //var taxpercnt = $(this).attr('data-id'); backend p percent chaye mjhe
+                                                        var taxIdx = $(this).attr('data-id');
+                                                        datatosend.objPI.PITAXLIST.push({
+                                                            Tax_Id: taxIdx,
+                                                            TaxPercent: $(this).val()
+
+                                                        })
+
+                                                    }
+
+                                                    // add $(this).val() to your array
+                                                });
+
+                                                var table = $("#example2 tbody");
+                                                table.find('tr').each(function (i) {
+                                                    var $tds = $(this).find('td'),
+                                                        ItemIdx = $tds.eq(0).text(),
+                                                        Qty = $tds.eq(3).text();
+                                                    UnitPrice = $tds.eq(4).text(),
+                                                    TotalAmount = Qty * UnitPrice,// $tds.eq(4).text(),
+                                                    Status = true
+                                                    ;
+
+                                                    datatosend.objPI.InvoiceDetails.push({
+                                                        ItemIdx: $tds.eq(0).text(),
+                                                        Qty: $tds.eq(3).text(),
+                                                        UnitPrice: $tds.eq(4).text(),
+                                                        TotalAmount: Qty * UnitPrice,
+                                                        Status: true
+                                                    })
+
+
+                                                });
+                                                console.log(datatosend);
+                                                var form = $("#purchaseform");
+
+                                                // $.validator.unobtrusive.parse(form);
+                                                // if ($(form).valid()){
+                                                console.log("here1");
+                                                if (true) {
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: "/PInvoice/AddUpdate",
+                                                        data: JSON.stringify(datatosend),// $(form).serialize(),
+                                                        contentType: 'application/json',
+                                                        dataType: 'json',
+                                                        success: function (res) {
+                                                            console.log(res);
+                                                            if (res.success) {
+                                                                //Command: toastr["success"]("", "Added Successfuly")
+
+                                                                //toastr.options = {
+                                                                //    "closeButton": false,
+                                                                //    "debug": false,
+                                                                //    "newestOnTop": false,
+                                                                //    "progressBar": true,
+                                                                //    "positionClass": "toast-top-center",
+                                                                //    "preventDuplicates": false,
+                                                                //    "onclick": null,
+                                                                //    "showDuration": "300",
+                                                                //    "hideDuration": "1000",
+                                                                //    "timeOut": "5000",
+                                                                //    "extendedTimeOut": "1000",
+                                                                //    "showEasing": "swing",
+                                                                //    "hideEasing": "linear",
+                                                                //    "showMethod": "fadeIn",
+                                                                //    "hideMethod": "fadeOut"
+                                                                //}
+                                                                window.location.href = "/PInvoice/ViewPI"
+                                                            }
+                                                            else if (res.success == false && res.msg == 'Failed') {
+                                                                //    Command: toastr["error"]("Invalid ", " Failed")
+
+                                                                //toastr.options = {
+                                                                //    "closeButton": false,
+                                                                //    "debug": false,
+                                                                //    "newestOnTop": false,
+                                                                //    "progressBar": true,
+                                                                //    "positionClass": "toast-top-center",
+                                                                //    "preventDuplicates": false,
+                                                                //    "onclick": null,
+                                                                //    "showDuration": "300",
+                                                                //    "hideDuration": "1000",
+                                                                //    "timeOut": "5000",
+                                                                //    "extendedTimeOut": "1000",
+                                                                //    "showEasing": "swing",
+                                                                //    "hideEasing": "linear",
+                                                                //    "showMethod": "fadeIn",
+                                                                //    "hideMethod": "fadeOut"
+                                                                //}
+                                                            }
+                                                        },
+                                                        failure: function (res) {
+                                                            console.log(res);
+                                                        },
+                                                        err: function (res) {
+                                                            console.log(res);
+                                                        }
+
+                                                    })
+                                                }
+                                                else {
+                                                    return false;
+                                                }
                                             }
-                                            else {
+                                            else
+                                            {
                                                 return false;
                                             }
+                                           
 
                                         });
                                         // Add To grid
@@ -1341,11 +1434,12 @@
                                             var ddvaue = $("#ParentDocID option:selected").val();
                                             if (ddvaue > 0) {
                                                 GetPODataSet(ddvaue)
-                                                $('#btnaddtogrid').attr('disabled', false);
+                                                $('#btnaddtogrid').attr('disabled', true);
                                             }
                                             else {
                                                 $("#example2 tbody").empty();
                                                 $('#btnaddtogrid').attr('disabled', false);
+                                                $("#WarerHouseID")[0].selectedIndex=0;
                                                 $("#totalAmount").val("0");
                                             }
 
@@ -1361,6 +1455,7 @@
                                                     // alert("Done");
                                                     $('#VendorID').val(POData[0].vendorIdx);
                                                     $('#ParentDocID').val(POData[0].ID);
+                                                    $('#WarerHouseID').val(POData[0].WarerHouseID);
                                                     $("#example2 tbody").empty();
                                                     $('#milestones').show();
                                                     var markup;
@@ -1452,7 +1547,7 @@
                                             //console.log(pagelistdata);
                                             for (var i = 0; i < pagelistdata.length; i++) {
                                                 var divopen = '<div class="col-sm-2"><div class="form-check">';
-                                                var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value=' + pagelistdata[i].taxPercent + ' data-Id=' + pagelistdata[i].idx + ' type="checkbox" name="tax">';
+                                                var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value=' + pagelistdata[i].taxPercent + ' data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox" name="tax">';
                                                 var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
                                                 var divclose = '</div></div>';
                                                 var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -1484,29 +1579,12 @@
 
 
 
-
-                                        //$('#paidAmount').on('keyup', function () {
-                                        //    if($('#paidAmount').val()>0)
-                                        //    {
-
-                                        //        $('#PaymentType').show();
-                                        //    }
-                                        //    else
-                                        //    {
-                                        //        $('#PaymentType').hide();
-                                        //        $('#banks').hide();
-                                        //        $('#cheqno').hide();
-                                        //        $('#paymenttype').val('0');
-
-                                        //    }
-
-                                        //});
-
                                         $(document).ready(function () {
-                                
+
                                             $("#PaymentType").hide();
                                             $("#paymenttype").val("0");
                                             $("#bankIdx").val("0");
+                                            $("#bankIdx")[0].selectedIndex = 0;
                                             $("#bankIdxaccorChequeNumber").val("");
 
 
@@ -1701,8 +1779,8 @@
                                                 $('#TaxAmount').val('0.00');
                                                 $('#TotalAmount').val($('#NetAmount').val());
                                             }
-                                        
-                                       }
+
+                                        }
 
 
                                         $('#paymenttype').on('change', function () {
@@ -1741,32 +1819,6 @@
                                             }
                                         });
 
-
-
-
-
-                                        //$('#PaymentType').on('change', function () {
-                                        //    if ($('#PaymentType option:selected').val() == 0) {
-                                        //        $('#paymntmethodoptions').hide();
-                                        //        //  $('#divTxtPaid').hide();
-                                        //        $('#PaidAmount').val('0.00');
-                                        //    }
-                                        //    if ($('#PaymentType option:selected').val() == 1) {
-                                        //        $('#paymntmethodoptions').hide();
-                                        //        //  $('#divTxtPaid').show();
-                                        //    }
-                                        //    if ($('#PaymentType option:selected').val() == 2) {
-                                        //        $('#paymntmethodoptions').show();
-                                        //        $('#cheqno').hide();
-                                        //        //    $('#divTxtPaid').show();
-                                        //    }
-
-                                        //    if ($('#PaymentType option:selected').val() == 3) {
-                                        //        $('#paymntmethodoptions').show();
-                                        //        $('#cheqno').show();
-                                        //        // $('#divTxtPaid').show();
-                                        //    }
-                                        //});
                                         if ($('#PaymentType').val() == 0) {
                                             // $('#divTxtPaid').hide();
                                             $('#paidAmount').val('0.00');

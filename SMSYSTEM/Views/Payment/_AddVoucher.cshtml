@@ -171,19 +171,27 @@
                                         </thead>
                                         <tbody style="background:white;color:black; ">
                                             @{
-                                                if (ViewBag.DetailData != null)
+                                                if (Model.AccountGJLST != null)
                                                 {
 
-
-
-                                                    foreach (var items in ViewBag.DetailData)
+                                                    foreach (var items in Model.AccountGJLST)
                                                     {
+                                                        
                                                         <tr>
                                                             <td style="display:none">@items.vendorIdx</td>
                                                             <td>@items.vendorName</td>
-                                                            <td>@items.amount</td>
+                                                            <td style="display:none">@items</td>
+                                                            <td>@items.invoiceNo</td>
+                                                            <td>@items.Bal</td>
+                                                            <td>@items.IncometaxPercent</td>
+                                                            <td>@items.ITAmount</td>
+                                                            <td>@items.whSalesTaxAmount</td>
+                                                            <td>@items.paidAmount</td>
+
                                                             @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
                                                             <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
+                                                            <td style="display:none">@items.paid</td>
+
                                                         </tr>
 
                                                     }

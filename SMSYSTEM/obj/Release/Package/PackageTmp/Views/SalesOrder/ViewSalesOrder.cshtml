@@ -29,7 +29,7 @@
                                 <th>Description</th>
                                 <th>status</th>
                                 @*<th>Created By</th>*@
-                                @*<th>Action</th>*@
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -93,18 +93,19 @@
                          { data: 'description' },
                          { data: 'statusCode' },
 
-                   //{
-                   //    "data": "idx",
-                   //    "render": function (idx, type, full, meta) {
+                   {
+                       "data": "idx",
+                       "render": function (ID, type, full, meta) {
+                           return '<a href="#" class="btn btn-info" onclick="ShowCustomer(' + ID + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + ID + ')"><i class="fa fa-trash"></i></a>'
 
-                   //        return '';
-                   //        //<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a></a> <a href="#" class="btn btn-warning" onclick="ConfirmReturn(' + idx + ')"><i class="fa fa-edit"></i></a> <a href="#" class="btn btn-secondary" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a> <a href="#" class="btn btn-danger" onclick="GenerateGDN(' + idx + ')"><i class="fa fa-car"></i></a>';
-                   //    },
-                   //    "orderable": true,
-                   //    "searchable": true,
+                           //return '';
+                           //return '<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a></a> <a href="#" class="btn btn-warning" onclick="ConfirmReturn(' + idx + ')"><i class="fa fa-edit"></i></a> <a href="#" class="btn btn-secondary" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a> <a href="#" class="btn btn-danger" onclick="GenerateGDN(' + idx + ')"><i class="fa fa-car"></i></a>';
+                       },
+                       "orderable": true,
+                       "searchable": true,
 
 
-                   //}
+                   }
                     ]
                 });
 
@@ -138,39 +139,91 @@
         }
 
         function ConfirmDelete(CustomerID) {
-
-            $.ajax({
-                type: 'GET',
-                url: '/SalesOrder/Delete?id=' + CustomerID,
-                dataType: 'JSON',
-                success: function (res) {
-                    if (res.success) {
-                        swalWithBootstrapButtons.fire(
-                            'Done!',
-                            'Blocked',
-                            'success'
-                            )
-                        window.location.href = "/Client/ViewClient"
-                    }
-                    else {
-                        swalWithBootstrapButtons.fire(
-                            'Error!',
-                            'Failes',
-                            'success'
-                            )
-                    }
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
                 },
-                failure: function (res) {
-                    console.log(res);
-                },
-                err: function (res) {
-                    console.log(res);
-                }
+                buttonsStyling: false
             })
 
 
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/SalesOrder/Delete?id=' + CustomerID,
 
+
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                )
+                                window.location.href = "/salesOrder/ViewsalesOrder"
+                            }
+                        }
+                    })
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
         }
+
+
+        //function ConfirmDelete(CustomerID) {
+
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/SalesOrder/Delete?id=' + CustomerID,
+        //        dataType: 'JSON',
+        //        success: function (res) {
+        //            if (res.success) {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Done!',
+        //                    'Blocked',
+        //                    'success'
+        //                    )
+        //                window.location.href = "/Client/ViewClient"
+        //            }
+        //            else {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Error!',
+        //                    'Failes',
+        //                    'success'
+        //                    )
+        //            }
+        //        },
+        //        failure: function (res) {
+        //            console.log(res);
+        //        },
+        //        err: function (res) {
+        //            console.log(res);
+        //        }
+        //    })
+
+
+
+        //}
 
         function GenerateReport(CustomerID) {
 
@@ -197,6 +250,24 @@
         //    });
         //}
 
+        function ShowCustomer(CustomerID) {
+
+            console.log(CustomerID);
+            //$("#isMainBranch").attr("disabled", true);
+
+            var url = "/SalesOrder/AddNewSalesOrder?Id=" + CustomerID;
+            //$("#modelbody").load(url, function (e) {
+            //    //var id = $('#CustomerID').val();
+            //    //if (id > 0) {
+            //    //    $('#btnaddnewclient').html("update ");
+
+            //    //}
+            //    $("#exampleModal").modal("show");
+            //});
+            window.location.href = url;
+
+
+        }
 
         function GenerateGDN(CustomerID) {
             var driver, numberplate;

@@ -89,7 +89,7 @@
                        "data": "idx",
                        "render": function (idx, type, full, meta) {
 
-                           return '<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> '
+                           return '<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a>'
                                //<a href="#" class="btn btn-danger" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a>
                            //<a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + ID + ')"><i class="fa fa-trash"></i></a>
 
@@ -120,40 +120,92 @@
 
         }
 
-        function ConfirmDelete(CustomerID) {
 
-            $.ajax({
-                type: 'GET',
-                url: '/Vendor/Delete?id=' + CustomerID,
-                dataType: 'JSON',
-                success: function (res) {
-                    if (res.success) {
-                        swalWithBootstrapButtons.fire(
-                            'Done!',
-                            'Blocked',
-                            'success'
-                            )
-                        window.location.href = "/Client/ViewClient"
-                    }
-                    else {
-                        swalWithBootstrapButtons.fire(
-                            'Error!',
-                            'Failes',
-                            'success'
-                            )
-                    }
+        function ConfirmDelete(CustomerID) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
                 },
-                failure: function (res) {
-                    console.log(res);
-                },
-                err: function (res) {
-                    console.log(res);
-                }
+                buttonsStyling: false
             })
 
 
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/MRN/Delete?id=' + CustomerID,
 
+
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                )
+                                window.location.href = "/MRN/ViewMRN/"
+                            }
+                        }
+                    })
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
         }
+
+        //function ConfirmDelete(CustomerID) {
+
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/Vendor/Delete?id=' + CustomerID,
+        //        dataType: 'JSON',
+        //        success: function (res) {
+        //            if (res.success) {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Done!',
+        //                    'Blocked',
+        //                    'success'
+        //                    )
+        //                window.location.href = "/Client/ViewClient"
+        //            }
+        //            else {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Error!',
+        //                    'Failes',
+        //                    'success'
+        //                    )
+        //            }
+        //        },
+        //        failure: function (res) {
+        //            console.log(res);
+        //        },
+        //        err: function (res) {
+        //            console.log(res);
+        //        }
+        //    })
+
+
+
+        //}
         function GenerateReport(CustomerID) {
 
             console.log(CustomerID);

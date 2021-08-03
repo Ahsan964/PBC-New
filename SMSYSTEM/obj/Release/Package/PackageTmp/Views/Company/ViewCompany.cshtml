@@ -225,7 +225,7 @@
             });
         }
 
-        function ConfirmDelete(CustomerID){
+        function ConfirmDelete(CustomerID) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'btn btn-success',
@@ -234,19 +234,22 @@
                 buttonsStyling: false
             })
 
+
             swalWithBootstrapButtons.fire({
                 title: 'Are you sure?',
-                text: "",
-                type: 'warning',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, Block!',
+                confirmButtonText: 'Yes, delete it!',
                 cancelButtonText: 'No, cancel!',
                 reverseButtons: true
             }).then((result) => {
-                if (result.value) {
+                if (result.isConfirmed) {
                     $.ajax({
-                        type:'GET',
+                        type: 'GET',
                         url: '/Client/DeleteClient?id=' + CustomerID,
+
+
                         dataType: 'JSON',
                         success: function (res) {
                             if (res.success) {
@@ -254,41 +257,89 @@
                                     'Done!',
                                     'Blocked',
                                     'success'
-                                    )
+                                )
                                 window.location.href = "/Client/ViewClient"
                             }
-                            else {
-                                swalWithBootstrapButtons.fire(
-                                    'Error!',
-                                    'Failes',
-                                    'success'
-                                    )
-                            }
-                        },
-                        failure: function (res) {
-                            console.log(res);
-                        },
-                        err: function (res) {
-                            console.log(res);
                         }
                     })
 
-
-
-
                 } else if (
                     /* Read more about handling dismissals below */
-                  result.dismiss === Swal.DismissReason.cancel
+                    result.dismiss === Swal.DismissReason.cancel
                 ) {
                     swalWithBootstrapButtons.fire(
-                      'Cancelled',
-                      '',
-                      'error'
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
                     )
                 }
             })
-
         }
+
+        //function ConfirmDelete(CustomerID){
+        //    const swalWithBootstrapButtons = Swal.mixin({
+        //        customClass: {
+        //            confirmButton: 'btn btn-success',
+        //            cancelButton: 'btn btn-danger'
+        //        },
+        //        buttonsStyling: false
+        //    })
+
+        //    swalWithBootstrapButtons.fire({
+        //        title: 'Are you sure?',
+        //        text: "",
+        //        type: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonText: 'Yes, Block!',
+        //        cancelButtonText: 'No, cancel!',
+        //        reverseButtons: true
+        //    }).then((result) => {
+        //        if (result.value) {
+        //            $.ajax({
+        //                type:'GET',
+        //                url: '/Client/DeleteClient?id=' + CustomerID,
+        //                dataType: 'JSON',
+        //                success: function (res) {
+        //                    if (res.success) {
+        //                        swalWithBootstrapButtons.fire(
+        //                            'Done!',
+        //                            'Blocked',
+        //                            'success'
+        //                            )
+        //                        window.location.href = "/Client/ViewClient"
+        //                    }
+        //                    else {
+        //                        swalWithBootstrapButtons.fire(
+        //                            'Error!',
+        //                            'Failes',
+        //                            'success'
+        //                            )
+        //                    }
+        //                },
+        //                failure: function (res) {
+        //                    console.log(res);
+        //                },
+        //                err: function (res) {
+        //                    console.log(res);
+        //                }
+        //            })
+
+
+
+
+        //        } else if (
+        //            /* Read more about handling dismissals below */
+        //          result.dismiss === Swal.DismissReason.cancel
+        //        ) {
+        //            swalWithBootstrapButtons.fire(
+        //              'Cancelled',
+        //              '',
+        //              'error'
+        //            )
+        //        }
+        //    })
+
+        //}
 
     </script>
 }

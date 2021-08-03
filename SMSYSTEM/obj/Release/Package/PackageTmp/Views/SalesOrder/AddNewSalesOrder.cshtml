@@ -3,7 +3,6 @@
     ViewBag.Title = "AddNewSalesOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @if (ViewBag.isReturn == 1)
 {
     <div class="card-body">
@@ -13,19 +12,13 @@
             @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
 
 
-
-
-
             <div class="row" id="PurchaseDetails">
                 <div class="col-md-12">
-
                     <div class="">
-
 
                         <div class="row" style="display:block; overflow:scroll" id="milestones">
                             <div class="col-md-12">
                                 <div class="card card-primary">
-
                                     <div class="">
                                         <table id="example2" class=" table table-dark table-bordered table-hover">
                                             <thead class="thead-dark">
@@ -34,57 +27,47 @@
                                                     <th>QTY</th>
                                                     <th>Sale Rate</th>
                                                     <th>Total Amount</th>
-
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody style="background:white;color:black; ">
-
                                                 @{
-                                                    if (ViewBag.DetailData != null)
+                                                    if (Model.SalesOrderDetailLST != null)
                                                     {
 
 
 
-                                                        foreach (var items in ViewBag.DetailData)
+                                                        foreach (var items in Model.SalesOrderDetailLST)
                                                         {
-                                                <tr>
-                                                    <td style="display:none">@items.itemIdx</td>
-                                                    <td>@items.itemName</td>
-                                                    <td>@items.qty</td>
-                                                    <td><input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="@items.salePrice" id="salePrice" class="form-control" /></td>
-                                                    @*<td id="unitprice"></td>*@
-                                                    <td>@items.amount</td>
-                                                    @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
-                                                    <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
-                                                </tr>
+                                                            <tr>
+                                                                <td style="display:none">@items.itemIdx</td>
+                                                                <td>@items.itemName</td>
+                                                                <td WIDTH="100"><input type="text" placeholder="" onkeyup="changeinunitprice(this)" value="@items.qty" id="qty" class="form-control" /></td>
+                                                                <td WIDTH="100"><input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="@items.salePrice" id="salePrice" class="form-control" /></td>
+                                                                @*<td id="unitprice"></td>*@
+                                                                <td WIDTH="100">@items.amount</td>
+                                                             
+                                                                @*<td>@items.itemIdx</td>*@
+                                                                @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
+                                                                <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
+                                                            </tr>
 
                                                         }
                                                     }
                                                 }
                                             </tbody>
                                         </table>
-
                                     </div>
-
                                     <!-- /.card-body -->
                                 </div>
                                 <!-- /.card -->
                             </div>
-
                         </div>
-
                     </div>
-
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
             </div>
-
-
-
-
-
 
 
 
@@ -103,14 +86,12 @@
                 </div>
             </div>
             <div class="row form-control-lg" id="checkboxdiv">
-
             </div>
             <br>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="inputName">Description</label>
-
                         @Html.EditorFor(model => model.description, new { htmlAttributes = new { @placeholder = "Description", @class = "form-control" } })
                     </div>
                 </div>
@@ -176,12 +157,12 @@
                     @Html.ValidationMessageFor(model => model.balanceAmount, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="row" id="pt" >
+            <div class="row" id="pt">
                 <div class="col-sm-3">
-                    <div type="hidden" id="paymenttype" class="form-group" >
+                    <div type="hidden" id="paymenttype" class="form-group">
                         <label for="inputName">Payment Method</label>
-                        <select  class="form-control">
-                            
+                        <select class="form-control">
+
                             <option value="0">Select Payment Mode</option>
                             <option value="1">Cash</option>
                             <option value="3">Bank</option>
@@ -189,12 +170,10 @@
                         </select>
                     </div>
                 </div>
-
             </div>
             <div class="row" id="paymntmethodoptions" style="display:none;">
 
-
-                <div class="col-sm-4" >
+                <div class="col-sm-4">
                     <div class="form-group" id="bank">
                         <label for="inputName">Bank</label>
                         @Html.DropDownListFor(model => model.bankIdx, new SelectList(Model.BankList, "idx", "accountTitle"), "Select Bank", new { @Class = "form-control font-weight-bold" })
@@ -206,7 +185,6 @@
                         @Html.EditorFor(model => model.accorChequeNumber, new { htmlAttributes = new { @placeholder = "Acc /Cheque", @class = "form-control" } })
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="modal-footer">
@@ -216,7 +194,6 @@
             </div>
             @*</form>
                 </div>*@
-
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -228,7 +205,6 @@
                             </button>
                         </div>
                         <div class="modal-body" id="modelbody">
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success" id="btnsubmit">Submit</button>
@@ -274,9 +250,9 @@
                                 RemoveCheckBox(taxlist);
                                 calculation();
                             }
-       
+
                         }
-  
+
 
                     });
 
@@ -780,8 +756,8 @@
                         var paidAmount= $('#paidAmount').val();
                         $('#balanceAmount').val(totalAmount);
                         var balanceAmount = $('#balanceAmount');
-                      
-                        
+
+
                         if(Number(paidAmount)>0 && Number(paidAmount)>Number(balanceAmount))
                         {
                             var result = Number(balanceAmount)- Number(paidAmount);
@@ -820,7 +796,7 @@
                                 description: $("#description").val(),
                                 reference : $('#reference').val(),
                                 salespersonIdx:$('#salespersonIdx').val(),
-                                wareHouseIdx:$('#wareHouseIdx option:selected').val(),
+                                WarerHouseID:$('#WarerHouseID option:selected').val(),
                                 paymentModeIdx:$('#paymenttype').val(),
                                 bankIdx:$('#bankIdx option:selected').val(),
                                 accorChequeNumber:$('#accorChequeNumber').val(),
@@ -952,8 +928,8 @@
                             $('#bank').show();
                             $('#divTxtPaid').show();
                         }
-                       
-                        
+
+
                     });
                     if($('#paymenttype').val()==0)
                     {
@@ -992,338 +968,358 @@
                                                     else
                                                     {
 
-<div class="card-body">
-    <h3>Sales Invoice</h3>
-    <br />
-    <form role="form" id="purchaseform">
-        @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
+                                                        <div class="card-body">
+                                                            <h3>Sales Invoice</h3>
+                                                            <br />
+                                                            <form role="form" id="purchaseform">
+                                                                @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
 
-        <div class="row">
-            @{
-                if (Model.idx > 0)
-                {
-
-                }
-                else
-                {
-                    <div class="col-sm-3">
-                        <!-- text input -->
-                        <div class="form-group">
-                            <label>Quotation#:</label>
-                            @Html.DropDownListFor(model => model.qsIdx, new SelectList(Model.QSList, "idx", "qsNumber"), "Select Quotation", new { @Class = "form-control font-weight-bold" })
-                        </div>
-                        @Html.ValidationMessageFor(model => model.qsIdx, "", new { @class = "text-danger" })
-                    </div>
+                                                                <div class="row">
+                                                                    @{
+                                                                        if (Model.idx > 0)
+                                                                        {
+                                                          
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Customer*:</label>
+                                                                                    @Html.DropDownListFor(model => model.customerIdx, new SelectList(Model.CustomerLST, "idx", "customerName"), "Select Customers", new { @Class = "form-control font-weight-bold" })
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.customerIdx, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>SI Number*:</label>
+                                                                                    @Html.EditorFor(model => model.soNumber, new { htmlAttributes = new { @placeholder = "SO Number*:", @class = "form-control", @readonly = true } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.soNumber, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Date*:</label>
+                                                                                    @Html.EditorFor(model => model.salesorderDate, new { htmlAttributes = new { @placeholder = "Sales Order Date*:", @class = "form-control" } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.salesorderDate, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Quotation#:</label>
+                                                                                    @Html.DropDownListFor(model => model.qsIdx, new SelectList(Model.QSList, "idx", "qsNumber"), "Select Quotation", new { @Class = "form-control font-weight-bold" })
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.qsIdx, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Customer*:</label>
+                                                                                    @Html.DropDownListFor(model => model.customerIdx, new SelectList(Model.CustomerLST, "idx", "customerName"), "Select Customers", new { @Class = "form-control font-weight-bold" })
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.customerIdx, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>SI Number*:</label>
+                                                                                    @Html.EditorFor(model => model.soNumber, new { htmlAttributes = new { @placeholder = "SO Number*:", @class = "form-control", @readonly = true } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.soNumber, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Date*:</label>
+                                                                                    @Html.EditorFor(model => model.salesorderDate, new { htmlAttributes = new { @placeholder = "Sales Order Date*:", @class = "form-control" } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.salesorderDate, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                                <div class="row">
                                                                     <div class="col-sm-3">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
-                                                                            <label>Customer*:</label>
-                                                                            @Html.DropDownListFor(model => model.customerIdx, new SelectList(Model.CustomerLST, "idx", "customerName"), "Select Customers", new { @Class = "form-control font-weight-bold" })
+                                                                            <label>Reference:</label>
+                                                                            @Html.EditorFor(model => model.reference, new { htmlAttributes = new { @placeholder = "Reference:", @class = "form-control" } })
                                                                         </div>
-                                                                        @Html.ValidationMessageFor(model => model.customerIdx, "", new { @class = "text-danger" })
+                                                                        @Html.ValidationMessageFor(model => model.reference, "", new { @class = "text-danger" })
                                                                     </div>
+                                                                    @*<div class="col-sm-3">
+
+                                                                            <div class="form-group">
+                                                                                <label>Ware-House:</label>
+                                                                                @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.wareHouseList, "idx", "WareHouseName"), "Select Warehouse", new { @Class = "form-control font-weight-bold" })
+                                                                            </div>
+                                                                            @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
+                                                                        </div>*@
                                                                     <div class="col-sm-3">
                                                                         <!-- text input -->
                                                                         <div class="form-group">
-                                                                            <label>SI Number*:</label>
-                                                                            @Html.EditorFor(model => model.soNumber, new { htmlAttributes = new { @placeholder = "SO Number*:", @class = "form-control", @readonly = true } })
-                                                                            @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                            <label>WareHouse*:</label>
+                                                                            @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.WareHouseList, "idx", "WareHouseName"), "Select WareHouse", new { @Class = "form-control font-weight-bold" })
                                                                         </div>
-                                                                        @Html.ValidationMessageFor(model => model.soNumber, "", new { @class = "text-danger" })
+                                                                        @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
+                                                                    </div>
+                  @*Remove SalesPerson Code*@
+                                                                    <div class="col-3">
+                                                                        <div class="form-group">
+                                                                            <label></label>
+                                                                            @*<button type="button" class="btn form-control btn-primary btn-sm" id="btnaddnew" data-toggle="modal" data-target="#exampleModal">Add Customer<i class="mdi mdi-play-circle ml-1"></i></button>*@
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <hr />
+                                                                <div class="row" id="PurchaseDetails">
+                                                                    <div class="col-md-12">
+                                                                        <div class="card card-primary">
+                                                                            @*<div class="card-header" style="background-color:black;color:white" >*@
+                                                                            <h5>+Add Product</h5>
+                                                                            @*<div class="card-tools">
+
+                                                                                </div>*@
+                                                                        </div>
+                                                                        <div class="">
+                                                                            <table class="table table-striped table-bordered table-condensed table-hover table-active">
+                                                                                <thead class="thead-light">
+                                                                                    <tr>
+                                                                                        <th>Item Name</th>
+                                                                                        <th>Stock</th>
+                                                                                        <th>Cost Price</th>
+                                                                                        <th>QTY</th>
+                                                                                        <th>Sales Rate</th>
+                                                                                        <th>Amount</th>
+                                                                                        <th>Action</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody class="" style="background:white;">
+                                                                                    <tr>
+                                                                                        <td>@Html.DropDownListFor(model => model.itemIdx, new SelectList(Model.ProductList, "idx", "itemName"), "Select Product", new { @Class = "form-control font-weight-bold" })</td>
+                                                                                        <td>@Html.EditorFor(model => model.stock, new { htmlAttributes = new { @placeholder = "Stock", @value = "hello", @class = "form-control", @readonly = "true" } })</td>
+                                                                                        <td>@Html.EditorFor(model => model.costPrice, new { htmlAttributes = new { @placeholder = "Cost Price", @class = "form-control", @readonly = "true" } })</td>
+                                                                                        <td>@Html.EditorFor(model => model.qty, new { htmlAttributes = new { @placeholder = "Qty", @class = "form-control" } })</td>
+                                                                                        <td>@Html.EditorFor(model => model.salePrice, new { htmlAttributes = new { @placeholder = "Unit Price", @class = "form-control" } })</td>
+                                                                                        <td>@Html.EditorFor(model => model.amount, new { htmlAttributes = new { @placeholder = "Total Price", @class = "form-control", @readonly = true } })</td>
+                                                                                        <td>
+
+                                                                                            <input type="button" value="+" id="btnaddtogrid" class="btn btn-outline-primary" style="font-size: 20px " />
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <div class="row" style="display:block; overflow:scroll" id="milestones">
+                                                                                <div class="col-md-12">
+                                                                                    <div class="card card-primary">
+                                                                                        <div class="">
+                                                                                            <table id="example2" class=" table table-dark table-bordered table-hover">
+                                                                                                <thead class="thead-dark">
+                                                                                                    <tr>
+                                                                                                        <th>Product Name</th>
+                                                                                                        <th>QTY</th>
+                                                                                                        <th>Sale Rate</th>
+                                                                                                        <th>Total Amount</th>
+                                                                                                        <th>Actions</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody style="background:white;color:black; ">
+                                                                                                    @{
+                                                                                                        if (Model.SalesOrderDetailLST != null)
+                                                                                                        {
+
+
+
+                                                                                                            foreach (var items in Model.SalesOrderDetailLST)
+                                                                                                            {
+                                                                                                                <tr>
+                                                                                                                    <td style="display:none">@items.itemIdx</td>
+                                                                                                                    <td>@items.itemName</td>
+                                                                                                                    <td WIDTH="100"><input type="text" placeholder="" onkeyup="changeinunitprice(this)" value="@items.qty" id="qty" class="form-control" /></td>
+                                                                                                                    <td WIDTH="100"><input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="@items.salePrice" id="salePrice" class="form-control" /></td>
+                                                                                                                    @*<td id="unitprice"></td>*@
+                                                                                                                    <td WIDTH="100">@items.amount</td>
+
+                                                                                                                    @*<td>@items.itemIdx</td>*@
+                                                                                                                    @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
+                                                                                                                    <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
+                                                                                                                </tr>
+
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                        <!-- /.card-body -->
+                                                                                    </div>
+                                                                                    <!-- /.card -->
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /.card-body -->
+                                                                    </div>
+                                                                    <!-- /.card -->
+                                                                </div>
+
+
+
+
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group ">
+                                                                            <label for="inputName">Taxes</label>
+                                                                            <select class="col-12 form-control" id="ddlTax">
+                                                                                <option value="0">Select Taxes</option>
+                                                                                <option value="1">With Taxes</option>
+                                                                                <option value="2">Without Taxes</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row form-control-lg" id="checkboxdiv">
+                                                                </div>
+                                                                <br>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Description</label>
+                                                                            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @placeholder = "Description", @class = "form-control" } })
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Discount</label>
+                                                                            @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @placeholder = "Discount", @class = "form-control" } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
                                                                     </div>
                                                                     <div class="col-sm-3">
-                                                                        <!-- text input -->
                                                                         <div class="form-group">
-                                                                            <label>Date*:</label>
-                                                                            @Html.EditorFor(model => model.salesorderDate, new { htmlAttributes = new { @placeholder = "Sales Order Date*:", @class = "form-control" } })
-                                                                            @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                            <label for="inputName">Shipping Cost</label>
+                                                                            @Html.EditorFor(model => model.shippingCost, new { htmlAttributes = new { @type = "number", @placeholder = "Shipping Cost", @class = "form-control" } })
                                                                         </div>
-                                                                        @Html.ValidationMessageFor(model => model.salesorderDate, "", new { @class = "text-danger" })
+                                                                        @Html.ValidationMessageFor(model => model.shippingCost, "", new { @class = "text-danger" })
                                                                     </div>
-                }
-            }
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <!-- text input -->
-                <div class="form-group">
-                    <label>Reference:</label>
-                    @Html.EditorFor(model => model.reference, new { htmlAttributes = new { @placeholder = "Reference:", @class = "form-control" } })
-                </div>
-                @Html.ValidationMessageFor(model => model.reference, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-3">
-                <!-- text input -->
-                <div class="form-group">
-                    <label>Ware-House:</label>
-                    @Html.DropDownListFor(model => model.wareHouseIdx, new SelectList(Model.wareHouseList, "idx", "WareHouseName"), "Select Warehouse", new { @Class = "form-control font-weight-bold" })
-                </div>
-                @Html.ValidationMessageFor(model => model.wareHouseIdx, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-3">
-                <!-- text input -->
-                <div class="form-group">
-                    <label>Sales Person:</label>
-                    <select id="salespersonIdx" class="form-control font-weight-bold">
-                        @{
-                            <option value="0" data-hscode="0">Select Sales Person</option>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Gross Amount</label>
+                                                                            @Html.EditorFor(model => model.netAmount, new { htmlAttributes = new { @type = "number", @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.netAmount, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Total Amount</label>
+                                                                            @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Tax Amount</label>
+                                                                            @Html.EditorFor(model => model.taxAount, new { htmlAttributes = new { @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.taxAount, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    @*<div class="col-sm-2">
+                                                                            <div class="form-group">
+                                                                                <label for="inputName"></label>
+                                                                                <input type="button" class="btn btn-primary form-control" id="calculate" value="Calculate Total" />
+                                                                            </div>
+                                                                        </div>*@
+                                                                </div>
 
-                            foreach (var item in Model.SalesPersonList)
-                            {
-                                <option value="@item.idx" data-val="@item.warehouseIdx">@item.SalesPersonName</option>
-                            }
+                                                                <div class="row">
+                                                                <div class="col-sm-4" id="divTxtPaid">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Paid Amount</label>
+                                                                            @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @placeholder = "Paid Amount", @class = "form-control" } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.paidAmount, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Balance Amount</label>
+                                                                            @Html.EditorFor(model => model.balanceAmount, new { htmlAttributes = new { @placeholder = "Balance Amount", @class = "form-control", @readonly = true } })
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.balanceAmount, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" id="pt">
+                                                                    <div class="col-sm-3">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Payment Method</label>
+                                                                            <select id="paymenttype" class="form-control">
+                                                                                <option value="0">Select Payment Mode</option>
+                                                                                <option value="1">Cash</option>
+                                                                                <option value="3">Bank</option>
+                                                                                <option value="2">Cheque</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" id="paymntmethodoptions" style="display:none;">
 
-                        }
-                    </select>
-                </div>
-                @Html.ValidationMessageFor(model => model.salespersonIdx, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-3">
-                <div class="form-group">
-                    <label></label>
-                    @*<button type="button" class="btn form-control btn-primary btn-sm" id="btnaddnew" data-toggle="modal" data-target="#exampleModal">Add Customer<i class="mdi mdi-play-circle ml-1"></i></button>*@
+                                                                    <div class="col-sm-4" id="banks">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Bank</label>
+                                                                            @Html.DropDownListFor(model => model.bankIdx, new SelectList(Model.BankList, "idx", "accountTitle"), "Select Bank", new { @Class = "form-control font-weight-bold" })
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-3" id="cheqno">
+                                                                        <div class="form-group">
+                                                                            <label for="inputName">Cheque</label>
+                                                                            @Html.EditorFor(model => model.accorChequeNumber, new { htmlAttributes = new { @placeholder = "Acc /Cheque", @class = "form-control" } })
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-success" id="btnAddSale">Submit</button>
+                                                                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                                @*</form>
+                                                                    </div>*@
 
-                </div>
-            </div>
-        </div>
-        <hr />
-        <div class="row" id="PurchaseDetails">
-            <div class="col-md-12">
-                <div class="card card-primary">
-                    @*<div class="card-header" style="background-color:black;color:white" >*@
-                    <h5>+Add Product</h5>
-                    @*<div class="card-tools">
-
-                        </div>*@
-                </div>
-                <div class="">
-                    <table class="table table-striped table-bordered table-condensed table-hover table-active">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Stock</th>
-                                <th>Cost Price</th>
-                                <th>QTY</th>
-                                <th>Sales Rate</th>
-                                <th>Amount</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody class="" style="background:white;">
-                            <tr>
-                                <td>@Html.DropDownListFor(model => model.itemIdx, new SelectList(Model.ProductList, "idx", "itemName"), "Select Product", new { @Class = "form-control font-weight-bold" })</td>
-                                <td>@Html.EditorFor(model => model.stock, new { htmlAttributes = new { @placeholder = "Stock", @value = "hello", @class = "form-control", @readonly = "true" } })</td>
-                                <td>@Html.EditorFor(model => model.costPrice, new { htmlAttributes = new { @placeholder = "Cost Price", @class = "form-control", @readonly = "true" } })</td>
-                                <td>@Html.EditorFor(model => model.qty, new { htmlAttributes = new { @placeholder = "Qty", @class = "form-control" } })</td>
-                                <td>@Html.EditorFor(model => model.salePrice, new { htmlAttributes = new { @placeholder = "Unit Price", @class = "form-control" } })</td>
-                                <td>@Html.EditorFor(model => model.amount, new { htmlAttributes = new { @placeholder = "Total Price", @class = "form-control", @readonly = true } })</td>
-                                <td>
-
-                                    <input type="button" value="+" id="btnaddtogrid" class="btn btn-outline-primary" style="font-size: 20px " />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="row" style="display:block; overflow:scroll" id="milestones">
-                        <div class="col-md-12">
-                            <div class="card card-primary">
-                                <div class="">
-                                    <table id="example2" class=" table table-dark table-bordered table-hover">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th>Product Name</th>
-                                                <th>QTY</th>
-                                                <th>Sale Rate</th>
-                                                <th>Total Amount</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody style="background:white;color:black; ">
-                                            @{
-                                                if (ViewBag.DetailData != null)
-                                                {
-
-
-
-                                                    foreach (var items in ViewBag.DetailData)
-                                                    {
-                                                        <tr>
-                                                            <td style="display:none">@items.itemIdx</td>
-                                                            <td>@items.itemName</td>
-                                                            <td>@items.qty</td>
-                                                            <td><input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="@items.salePrice" id="salePrice" class="form-control" /></td>
-                                                            @*<td id="unitprice"></td>*@
-                                                            <td>@items.amount</td>
-                                                            @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
-                                                            <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
-                                                        </tr>
-
-                                                    }
-                                                }
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-        </div>
-
-
-
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group ">
-                    <label for="inputName">Taxes</label>
-                    <select class="col-12 form-control" id="ddlTax">
-                        <option value="0">Select Taxes</option>
-                        <option value="1">With Taxes</option>
-                        <option value="2">Without Taxes</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row form-control-lg" id="checkboxdiv">
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label for="inputName">Description</label>
-                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @placeholder = "Description", @class = "form-control" } })
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Discount</label>
-                    @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @placeholder = "Discount", @class = "form-control" } })
-                </div>
-                @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Shipping Cost</label>
-                    @Html.EditorFor(model => model.shippingCost, new { htmlAttributes = new { @type = "number", @placeholder = "Shipping Cost", @class = "form-control" } })
-                </div>
-                @Html.ValidationMessageFor(model => model.shippingCost, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Gross Amount</label>
-                    @Html.EditorFor(model => model.netAmount, new { htmlAttributes = new { @type = "number", @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
-                </div>
-                @Html.ValidationMessageFor(model => model.netAmount, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Total Amount</label>
-                    @Html.EditorFor(model => model.totalAmount, new { htmlAttributes = new { @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
-                </div>
-                @Html.ValidationMessageFor(model => model.totalAmount, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Tax Amount</label>
-                    @Html.EditorFor(model => model.taxAount, new { htmlAttributes = new { @placeholder = "Total Amount", @class = "form-control", @readonly = true } })
-                </div>
-                @Html.ValidationMessageFor(model => model.taxAount, "", new { @class = "text-danger" })
-            </div>
-            @*<div class="col-sm-2">
-                    <div class="form-group">
-                        <label for="inputName"></label>
-                        <input type="button" class="btn btn-primary form-control" id="calculate" value="Calculate Total" />
-                    </div>
-                </div>*@
-        </div>
-        <div class="row">
-            <div class="col-sm-4" id="divTxtPaid">
-                <div class="form-group">
-                    <label for="inputName">Paid Amount</label>
-                    @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @placeholder = "Paid Amount", @class = "form-control" } })
-                </div>
-                @Html.ValidationMessageFor(model => model.paidAmount, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label for="inputName">Balance Amount</label>
-                    @Html.EditorFor(model => model.balanceAmount, new { htmlAttributes = new { @placeholder = "Balance Amount", @class = "form-control", @readonly = true } })
-                </div>
-                @Html.ValidationMessageFor(model => model.balanceAmount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="row" id="pt">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="inputName">Payment Method</label>
-                    <select id="paymenttype" class="form-control">
-                        <option value="0">Select Payment Mode</option>
-                        <option value="1">Cash</option>
-                        <option value="3">Bank</option>
-                        <option value="2">Cheque</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="paymntmethodoptions" style="display:none;">
-
-            <div class="col-sm-4" id="banks">
-                <div class="form-group">
-                    <label for="inputName">Bank</label>
-                    @Html.DropDownListFor(model => model.bankIdx, new SelectList(Model.BankList, "idx", "accountTitle"), "Select Bank", new { @Class = "form-control font-weight-bold" })
-                </div>
-            </div>
-            <div class="col-sm-3" id="cheqno">
-                <div class="form-group">
-                    <label for="inputName">Cheque</label>
-                    @Html.EditorFor(model => model.accorChequeNumber, new { htmlAttributes = new { @placeholder = "Acc /Cheque", @class = "form-control" } })
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnAddSale">Submit</button>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-        @*</form>
-            </div>*@
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add New Customer</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modelbody">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="btnsubmit">Submit</button>
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-@section MyScripts
+                                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalLabel">Add New Customer</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                    <span aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body" id="modelbody">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-success" id="btnsubmit">Submit</button>
+                                                                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        @section MyScripts
     {
-    <script type="text/javascript">
+                                                            <script type="text/javascript">
                                                                 // Added By Ahsan
-                                                                $('#wareHouseIdx').change(function () {
+                                                                $('#WarerHouseID').change(function () {
 
                                                                     $('#salespersonIdx').attr('display', 'block')
                                                                     // get optios of second dropdown and cache it
@@ -1445,7 +1441,7 @@
                                                                     //console.log(pagelistdata);
                                                                     for (var i = 0; i < pagelistdata.length; i++) {
                                                                         var divopen = '<div class="col-sm-2"><div class="form-check">';
-                                                                        var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value='+pagelistdata[i].taxPercent+' data-Id=' + pagelistdata[i].idx + ' type="checkbox" name="tax">';
+                                                                        var createcheckbox = '<input class="form-check-input"  onclick="calculation();" value='+pagelistdata[i].taxPercent+' data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox" name="tax">';
                                                                         var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
                                                                         var divclose = '</div></div>';
                                                                         var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -1489,6 +1485,7 @@
                                                                         $("#discount").val("0");
                                                                         $("#shippingCost").val("0");
                                                                         $("#taxAount").val("0");
+                                                                        $("#WarerHouseID")[0].selectedIndex=0;
                                                                         $("#balanceAmount").val("0");
                                                                         $("#paidAmount").val("0");
                                                                         $("#customerIdx").val("");
@@ -1516,11 +1513,12 @@
                                                                             var totalAmount = POData[0].totalAmount;
                                                                             var taxAmount = POData[0].taxAount;
                                                                             var balanceAmount = POData[0].balanceAmount;
+                                                                            var WarerHouseID = POData[0].WarerHouseID;
                                                                             var taxData = JSON.parse(data.taxdat);
                                                                             //Adding in  to dropDown and TextBoxes
 
 
-                                                                           // $("#ddlTax").val('1');
+                                                                            // $("#ddlTax").val('1');
                                                                             if(taxData!=null)
                                                                             {
                                                                                 $("#ddlTax").val('1');
@@ -1584,6 +1582,7 @@
                                                                             $("#netAmount").val(grossAmount);
                                                                             $("#taxAount").val(taxAmount);
                                                                             $("#balanceAmount").val(totalAmount);
+                                                                            $("#WarerHouseID").val(WarerHouseID);
 
                                                                         }
                                                                     });
@@ -1954,7 +1953,7 @@
                                                                             description: $("#description").val(),
                                                                             reference : $('#reference').val(),
                                                                             salespersonIdx:$('#salespersonIdx').val(),
-                                                                            wareHouseIdx:$('#wareHouseIdx option:selected').val(),
+                                                                            WarerHouseID:$('#WarerHouseID option:selected').val(),
                                                                             paymentModeIdx:$('#paymenttype').val(),
                                                                             bankIdx:$('#bankIdx option:selected').val(),
                                                                             accorChequeNumber:$('#accorChequeNumber').val(),
@@ -2012,7 +2011,7 @@
                                                                                 console.log(res);
                                                                                 if (res.success) {
 
-                                                                                    window.location.href = "/Invoice/Index"                                                                                }
+                                                                                    window.location.href = "/salesOrder/ViewsalesOrder"                                                                                }
                                                                                 else if (res.success == false && res.msg == 'Failed') {
 
                                                                                 }
@@ -2093,7 +2092,7 @@
                                                                 $('#paymenttype').on('change', function () {
                                                                     if ($('#paymenttype option:selected').val() == 0) {
                                                                         $('#paymntmethodoptions').hide();
-                                                                       // $('#divTxtPaid').hide();
+                                                                        // $('#divTxtPaid').hide();
                                                                         $('#paidAmount').val('0.00');
                                                                         calculation();
                                                                     }
@@ -2112,10 +2111,10 @@
                                                                         $('#paymntmethodoptions').show();
                                                                         $('#cheqno').show();
                                                                         $('#banks').show();
-                                                                      //  $('#divTxtPaid').show();
+                                                                        //  $('#divTxtPaid').show();
                                                                     }
-                       
-                        
+
+
                                                                 });
                                                                 if($('#paymenttype').val()==0)
                                                                 {
@@ -2147,8 +2146,8 @@
                                                                     }
 
                                                                 });
-    </script>
-}
+                                                            </script>
+                                                        }
 
                                                                                                         }
 

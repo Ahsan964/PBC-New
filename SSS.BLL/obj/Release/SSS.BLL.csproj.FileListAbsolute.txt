@@ -208,3 +208,13 @@ D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\bin\Release\
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.dll
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.BLL.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\FluentValidation.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.DAL.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\bin\Release\SSS.Property.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.csprojResolveAssemblyReference.cache
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.BLL\obj\Release\SSS.BLL.pdb

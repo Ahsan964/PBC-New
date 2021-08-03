@@ -124,3 +124,9 @@ D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Property\bin\Rel
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.csprojResolveAssemblyReference.cache
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.dll
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\bin\Release\SSS.Property.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\bin\Release\SSS.Property.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\bin\Release\FluentValidation.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.csprojResolveAssemblyReference.cache
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Property\obj\Release\SSS.Property.pdb

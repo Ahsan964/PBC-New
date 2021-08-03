@@ -120,8 +120,8 @@ namespace SSS.Property.Transactions
             set { _createdByUserIdx = value; }
         }
 
-        private DateTime _lastModificationDate;
-        public DateTime lastModificationDate
+        private string _lastModificationDate;
+        public string lastModificationDate
         {
             get { return _lastModificationDate; }
             set { _lastModificationDate = value; }

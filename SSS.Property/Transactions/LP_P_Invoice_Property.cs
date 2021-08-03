@@ -9,6 +9,7 @@ namespace SSS.Property.Transactions
 {
    public class LP_P_Invoice_Property
     {
+        public int visible { get; set; }
         private int _idx;
         public int idx
         {

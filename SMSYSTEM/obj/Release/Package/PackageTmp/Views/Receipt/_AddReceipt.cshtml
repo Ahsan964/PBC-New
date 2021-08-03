@@ -148,19 +148,24 @@
                                         </thead>
                                         <tbody style="background:white;color:black; ">
                                             @{
-                                                if (ViewBag.DetailData != null)
+                                                if (Model.AccountGJLST != null)
                                                 {
 
-
-
-                                                    foreach (var items in ViewBag.DetailData)
+                                                    foreach (var items in Model.AccountGJLST)
                                                     {
                                                         <tr>
-                                                            <td style="display:none">@items.vendorIdx</td>
-                                                            <td>@items.vendorName</td>
-                                                            <td>@items.amount</td>
+                                                            <td style="display:none">@items.customerIdx</td>
+                                                            <td>@items.customerName</td>
+                                                            <td style="display:none">@items.idx</td>
+                                                            <td>@items.invoiceNo</td>
+                                                            <td>@items.balanceAmount</td>
+                                                            <td>@items.IncometaxPercent</td>
+                                                            <td>@items.ITAmount</td>
+                                                            <td>@items.whSalesTaxAmount</td>
+                                                            <td>@items.paidAmount</td>
                                                             @*<td><i class="icon-trash menu-icon" id="btnaddtogrid"><input type="button" id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn-danger" /></i></td>*@
                                                             <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
+                                                            <td style="display:none">@items.paid</td>
                                                         </tr>
 
                                                     }
@@ -341,6 +346,91 @@
 @section MyScripts {
     <script type="text/javascript">
         $(document).ready(function () {
+            // Added By Ahsan
+            if (@Model.idx > 0) {
+                var value = $('#customer_id option:selected').val()
+                if (Number(value) > 0) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Receipt/getCustomerBalance',
+                        data: { id: value },
+                        success: function (data) {
+                            var POData = JSON.parse(data.data);
+                            //console.log(POData[0].customerBalance)
+
+                            //$("#").show();
+
+                            $("#invoiceIdx").empty();
+                            $("#ddlOrder").show();
+                            $('#invoiceIdx').append($('<option>',
+
+                                 {
+                                     value: "",
+                                     text: "Select Invoice"
+                                 }));
+                            for (var i = 0; i < POData.length; i++) {
+
+
+
+                                $('#invoiceIdx').append($('<option>',
+                                        {
+                                            value: POData[i].idxx,
+                                            text: POData[i].invoiceNoIdx,
+                                            value2: POData[i].balance,
+                                            value3: POData[i].paidAmount
+                                        }));
+
+                            }
+
+                            $('#txtBalanceAmount').hide();
+                            $('#invoiceBalance').val('0')
+                        },
+                        failure: function (data) {
+                            $("#orderIdx").html("");
+
+                            $('#orderIdx').append($('<option>',
+                                            {
+                                                value: "",
+                                                text: "Select Order"
+                                            }));
+                            $('#ddlOrder').hide();
+                        },
+                        err: function (data) {
+                            $("#orderIdx").html("");
+
+                            $('#orderIdx').append($('<option>',
+                                            {
+                                                value: "",
+                                                text: "Select Order"
+                                            }));
+                            $('#ddlOrder').hide();
+                        }
+
+                    });
+                }
+                else {
+                    $("#orderIdx").html("");
+
+                    $('#orderIdx').append($('<option>',
+                                    {
+                                        value: "",
+                                        text: "Select Order"
+                                    }));
+                    $('#ddlOrder').hide();
+                    $('#txtBalanceAmount').hide();
+                    $('#divITAmount').hide();
+                    $('#ITAmount').val("0");
+                    $('#divIncometax').hide();
+                    $('#IncometaxPercent').val("0");
+                    $("#divWHAmount").hide();
+                    $("#whSalesTaxAmount").val("0");
+                    //$('#ITAmount').hide();
+                    //$('#divIncometax').hide();
+                    $('#invoicebalance').val("0");
+                }
+            }
+            
+
             $('#ddlOrder').hide();
             $('#txtBalanceAmount').hide();
             $('#divITAmount').hide();

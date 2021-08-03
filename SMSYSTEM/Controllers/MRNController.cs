@@ -207,7 +207,39 @@ namespace SMSYSTEM.Controllers
             }
         }
 
-      
+        // Delete function
+        public JsonResult Delete(int? id)
+        {
+            if (Session["LOGGEDIN"] != null)
+            {
+                try
+                {
+                    objMRNProperty = new LP_MRN_Master_Property();
+                    objMRNProperty.idx = int.Parse(id.ToString());
+
+                    objMRNBll = new LP_MRN_BLL(objMRNProperty);
+                    var flag1 = objMRNBll.Delete();
+                    if (flag1)
+                    {
+                        return Json(new { data = "Deleted", success = flag1, statuscode = 200 }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { data = "Error", success = flag1, statuscode = 200 }, JsonRequestBehavior.DenyGet);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { data = ex.Message, success = false, statuscode = 400, count = 0 }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { data = "Session Expired", success = false, statuscode = 400, count = 0 }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         #endregion
     }
 }

@@ -136,3 +136,12 @@ D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Utility\bin\Rele
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.csprojResolveAssemblyReference.cache
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.dll
 D:\salman\MAIN PROJECT FILES\pbc\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\SSS.Utility.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\SSS.Utility.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\AjaxControlToolkit.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\SSS.Property.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\FluentValidation.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\bin\Release\SSS.Property.pdb
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.csprojResolveAssemblyReference.cache
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SSS.Utility\obj\Release\SSS.Utility.pdb

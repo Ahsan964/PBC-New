@@ -1,10 +1,13 @@
 ﻿using SSS.Property.Setups.Reports;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using System.IO;
 
 namespace SMSYSTEM.Controllers
 {
@@ -22,9 +25,10 @@ namespace SMSYSTEM.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
+        
 
         [HttpPost]
-        public JsonResult AddUpdate(LP_Report_Property objreport)
+        public ActionResult AddUpdate(LP_Report_Property objreport)
         {
             try
             {
@@ -78,7 +82,7 @@ namespace SMSYSTEM.Controllers
                 }
 
 
-                return SelectReportData(objreport);
+                return File(objreport);
             }
             catch (Exception ex)
             {
@@ -95,4 +99,5 @@ namespace SMSYSTEM.Controllers
             }
         }
     }
+    
 }

@@ -16,6 +16,15 @@
             @{
                 if (Model.idx > 0)
                 {
+                    <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>SI Number*:</label>
+                            @Html.EditorFor(model => model.qsNumber, new { htmlAttributes = new { @placeholder = "QS Number*:", @class = "form-control", @readonly = true } })
+                            @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                        </div>
+                        @Html.ValidationMessageFor(model => model.qsNumber, "", new { @class = "text-danger" })
+                    </div>
 
                 }
                 else
@@ -64,16 +73,23 @@
                 </div>
                 @Html.ValidationMessageFor(model => model.reference, "", new { @class = "text-danger" })
             </div>
-            
-            <div class="col-3">
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Select WareHouse*:</label>
+                    @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.WareHouseList, "idx", "WareHouseName"), "Select WareHouse", new { @Class = "form-control font-weight-bold" })
+                </div>
+                @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
+            </div>
+            @*<div class="col-3">
                 <div class="form-group">
                     <label></label>
 
-                    @*<button type="button" class="btn form-control btn-primary btn-sm" id="btnaddnew" data-toggle="modal" data-target="#exampleModal">Add Customer<i class="mdi mdi-play-circle ml-1"></i></button>*@
+                    <button type="button" class="btn form-control btn-primary btn-sm" id="btnaddnew" data-toggle="modal" data-target="#exampleModal">Add Customer<i class="mdi mdi-play-circle ml-1"></i></button>
 
 
                 </div>
-            </div>
+            </div>*@
         </div>
         <hr />
         <div class="row" id="PurchaseDetails">
@@ -326,13 +342,26 @@
   
 
     });
+    $("#WarerHouseID").on('change', function () {
+        var WarerHouseID = $("#WarerHouseID option:selected").val();
+        if(WarerHouseID>0)
+        {
+            $(itemIdx).trigger("change");
+        }
+        else
+        {
+            $('#stock').val('0.00');
+            $('#costPrice').val('0.00');
+        }
+    });
+        $("#itemIdx").on('change', function () {
 
-    $("#itemIdx").on('change', function () {
         var ddvaue = $("#itemIdx option:selected").val();
-        if (ddvaue > 0) {
+        var WarerHouseID = $("#WarerHouseID option:selected").val();
+        if (ddvaue > 0 && WarerHouseID>0) {
             $.ajax({
                 url: "/SalesOrder/SelectProductStockAndUpById",
-                data: { id: ddvaue },
+                data: { id: ddvaue,whIdx:WarerHouseID},
                 success: function (data) {
                     var stockAndPrice = JSON.parse(data.data);
                     //console.log(data1)
@@ -363,7 +392,7 @@
         console.log(pagelistdata);
         for (var i = 0; i < pagelistdata.length; i++) {
             var divopen = '<div class="col-sm-2"><div class="form-check">';
-            var createcheckbox = '<input class="form-check-input" onclick="calculation()"  value='+pagelistdata[i].taxPercent+' data-Id=' + pagelistdata[i].idx + ' type="checkbox" name="tax">';
+            var createcheckbox = '<input class="form-check-input" onclick="calculation()"  value='+pagelistdata[i].taxPercent+' data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox" name="tax">';
             var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
             var divclose = '</div></div>';
             var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -378,7 +407,7 @@
         console.log(pagelistdata);
         for (var i = 0; i < pagelistdata.length; i++) {
             var divopen = '<div class="col-sm-2"><div class="form-check">';
-            var createcheckbox = '<input class="form-check-input" data-Id=' + pagelistdata[i].idx + ' type="checkbox">';
+            var createcheckbox = '<input class="form-check-input" data-Id=' + pagelistdata[i].coaIdx + ' type="checkbox">';
             var checkboxlabel = '<label class="form-check-label">' + pagelistdata[i].taxName + '</label>';
             var divclose = '</div></div>';
             //var dictoappend = divopen + createcheckbox + checkboxlabel + divclose;
@@ -449,7 +478,8 @@
                          // '</button>'
         var productname = $("#itemIdx option:selected").text();
         var ProductID = $("#itemIdx option:selected").val();
-        var Qty = '<input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="'+actualQty+'"  id="qty" class="form-control" />';
+        //var Qty = '<input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="'+actualQty+'"  id="qty" class="form-control" />';
+        var Qty = $("#qty").val();
         //onkeyup="changeinunitprice(this)"
         var salePrice = '<input type="text" placeholder="Enter Sales Price" onkeyup="changeinunitprice(this)" value="'+actualSalePrice+'"  id="salePrice" class="form-control" />';
         //$('#salePrice').text(actualSalePrice);
@@ -676,6 +706,7 @@
                 discount:$('#discount').val(),
                 shippingCost:$('#shippingCost').val(), 
                 reference : $('#reference').val(),
+                WarerHouseID : $('#WarerHouseID option:selected').val(),
                 //salespersonIdx:$('#salespersonIdx').val(),
                 //wareHouseIdx:$('#wareHouseIdx option:selected').val(),
                 //paymentModeIdx:$('#paymenttype').val(), salman
@@ -684,7 +715,7 @@
 
                 //PageList:[{ID:1},{ID:2},{ID:3}]
                 QuotationDetailLST:[],
-                salesTaxesLST: $('#ddlTax').val()
+                salesTaxesLST: []
             }
 
         }
@@ -697,7 +728,7 @@
         table.find('tr').each(function (i) {
             var $tds = $(this).find('td'),
                 productid = $tds.eq(0).text(),
-                qty = $tds.eq(2).find('#qty').val(),
+                qty = $tds.eq(2).text(),
                 salePrice = $tds.eq(3).find('#salePrice').val(),
                 itemamount = $tds.eq(4).text();
 

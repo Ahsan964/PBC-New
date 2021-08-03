@@ -80,8 +80,9 @@
                        "data": "ID",
                        "render": function (idx, type, full, meta) {
 
-                           return '<a href="#" class="btn btn-primary" onclick="ProcessGRN(' + idx + ')"><i class="fa fa-lock"></i></a>  <a href="#" class="btn btn-secondary" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a>';
+                           return '<a href="#" class="btn btn-primary" onclick="ProcessGRN(' + idx + ')"><i class="fa fa-lock"></i></a>  <a href="#" class="btn btn-secondary" onclick="GenerateReport(' + idx + ')"><i class="fa fa-file"></i></a><a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> ';
                            //<a href="#" class="btn btn-info" onclick="ShowCustomer(' + idx + ')"><i class="fa fa-eye"></i></a> <a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a>
+                           //<a href="#" class="btn btn-danger" onclick="ConfirmDelete(' + idx + ')"><i class="fa fa-trash"></i></a>
                        },
                        "orderable": true,
                        "searchable": true,
@@ -174,70 +175,123 @@
                
             //})
         }
-        function ConfirmDelete(CustomerID) {
-            //swal.fire({
-            //    title: 'Are you sure?',
-            //    text: "You won't be able to revert this!",
-            //    icon: 'warning',
-            //    showCancelButton: true,
-            //    confirmButtonColor: '#3085d6',
-            //    cancelButtonColor: '#d33',
-            //    confirmButtonText: 'Yes, delete it!'
-            //}).then((result) => {
-            //    if (result.isConfirmed) {
-            //        Swal.fire(
-            //          'Deleted!',
-            //          'Your file has been deleted.',
-            //          'success'
-            //        )
-            //    }
-            //})
-            //$.ajax({
-            //    type: 'GET',
-            //    url: '/Vendor/Delete?id=' + CustomerID,
-            //    dataType: 'JSON',
-            //    success: function (res) {
-            //        if (res.success) {
-            //            swal.fire(
-            //                'Done!',
-            //                'Blocked',
-            //                'success'
-            //                )
-            //            window.location.href = "/Client/ViewClient"
-            //        }
-            //        else {
-            //            swal.fire(
-            //                'Error!',
-            //                'Failes',
-            //                'success'
-            //                )
-            //        }
-            //    },
-            //    failure: function (res) {
-            //        console.log(res);
-            //    },
-            //    err: function (res) {
-            //        console.log(res);
-            //    }
-            //})
 
-            swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Delete '
-            }).then(function () {
-                swal(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
+        function ConfirmDelete(CustomerID) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
             })
 
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/GRN/Delete?id=' + CustomerID,
+
+
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                )
+                                window.location.href = "/GRN/ViewGRN/"
+                            }
+                        }
+                    })
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
         }
+
+
+        //function ConfirmDelete(CustomerID) {
+        //    //swal.fire({
+        //    //    title: 'Are you sure?',
+        //    //    text: "You won't be able to revert this!",
+        //    //    icon: 'warning',
+        //    //    showCancelButton: true,
+        //    //    confirmButtonColor: '#3085d6',
+        //    //    cancelButtonColor: '#d33',
+        //    //    confirmButtonText: 'Yes, delete it!'
+        //    //}).then((result) => {
+        //    //    if (result.isConfirmed) {
+        //    //        Swal.fire(
+        //    //          'Deleted!',
+        //    //          'Your file has been deleted.',
+        //    //          'success'
+        //    //        )
+        //    //    }
+        //    //})
+        //    //$.ajax({
+        //    //    type: 'GET',
+        //    //    url: '/Vendor/Delete?id=' + CustomerID,
+        //    //    dataType: 'JSON',
+        //    //    success: function (res) {
+        //    //        if (res.success) {
+        //    //            swal.fire(
+        //    //                'Done!',
+        //    //                'Blocked',
+        //    //                'success'
+        //    //                )
+        //    //            window.location.href = "/Client/ViewClient"
+        //    //        }
+        //    //        else {
+        //    //            swal.fire(
+        //    //                'Error!',
+        //    //                'Failes',
+        //    //                'success'
+        //    //                )
+        //    //        }
+        //    //    },
+        //    //    failure: function (res) {
+        //    //        console.log(res);
+        //    //    },
+        //    //    err: function (res) {
+        //    //        console.log(res);
+        //    //    }
+        //    //})
+
+        //    swal({
+        //        title: 'Are you sure?',
+        //        text: "You won't be able to revert this!",
+        //        type: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonColor: '#3085d6',
+        //        cancelButtonColor: '#d33',
+        //        confirmButtonText: 'Delete '
+        //    }).then(function () {
+        //        swal(
+        //          'Deleted!',
+        //          'Your file has been deleted.',
+        //          'success'
+        //        )
+        //    })
+
+        //}
 
         function GenerateReport(CustomerID) {
 

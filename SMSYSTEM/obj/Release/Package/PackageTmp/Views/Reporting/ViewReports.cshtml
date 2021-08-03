@@ -1,4 +1,6 @@
-﻿@model SSS.Property.Setups.Reports.LP_Report_Property
+﻿<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+@model SSS.Property.Setups.Reports.LP_Report_Property
 @{
     ViewBag.Title = "ViewReports";
 }
@@ -25,8 +27,12 @@
                          new SelectListItem {Text="Inventory",Value="3" },
                          new SelectListItem {Text="Customer",Value="4" },
                          new SelectListItem {Text="Vendor",Value="5" },
-                         new SelectListItem {Text="Account Recivable",Value="6" },
-                         new SelectListItem {Text="Account Payable",Value="7" }
+                         new SelectListItem {Text="Product",Value="6" },
+                         new SelectListItem {Text="Account Recivable",Value="7" },
+                         new SelectListItem {Text="Account Payable",Value="8" },
+                         new SelectListItem {Text="Ledger Report",Value="9" },
+                         new SelectListItem {Text="Payment Report",Value="10" },
+                       new SelectListItem {Text="Sales Report",Value="11" },
 
 
                    }, new {@class= "form-control" })

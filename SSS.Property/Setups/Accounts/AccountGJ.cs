@@ -8,6 +8,8 @@ namespace SSS.Property.Setups.Accounts
     public class AccountGJ
     {
         // Added By Ahsan
+        public string vendorName { get; set; }
+        public decimal Bal { get; set; }
         public string IncometaxPercent { get; set; }
         public string ITAmount { get; set; }
         public string whSalesTaxAmount { get; set; }

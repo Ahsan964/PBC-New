@@ -33,7 +33,14 @@ namespace SSS.BLL.Transactions
             return _objPurchaseDAL.Insert();
 
         }
-        
+
+        public bool Delete()
+        {
+            _objPurchaseDAL = new LP_Purchase_DAL(_objPOMasterProperty);
+            return _objPurchaseDAL.Delete();
+
+        }
+
         public  DataTable SelectAll()
         {
             _objPurchaseDAL = new LP_Purchase_DAL();

@@ -160,7 +160,7 @@ namespace SMSYSTEM.Controllers
                 objSalesOrderProperty.soNumber = objSalesOrder.soNumber;
                 objSalesOrderProperty.customerIdx = objSalesOrder.customerIdx;
                 //objSalesOrderProperty.SalesOrderTypeIdx = objSalesOrder.SalesOrderTypeIdx;
-                objSalesOrderProperty.salesorderDate = DateTime.Parse(objSalesOrder.salesorderDate);
+               
                 objSalesOrderProperty.description = objSalesOrder.description;
                 objSalesOrderProperty.totalAmount = objSalesOrder.totalAmount;
                 objSalesOrderProperty.netAmount = objSalesOrder.netAmount;
@@ -176,12 +176,13 @@ namespace SMSYSTEM.Controllers
                 objSalesOrderProperty.WarerHouseID = objSalesOrder.WarerHouseID;
                 objSalesOrderProperty.salespersonIdx = objSalesOrder.salespersonIdx;
                 objSalesOrderProperty.qsIdx = qsIdx;
+                objSalesOrderProperty.CustomerCoaidx = CustomerData[0].coaIdx;
                 if (objSalesOrderProperty.bankIdx > 0)
                 {
                     objSalesOrderProperty.BankCOAIDX = BankList[0].coaidx;
                 }
                 
-                objSalesOrderProperty.CustomerCoaidx = CustomerData[0].coaIdx;
+               
                 //  objSalesOrderProperty.paidDate = ;// objSalesOrder.paidDate;
                
                     objSalesOrderProperty.DetailData = Helper.ToDataTable<SalesOrdersDetails_Property>(objSalesOrder.SalesOrderDetailLST);
@@ -194,6 +195,7 @@ namespace SMSYSTEM.Controllers
                 if (objSalesOrder.idx > 0)
                 {
                     objSalesOrderProperty.idx = objSalesOrder.idx;
+                    objSalesOrderProperty.lastModificationDate = DateTime.Now.ToString("MM/dd/yyyy");
                     objSalesOrderProperty.creationDate = DateTime.Now;
                     objSalesOrderProperty.visible = 1;
                     objSalesOrderProperty.createdByUserIdx = Convert.ToInt16(Session["UID"].ToString());
@@ -208,6 +210,8 @@ namespace SMSYSTEM.Controllers
                 {
 
                     //add
+                    objSalesOrderProperty.salesorderDate = DateTime.Parse(objSalesOrder.salesorderDate);
+                    
                     objSalesOrderProperty.creationDate = DateTime.Now;
                     objSalesOrderProperty.visible = 1;
                     objSalesOrderProperty.createdByUserIdx = Convert.ToInt16(Session["UID"].ToString());

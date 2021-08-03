@@ -978,7 +978,33 @@
                                                                     @{
                                                                         if (Model.idx > 0)
                                                                         {
-
+                                                          
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Customer*:</label>
+                                                                                    @Html.DropDownListFor(model => model.customerIdx, new SelectList(Model.CustomerLST, "idx", "customerName"), "Select Customers", new { @Class = "form-control font-weight-bold" })
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.customerIdx, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>SI Number*:</label>
+                                                                                    @Html.EditorFor(model => model.soNumber, new { htmlAttributes = new { @placeholder = "SO Number*:", @class = "form-control", @readonly = true } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.soNumber, "", new { @class = "text-danger" })
+                                                                            </div>
+                                                                            <div class="col-sm-3">
+                                                                                <!-- text input -->
+                                                                                <div class="form-group">
+                                                                                    <label>Date*:</label>
+                                                                                    @Html.EditorFor(model => model.salesorderDate, new { htmlAttributes = new { @placeholder = "Sales Order Date*:", @class = "form-control" } })
+                                                                                    @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                                                                                </div>
+                                                                                @Html.ValidationMessageFor(model => model.salesorderDate, "", new { @class = "text-danger" })
+                                                                            </div>
                                                                         }
                                                                         else
                                                                         {
@@ -1215,8 +1241,9 @@
                                                                             </div>
                                                                         </div>*@
                                                                 </div>
+
                                                                 <div class="row">
-                                                                    <div class="col-sm-4" id="divTxtPaid">
+                                                                <div class="col-sm-4" id="divTxtPaid">
                                                                         <div class="form-group">
                                                                             <label for="inputName">Paid Amount</label>
                                                                             @Html.EditorFor(model => model.paidAmount, new { htmlAttributes = new { @placeholder = "Paid Amount", @class = "form-control" } })
@@ -1984,7 +2011,7 @@
                                                                                 console.log(res);
                                                                                 if (res.success) {
 
-                                                                                    window.location.href = "/Invoice/Index"                                                                                }
+                                                                                    window.location.href = "/salesOrder/ViewsalesOrder"                                                                                }
                                                                                 else if (res.success == false && res.msg == 'Failed') {
 
                                                                                 }

@@ -223,71 +223,122 @@
             });
         }
 
-        function ConfirmDelete(CustomerID) {
-            $.ajax({
-                type: 'GET',
-                url: '/Warehouse/Delete?id=' + CustomerID,
-                dataType: 'JSON',
-                success: function (res) {
-                    if (res.success) {
-                        //swalWithBootstrapButtons.fire(
-                        //    'Done!',
-                        //    'Blocked',
-                        //    'success'
-                        //    )
-                        window.location.href = "/Warehouse/ViewWareHouse"
-                    }
-                    else {
-                        swalWithBootstrapButtons.fire(
-                            'Error!',
-                            'Failes',
-                            'success'
-                            )
-                    }
+        function ConfirmDelete(Idx) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
                 },
-                failure: function (res) {
-                    console.log(res);
-                },
-                err: function (res) {
-                    console.log(res);
+                buttonsStyling: false
+            })
+
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Warehouse/Delete?id=' + Idx,
+
+
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                )
+                                window.location.href = "/Warehouse/ViewWareHouse"
+                            }
+                        }
+                    })
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
                 }
             })
-            //const swalWithBootstrapButtons = Swal.mixin({
-            //    customClass: {
-            //        confirmButton: 'btn btn-success',
-            //        cancelButton: 'btn btn-danger'
-            //    },
-            //    buttonsStyling: false
-            //})
-
-            //swalWithBootstrapButtons.fire({
-            //    title: 'Are you sure?',
-            //    text: "",
-            //    type: 'warning',
-            //    showCancelButton: true,
-            //    confirmButtonText: 'Yes, Block!',
-            //    cancelButtonText: 'No, cancel!',
-            //    reverseButtons: true
-            //}).then((result) => {
-            //    if (result.value) {
-
-
-
-
-
-            //    } else if (
-            //        /* Read more about handling dismissals below */
-            //      result.dismiss === Swal.DismissReason.cancel
-            //    ) {
-            //        swalWithBootstrapButtons.fire(
-            //          'Cancelled',
-            //          '',
-            //          'error'
-            //        )
-            //    }
-            //})
-
         }
+
+        //function ConfirmDelete(CustomerID) {
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/Warehouse/Delete?id=' + CustomerID,
+        //        dataType: 'JSON',
+        //        success: function (res) {
+        //            if (res.success) {
+        //                //swalWithBootstrapButtons.fire(
+        //                //    'Done!',
+        //                //    'Blocked',
+        //                //    'success'
+        //                //    )
+        //                window.location.href = "/Warehouse/ViewWareHouse"
+        //            }
+        //            else {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Error!',
+        //                    'Failes',
+        //                    'success'
+        //                    )
+        //            }
+        //        },
+        //        failure: function (res) {
+        //            console.log(res);
+        //        },
+        //        err: function (res) {
+        //            console.log(res);
+        //        }
+        //    })
+        //    //const swalWithBootstrapButtons = Swal.mixin({
+        //    //    customClass: {
+        //    //        confirmButton: 'btn btn-success',
+        //    //        cancelButton: 'btn btn-danger'
+        //    //    },
+        //    //    buttonsStyling: false
+        //    //})
+
+        //    //swalWithBootstrapButtons.fire({
+        //    //    title: 'Are you sure?',
+        //    //    text: "",
+        //    //    type: 'warning',
+        //    //    showCancelButton: true,
+        //    //    confirmButtonText: 'Yes, Block!',
+        //    //    cancelButtonText: 'No, cancel!',
+        //    //    reverseButtons: true
+        //    //}).then((result) => {
+        //    //    if (result.value) {
+
+
+
+
+
+        //    //    } else if (
+        //    //        /* Read more about handling dismissals below */
+        //    //      result.dismiss === Swal.DismissReason.cancel
+        //    //    ) {
+        //    //        swalWithBootstrapButtons.fire(
+        //    //          'Cancelled',
+        //    //          '',
+        //    //          'error'
+        //    //        )
+        //    //    }
+        //    //})
+
+        //}
 
     </script>
 }

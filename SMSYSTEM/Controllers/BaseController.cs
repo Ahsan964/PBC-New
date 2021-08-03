@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using Microsoft.Reporting.WebForms;
 using Newtonsoft.Json;
 using SSS.BLL.Report;
 using SSS.BLL.Setups;
@@ -648,6 +649,46 @@ namespace SMSYSTEM.Controllers
 
         }
 
+        // Added By Ahsan
+        public FileResult File(LP_Report_Property objreportprprty)
+        {
+            LP_Reporting_BLL objrprtbll = new LP_Reporting_BLL(objreportprprty);
+            DataTable dt = objrprtbll.SelectReportData();
+
+            ReportViewer rv = new Microsoft.Reporting.WebForms.ReportViewer();
+            rv.ProcessingMode = ProcessingMode.Local;
+            rv.LocalReport.ReportPath = Server.MapPath("~/Reports/Report1.rdlc");
+            rv.LocalReport.Refresh();
+
+            DataSet ds = new DataSet();
+            ds.Tables.Add(dt);
+            // e.g. via DataAdapter
+            //// If your report needs parameters, they need to be set ...
+            //ReportParameter[] parameters = new ReportParameter[...];
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            //// Must match the DataSource in the RDLC
+            reportDataSource.Name = "Test_Pakistan_Consultant";
+            reportDataSource.Value = ds.Tables[0];
+
+            //// Add any parameters to the collection
+            //rv.LocalReport.SetParameters(parameters);
+            rv.LocalReport.DataSources.Add(reportDataSource);
+            rv.DataBind();
+
+            byte[] streamBytes = null;
+            string mimeType = "";
+            string encoding = "";
+            string filenameExtension = "";
+            string[] streamids = null;
+            Warning[] warnings = null;
+
+            streamBytes = rv.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+            return File(streamBytes, mimeType, "Report1.pdf");
+        }
+         
+
         public JsonResult SelectReportData(LP_Report_Property objreportprprty)
         {
             try
@@ -666,7 +707,7 @@ namespace SMSYSTEM.Controllers
                  
                 ReportDocument rd = new ReportDocument();
                // objreportprprty.ReportID
-                rd.Load(Path.Combine(Server.MapPath("~/Reports"), ReportName + ".rdlc"));
+                rd.Load(Path.Combine(Server.MapPath("~/Reports"), ReportName + ".rpt"));
 
                 // rd.SetDatabaseLogon("sa", "leaptech#0");
                 rd.SetDataSource(dt);

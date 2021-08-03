@@ -2010,6 +2010,7 @@ H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-m
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.AI.WindowsServer.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ApplicationInsights.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.ReportViewer.WebForms.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Microsoft.Web.Infrastructure.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\Newtonsoft.Json.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.dll
@@ -2024,19 +2025,6 @@ H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-m
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\FluentValidation.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\AjaxControlToolkit.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Controllers.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.Prompting.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\stdole.dll
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.BLL.pdb
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Property.pdb
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.Utility.pdb
@@ -2055,7 +2043,7 @@ H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-m
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\System.Web.Mvc.xml
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin\SSS.DAL.pdb
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\SMSYSTEM.csprojResolveAssemblyReference.cache
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\SMSYSTEM.dll
-H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\SMSYSTEM.pdb
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\RdlCompile.cache
 H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\RdlCompile.compiled
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\SMSYSTEM.dll
+H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\obj\Debug\SMSYSTEM.pdb

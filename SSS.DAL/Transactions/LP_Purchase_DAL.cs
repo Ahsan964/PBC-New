@@ -55,17 +55,18 @@ namespace SSS.DAL.Transactions
                    cmdToExecute.Parameters.Add(new SqlParameter("@description", SqlDbType.NVarChar, 80, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.description));
                     cmdToExecute.Parameters.Add(new SqlParameter("@totalamount", SqlDbType.Decimal, 4, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.totalAmount));
                     
-                    cmdToExecute.Parameters.Add(new SqlParameter("@creationdate", SqlDbType.DateTime, 50, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.creationDate));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@creationdate", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.lastModificationDate));
 
                     cmdToExecute.Parameters.Add(new SqlParameter("@createdbyuser", SqlDbType.Int, 4, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.createdByUserIdx));
                     cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.visible));
                     cmdToExecute.Parameters.Add(new SqlParameter("@status", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.status));
 
 
-                    cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.idx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.idx));
                     cmdToExecute.Parameters.Add(new SqlParameter("@MRNIdx", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.MRNIdx));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@DepartmentID", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.DepartmentID));
+                    //cmdToExecute.Parameters.Add(new SqlParameter("@DepartmentID", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.DepartmentID));
                     cmdToExecute.Parameters.Add(new SqlParameter("@WarerHouseID", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.WarerHouseID));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@masterPID", SqlDbType.Int, 32, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.idx));
 
                 }
                 else
@@ -113,45 +114,90 @@ namespace SSS.DAL.Transactions
                 _rowsAffected = cmdToExecute.ExecuteNonQuery();
                 // _iD = (Int32)cmdToExecute.Parameters["@iID"].Value;
                 //_errorCode = cmdToExecute.Parameters["@ErrorCode"].Value;
-
-                if (_objPOMasterProperty.DetailData != null)
+                if (_objPOMasterProperty.idx > 0)
                 {
-                    foreach (DataRow row in _objPOMasterProperty.DetailData.Rows)
+                    if (_objPOMasterProperty.DetailData != null)
                     {
-                        _objPOMasterProperty.idx = Convert.ToInt32(cmdToExecute.Parameters["@ID"].Value.ToString());
-                        row["purchaseIdx"] = cmdToExecute.Parameters["@ID"].Value.ToString();
+                        foreach (DataRow row in _objPOMasterProperty.DetailData.Rows)
+                        {
+                            _objPOMasterProperty.idx = Convert.ToInt32(cmdToExecute.Parameters["@masterPID"].Value.ToString());
+                            row["purchaseIdx"] = cmdToExecute.Parameters["@masterPID"].Value.ToString();
+                        }
+
+
+                        _objPOMasterProperty.DetailData.AcceptChanges();
+
+                        SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
+                        _objPOMasterProperty.DetailData.TableName = "purchaseDetails";
+
+                        sbc.ColumnMappings.Clear();
+                        sbc.ColumnMappings.Add("purchaseIdx", "purchaseIdx");
+                        //sbc.ColumnMappings.Add(2, 1);
+                        sbc.ColumnMappings.Add("productTypeIdx", "productTypeIdx");
+                        sbc.ColumnMappings.Add("itemIdx", "itemIdx");
+                        sbc.ColumnMappings.Add("unitPrice", "unitPrice");
+                        sbc.ColumnMappings.Add("qty", "qty");
+                        sbc.ColumnMappings.Add("amount", "amount");
+                        sbc.ColumnMappings.Add("qty", "openItem");
+                        sbc.ColumnMappings.Add("ItemDescription", "ItemDescription");
+                        sbc.ColumnMappings.Add("unitPrice", "DVRate");
+                        sbc.ColumnMappings.Add("amount", "TDVRate");
+                        sbc.ColumnMappings.Add("ADVRate", "ADVRate");
+                        //sbc.ColumnMappings.Add("Product_Code", "Product_Code");
+                        //sbc.ColumnMappings.Add("Product", "Product_Name");
+                        //sbc.ColumnMappings.Add("Status", "Status");
+
+                        //sbc.ColumnMappings.Add("Department_Id", "Department_Id");
+                        //sbc.ColumnMappings.Add("Description", "Description");
+
+                        sbc.DestinationTableName = _objPOMasterProperty.DetailData.TableName;
+                        sbc.WriteToServer(_objPOMasterProperty.DetailData);
+
                     }
-                       
+                }
+                else
+                {
+                    if (_objPOMasterProperty.DetailData != null)
+                    {
+                        foreach (DataRow row in _objPOMasterProperty.DetailData.Rows)
+                        {
+                            _objPOMasterProperty.idx = Convert.ToInt32(cmdToExecute.Parameters["@ID"].Value.ToString());
+                            row["purchaseIdx"] = cmdToExecute.Parameters["@ID"].Value.ToString();
+                        }
 
-                    _objPOMasterProperty.DetailData.AcceptChanges();
 
-                    SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
-                    _objPOMasterProperty.DetailData.TableName = "purchaseDetails";
+                        _objPOMasterProperty.DetailData.AcceptChanges();
 
-                    sbc.ColumnMappings.Clear();
-                    sbc.ColumnMappings.Add("purchaseIdx", "purchaseIdx");
-                    //sbc.ColumnMappings.Add(2, 1);
-                    sbc.ColumnMappings.Add("productTypeIdx", "productTypeIdx");
-                    sbc.ColumnMappings.Add("itemIdx", "itemIdx");
-                    sbc.ColumnMappings.Add("unitPrice", "unitPrice");
-                    sbc.ColumnMappings.Add("qty", "qty");
-                    sbc.ColumnMappings.Add("amount", "amount");
-                    sbc.ColumnMappings.Add("qty", "openItem");
-                    sbc.ColumnMappings.Add("ItemDescription", "ItemDescription");
-                    sbc.ColumnMappings.Add("unitPrice", "DVRate");
-                    sbc.ColumnMappings.Add("amount", "TDVRate");
-                    sbc.ColumnMappings.Add("ADVRate", "ADVRate");
-                    //sbc.ColumnMappings.Add("Product_Code", "Product_Code");
-                    //sbc.ColumnMappings.Add("Product", "Product_Name");
-                    //sbc.ColumnMappings.Add("Status", "Status");
+                        SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
+                        _objPOMasterProperty.DetailData.TableName = "purchaseDetails";
 
-                    //sbc.ColumnMappings.Add("Department_Id", "Department_Id");
-                    //sbc.ColumnMappings.Add("Description", "Description");
+                        sbc.ColumnMappings.Clear();
+                        sbc.ColumnMappings.Add("purchaseIdx", "purchaseIdx");
+                        //sbc.ColumnMappings.Add(2, 1);
+                        sbc.ColumnMappings.Add("productTypeIdx", "productTypeIdx");
+                        sbc.ColumnMappings.Add("itemIdx", "itemIdx");
+                        sbc.ColumnMappings.Add("unitPrice", "unitPrice");
+                        sbc.ColumnMappings.Add("qty", "qty");
+                        sbc.ColumnMappings.Add("amount", "amount");
+                        sbc.ColumnMappings.Add("qty", "openItem");
+                        sbc.ColumnMappings.Add("ItemDescription", "ItemDescription");
+                        sbc.ColumnMappings.Add("unitPrice", "DVRate");
+                        sbc.ColumnMappings.Add("amount", "TDVRate");
+                        sbc.ColumnMappings.Add("ADVRate", "ADVRate");
+                        //sbc.ColumnMappings.Add("Product_Code", "Product_Code");
+                        //sbc.ColumnMappings.Add("Product", "Product_Name");
+                        //sbc.ColumnMappings.Add("Status", "Status");
 
-                    sbc.DestinationTableName = _objPOMasterProperty.DetailData.TableName;
-                    sbc.WriteToServer(_objPOMasterProperty.DetailData);
+                        //sbc.ColumnMappings.Add("Department_Id", "Department_Id");
+                        //sbc.ColumnMappings.Add("Description", "Description");
+
+                        sbc.DestinationTableName = _objPOMasterProperty.DetailData.TableName;
+                        sbc.WriteToServer(_objPOMasterProperty.DetailData);
+
+                    }
 
                 }
+                
 
                 this.Commit();
                 if (_errorCode != (int)LLBLError.AllOk)
@@ -177,6 +223,62 @@ namespace SSS.DAL.Transactions
                     //// Close connection.
                     //_mainConnection.Close();
                     CloseConnection();
+                }
+                cmdToExecute.Dispose();
+            }
+        }
+
+
+        public bool Delete()
+        {
+            SqlCommand cmdToExecute = new SqlCommand();
+            cmdToExecute.CommandText = @"update Purchase SET visible=0 where idx=@ID";
+            //cmdToExecute.CommandType = CommandType.StoredProcedure;
+
+            // Use base class' connection object
+            cmdToExecute.Connection = _mainConnection;
+
+            try
+            {
+                //cmdToExecute.Parameters.Add(new SqlParameter("@companyIdx", SqlDbType.Int, 100, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objUserProperty.companyIdx));
+                cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 100, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.idx));
+
+                if (_mainConnectionIsCreatedLocal)
+                {
+                    // Open connection.
+                    _mainConnection.Open();
+                }
+                else
+                {
+                    if (_mainConnectionProvider.IsTransactionPending)
+                    {
+                        cmdToExecute.Transaction = _mainConnectionProvider.CurrentTransaction;
+                    }
+                }
+
+                // Execute query.
+                _rowsAffected = cmdToExecute.ExecuteNonQuery();
+                // _errorCode = (Int32)cmdToExecute.Parameters["@iErrorCode"].Value;
+
+                if (_errorCode != (int)LLBLError.AllOk)
+                {
+                    // Throw error.
+                    throw new Exception("Stored Procedure 'sp_upate_branch' reported the ErrorCode: " + _errorCode);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("Branch::Update::Error occured.", ex);
+            }
+            finally
+            {
+                if (_mainConnectionIsCreatedLocal)
+                {
+                    // Close connection.
+                    _mainConnection.Close();
                 }
                 cmdToExecute.Dispose();
             }

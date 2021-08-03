@@ -30,8 +30,8 @@ namespace SSS.DAL.Transactions
         public bool Delete()
         {
             SqlCommand cmdToExecute = new SqlCommand();
-            cmdToExecute.CommandText = @"update salesorder SET visible=0 where idx=@ID";
-            //cmdToExecute.CommandType = CommandType.StoredProcedure;
+            cmdToExecute.CommandText = @"dbo.[sp_PIDelete]";
+            cmdToExecute.CommandType = CommandType.StoredProcedure;
 
             // Use base class' connection object
             cmdToExecute.Connection = _mainConnection;
@@ -112,7 +112,7 @@ namespace SSS.DAL.Transactions
 
                     //    cmdToExecute.Parameters.Add(new SqlParameter("@creationdate", SqlDbType.DateTime, 50, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.creationDate));
 
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@createdbyuser", SqlDbType.Int, 4, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.createdByUserIdx));
+                       cmdToExecute.Parameters.Add(new SqlParameter("@createdBy", SqlDbType.Int, 4, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.CreatedBy));
                     //    cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.visible));
                     //    cmdToExecute.Parameters.Add(new SqlParameter("@status", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.status));
 
@@ -175,6 +175,7 @@ namespace SSS.DAL.Transactions
                     cmdToExecute.Parameters.Add(new SqlParameter("@whSalesTaxAmount", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, null));
                     cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.idx));
                     cmdToExecute.Parameters.Add(new SqlParameter("@glIdx", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.visible));
 
                 }
 
@@ -921,6 +922,7 @@ namespace SSS.DAL.Transactions
             {
                 if (_objpinvoiceproperty.idx > 0)
                 {
+                    cmdToExecute.Parameters.Add(new SqlParameter("@createdBy", SqlDbType.Int, 4, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.CreatedBy));
                     cmdToExecute.Parameters.Add(new SqlParameter("@InvoiceNo", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.InvoiceNo));
                     cmdToExecute.Parameters.Add(new SqlParameter("@TotalAmount", SqlDbType.Decimal, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.TotalAmount));
                     cmdToExecute.Parameters.Add(new SqlParameter("@NetAmount", SqlDbType.Decimal, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.NetAmount));
@@ -944,8 +946,8 @@ namespace SSS.DAL.Transactions
                     cmdToExecute.Parameters.Add(new SqlParameter("@ITAmount", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, null));
                     cmdToExecute.Parameters.Add(new SqlParameter("@whSalesTaxAmount", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, null));
                     cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.idx));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@masterID", SqlDbType.Int, 32, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@masterPId", SqlDbType.Int, 32, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.masterPId));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@masterID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@masterPId", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.masterPId));
 
                 }
                 else
@@ -976,6 +978,7 @@ namespace SSS.DAL.Transactions
                     cmdToExecute.Parameters.Add(new SqlParameter("@whSalesTaxAmount", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, null));
                     cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.idx));
                     cmdToExecute.Parameters.Add(new SqlParameter("@glIdx", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.visible));
 
                 }
 
@@ -1001,7 +1004,7 @@ namespace SSS.DAL.Transactions
                 {
                     //var piIdx = cmdToExecute.Parameters["@ID"].Value.ToString();
                     var GLIDX = (Int32)cmdToExecute.Parameters["@masterID"].Value;
-
+                    var piIdx = (Int32)cmdToExecute.Parameters["@masterPId"].Value;
                     #region TAX DETAILS
 
 
@@ -1048,10 +1051,43 @@ namespace SSS.DAL.Transactions
                     }
                     #endregion
 
-                    #region Account Master Entry
-//                    cmdToExecute.Parameters.Add(new SqlParameter("@masterID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
+                    #region Inventory Log and Inventory
 
-                  //  int GLIDX = (Int32)cmdToExecute.Parameters["@masterID"].Value;
+                    for (int i = 0; i < _objpinvoiceproperty.InvoiceDetails.Rows.Count; i++)
+                    {
+                        cmdToExecute = new SqlCommand();
+                        cmdToExecute.CommandText = "sp_InventoryMaster";
+                        cmdToExecute.CommandType = CommandType.StoredProcedure;
+                        cmdToExecute.Connection = _mainConnection;
+
+
+                        cmdToExecute.Parameters.Add(new SqlParameter("@productid", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, Convert.ToInt16(_objpinvoiceproperty.InvoiceDetails.Rows[i]["itemIdx"])));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@newqty", SqlDbType.Decimal, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, Convert.ToDecimal(_objpinvoiceproperty.InvoiceDetails.Rows[i]["Qty"])));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@newrate", SqlDbType.Decimal, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, Convert.ToDecimal(_objpinvoiceproperty.InvoiceDetails.Rows[i]["UnitPrice"])));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@wareHouseIdx", SqlDbType.Decimal, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, (_objpinvoiceproperty.WarerHouseID)));
+
+                        cmdToExecute.Transaction = this.Transaction;
+                        _rowsAffected = cmdToExecute.ExecuteNonQuery();
+                    }
+
+                    cmdToExecute = new SqlCommand();
+                    // cmdToExecute.CommandType = CommandType.StoredProcedure;
+                    cmdToExecute.CommandText = "dbo.[sp_ProcessPIForLogs]";
+                    cmdToExecute.CommandType = CommandType.StoredProcedure;
+                    cmdToExecute.Connection = _mainConnection;
+                    cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, piIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@WarehouseIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.WarerHouseID));
+                    //cmdToExecute.Parameters.Add(new SqlParameter("@WarehouseIdx", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed,));
+                    cmdToExecute.Transaction = this.Transaction;
+                    _rowsAffected = cmdToExecute.ExecuteNonQuery();
+
+                    #endregion
+
+
+                    #region Account Master Entry
+                    //                    cmdToExecute.Parameters.Add(new SqlParameter("@masterID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objpinvoiceproperty.glIdx));
+
+                    //  int GLIDX = (Int32)cmdToExecute.Parameters["@masterID"].Value;
                     //purchase entry for account gj same for all types
                     cmdToExecute = new SqlCommand();
                     // cmdToExecute.CommandType = CommandType.StoredProcedure;

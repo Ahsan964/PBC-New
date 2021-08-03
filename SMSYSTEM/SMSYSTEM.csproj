@@ -83,6 +83,7 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -582,7 +583,6 @@
     <Content Include="Views\Finance\GeneralVoucher.cshtml" />
     <Content Include="Views\FirstTier\ViewfirstTier.cshtml" />
     <Content Include="Views\PInvoice\PurchaseReturn.cshtml" />
-    <Content Include="Views\Reporting\ViewReports.cshtml" />
     <Content Include="Views\SalesPerson\ViewSalesPerson.cshtml" />
     <Content Include="Views\SalesPerson\AddNewSalesPerson.cshtml" />
     <Content Include="Views\Payment\Vouchers.cshtml" />
@@ -609,6 +609,7 @@
     <Content Include="Test_Pakistan_ConsultantDataSet.xss">
       <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Reporting\ViewReports.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

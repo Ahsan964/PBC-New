@@ -304,7 +304,7 @@ namespace SSS.DAL.Transactions
             if (objVoucherProperty.idx > 0)
             {
                 //sp_PurchaseUpdate
-                cmdToExecute.CommandText = "dbo.[sp_PurchaseUpdate]";
+                cmdToExecute.CommandText = "dbo.[sp_PVAccountsGLUpdate]";
             }
             else
             {
@@ -321,20 +321,25 @@ namespace SSS.DAL.Transactions
             {
                 if (objVoucherProperty.idx > 0)
                 {
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@poNumber", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.poNumber));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@vendorIdx", SqlDbType.Int, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.vendorIdx));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@description", SqlDbType.NVarChar, 80, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.description));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@totalamount", SqlDbType.Decimal, 4, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.totalAmount));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, false, 10, 1, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@modifieddate", SqlDbType.Date, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, null));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@paidamount", SqlDbType.Decimal, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@balance", SqlDbType.Decimal, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, 0.00m));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@discount", SqlDbType.Decimal, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, null));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@isCredit", SqlDbType.Int, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, 0));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, 1));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@paymentModeIdx", SqlDbType.Int, 50, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, objVoucherProperty.paymentModeIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@bankIdx", SqlDbType.Int, 20, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, objVoucherProperty.bankIdx));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@chequeNumber", SqlDbType.NVarChar, 5000, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, objVoucherProperty.accorChequeNumber));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@glIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.idx));
 
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@creationdate", SqlDbType.DateTime, 50, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.creationDate));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@IncometaxPercent", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.IncometaxPercent));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@ITAmount", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.ITAmount));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@whSalesTaxAmount", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.whSalesTaxAmount));
 
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@createdbyuser", SqlDbType.Int, 4, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.createdByUserIdx));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@visible", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.visible));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@status", SqlDbType.Int, 4, ParameterDirection.Input, true, 18, 1, "", DataRowVersion.Proposed, _objPOMasterProperty.status));
+                    cmdToExecute.Parameters.Add(new SqlParameter("@masterIdx", SqlDbType.Int, 500, ParameterDirection.Output, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.glIdx));
 
-
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@ID", SqlDbType.Int, 32, ParameterDirection.InputOutput, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.idx));
-                    //    cmdToExecute.Parameters.Add(new SqlParameter("@MRNIdx", SqlDbType.Int, 32, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, _objPOMasterProperty.MRNIdx));
                 }
                 else
                 {
@@ -404,153 +409,305 @@ namespace SSS.DAL.Transactions
                 // Execute query.
                 _rowsAffected = cmdToExecute.ExecuteNonQuery();
                 //_rowsAffected = 1;
-                GLIDX = (Int32)cmdToExecute.Parameters["@glIdx"].Value;
 
 
-                if (objVoucherProperty.DetailData != null)
+                if (objVoucherProperty.idx > 0)
                 {
-                    DataTable dt = new DataTable();
-                    dt = objVoucherProperty.DetailData;
-                    int count = objVoucherProperty.DetailData.Rows.Count;
-                    int customerIdx, coaIdx;
-                    string invoiceNo;
-                    decimal paidAmount, debit, credit, balanceAmount, previousBalance;
-                    for (int i = 0; i < count; i++)
+                    GLIDX = (Int32)cmdToExecute.Parameters["@masterIdx"].Value;
+                    if (objVoucherProperty.DetailData != null)
                     {
-                        int.TryParse(dt.Rows[i]["customerIdx"].ToString(), out customerIdx);//customer coadIdx
-                        invoiceNo = dt.Rows[i]["invoiceNo"].ToString();
-                        decimal.TryParse(dt.Rows[i]["credit"].ToString(), out paidAmount); //paidAmount
-                        decimal.TryParse(dt.Rows[i]["debit"].ToString(), out balanceAmount); //BalanceAmount
-                        decimal.TryParse(dt.Rows[i]["previousBalance"].ToString(), out previousBalance); //previousPaidAmount
-                        coaIdx = customerIdx;
-                        credit = 0.00m;
-                        debit = paidAmount;
-                        //int GLIDX = (Int32)cmdToExecute.Parameters["@glIdx"].Value;
-                        //purchase entry for account gj same for all types
+                        DataTable dt = new DataTable();
+                        dt = objVoucherProperty.DetailData;
+                        int count = objVoucherProperty.DetailData.Rows.Count;
+                        int customerIdx, coaIdx;
+                        string invoiceNo;
+                        decimal paidAmount, debit, credit, balanceAmount, previousBalance;
+                        for (int i = 0; i < count; i++)
+                        {
+                            int.TryParse(dt.Rows[i]["customerIdx"].ToString(), out customerIdx);//customer coadIdx
+                            invoiceNo = dt.Rows[i]["invoiceNo"].ToString();
+                            decimal.TryParse(dt.Rows[i]["credit"].ToString(), out paidAmount); //paidAmount
+                            decimal.TryParse(dt.Rows[i]["debit"].ToString(), out balanceAmount); //BalanceAmount
+                            decimal.TryParse(dt.Rows[i]["previousBalance"].ToString(), out previousBalance); //previousPaidAmount
+                            coaIdx = customerIdx;
+                            credit = 0.00m;
+                            debit = paidAmount;
+                            //int GLIDX = (Int32)cmdToExecute.Parameters["@glIdx"].Value;
+                            //purchase entry for account gj same for all types
+                            cmdToExecute = new SqlCommand();
+                            // cmdToExecute.CommandType = CommandType.StoredProcedure;
+                            cmdToExecute.CommandType = CommandType.StoredProcedure;
+                            cmdToExecute.CommandText = "sp_InsertAccountGj";
+                            cmdToExecute.Connection = _mainConnection;
+                            cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 5));//Receipt Voucher Trasaction Type
+
+                            cmdToExecute.Parameters.Add(new SqlParameter("@useridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.u_id));
+
+                            cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, customerIdx));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@employeeidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@customeridx", SqlDbType.Int, 25, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@coaidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, coaIdx)); //Sales
+                            cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, invoiceNo));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, credit));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, debit));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@creationDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.date_created));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@modifiedDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@DueDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+
+                            cmdToExecute.Transaction = this.Transaction;
+                            _rowsAffected = cmdToExecute.ExecuteNonQuery();
+                            #region paidAmount is LessThan Or Equal 
+
+                            if (paidAmount <= balanceAmount)
+                            {
+
+                                cmdToExecute = new SqlCommand();
+                                // cmdToExecute.CommandType = CommandType.StoredProcedure;
+                                cmdToExecute.CommandText = "sp_updateAmountOnVoucher";
+                                cmdToExecute.CommandType = CommandType.StoredProcedure;
+                                //cmdToExecute.CommandText = "sp_updateAmountOnReceipt";sp_updateAmountOnReceiptLessThan
+                                cmdToExecute.Connection = _mainConnection;
+                                cmdToExecute.Parameters.Add(new SqlParameter("@invoiceNo", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, invoiceNo));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@paidAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, paidAmount));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@balanceAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, balanceAmount));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@previousPaidAmount", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, previousBalance));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@vendorCOAIDX", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, customerIdx));//Receipt Voucher Trasaction Type
+                                cmdToExecute.Parameters.Add(new SqlParameter("@returnIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, returnIdx));
+                                cmdToExecute.Transaction = this.Transaction;
+                                _rowsAffected = cmdToExecute.ExecuteNonQuery();
+                                int check = (Int32)cmdToExecute.Parameters["@returnIdx"].Value;
+                            }
+
+                            foreach (DataRow row in objVoucherProperty.DetailData.Rows)
+                            {
+
+
+
+                                row["invoiceNo"] = objVoucherProperty.voucher_no;
+                                row["createDate"] = objVoucherProperty.date_created;
+                                row["userIdx"] = objVoucherProperty.u_id;
+                                row["GLIdx"] = GLIDX;
+                                row["tranTypeIdx"] = 6;
+                                row["debit"] = row["credit"];
+                                row["credit"] = 0;
+
+
+
+                            }
+
+
+                            objVoucherProperty.DetailData.AcceptChanges();
+
+                            SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
+                            objVoucherProperty.DetailData.TableName = "accountgj";
+                            sbc.ColumnMappings.Clear();
+                            sbc.ColumnMappings.Add("GLIdx", "GLIdx");
+                            sbc.ColumnMappings.Add("invoiceNo", "invoiceNo");
+                            sbc.ColumnMappings.Add("userIdx", "userIdx");
+                            sbc.ColumnMappings.Add("tranTypeIdx", "tranTypeIdx");
+                            sbc.ColumnMappings.Add("coaIdx", "coaIdx");
+                            sbc.ColumnMappings.Add("debit", "debit");
+                            sbc.ColumnMappings.Add("credit", "credit");
+                            sbc.ColumnMappings.Add("createDate", "createDate");
+
+                            sbc.DestinationTableName = objVoucherProperty.DetailData.TableName;
+                            sbc.WriteToServer(objVoucherProperty.DetailData);
+
+                        }
+
+                    }
+                    #region Payment Option
+                    if (objVoucherProperty.paymentModeIdx > 0)
+                    {
+
                         cmdToExecute = new SqlCommand();
-                        // cmdToExecute.CommandType = CommandType.StoredProcedure;
+
                         cmdToExecute.CommandType = CommandType.StoredProcedure;
                         cmdToExecute.CommandText = "sp_InsertAccountGj";
                         cmdToExecute.Connection = _mainConnection;
-                        cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX));
-                        cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 5));//Receipt Voucher Trasaction Type
+                        cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX)); //Abhi k liye hard coded
+                        cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 6));//Payment Voucher Trasaction Type
 
                         cmdToExecute.Parameters.Add(new SqlParameter("@useridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.u_id));
 
-                        cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, customerIdx));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
                         cmdToExecute.Parameters.Add(new SqlParameter("@employeeidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
                         cmdToExecute.Parameters.Add(new SqlParameter("@customeridx", SqlDbType.Int, 25, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                        if (objVoucherProperty.paymentModeIdx == 1)
+                        {
+                            coaIdx = 54;
+                        }
+                        if (objVoucherProperty.paymentModeIdx == 3 || objVoucherProperty.paymentModeIdx == 2)
+                        {
+                            coaIdx = objVoucherProperty.bankIdx; //bank coaIdx
+                        }
+                        if (objVoucherProperty.paymentModeIdx == 4)
+                        {
+                            coaIdx = 55;//customer Payment coaIdx
+                        }
                         cmdToExecute.Parameters.Add(new SqlParameter("@coaidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, coaIdx)); //Sales
-                        cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, invoiceNo));
-                        cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, credit));
-                        cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, debit));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_no));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, 0));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
                         cmdToExecute.Parameters.Add(new SqlParameter("@creationDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.date_created));
                         cmdToExecute.Parameters.Add(new SqlParameter("@modifiedDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
                         cmdToExecute.Parameters.Add(new SqlParameter("@DueDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
 
                         cmdToExecute.Transaction = this.Transaction;
                         _rowsAffected = cmdToExecute.ExecuteNonQuery();
-                        #region paidAmount is LessThan Or Equal 
-
-                        if (paidAmount <= balanceAmount)
+                    }
+                    #endregion
+                }
+                else
+                {
+                    GLIDX = (Int32)cmdToExecute.Parameters["@glIdx"].Value;
+                    if (objVoucherProperty.DetailData != null)
+                    {
+                        DataTable dt = new DataTable();
+                        dt = objVoucherProperty.DetailData;
+                        int count = objVoucherProperty.DetailData.Rows.Count;
+                        int customerIdx, coaIdx;
+                        string invoiceNo;
+                        decimal paidAmount, debit, credit, balanceAmount, previousBalance;
+                        for (int i = 0; i < count; i++)
                         {
-
+                            int.TryParse(dt.Rows[i]["customerIdx"].ToString(), out customerIdx);//customer coadIdx
+                            invoiceNo = dt.Rows[i]["invoiceNo"].ToString();
+                            decimal.TryParse(dt.Rows[i]["credit"].ToString(), out paidAmount); //paidAmount
+                            decimal.TryParse(dt.Rows[i]["debit"].ToString(), out balanceAmount); //BalanceAmount
+                            decimal.TryParse(dt.Rows[i]["previousBalance"].ToString(), out previousBalance); //previousPaidAmount
+                            coaIdx = customerIdx;
+                            credit = 0.00m;
+                            debit = paidAmount;
+                            //int GLIDX = (Int32)cmdToExecute.Parameters["@glIdx"].Value;
+                            //purchase entry for account gj same for all types
                             cmdToExecute = new SqlCommand();
                             // cmdToExecute.CommandType = CommandType.StoredProcedure;
-                            cmdToExecute.CommandText = "sp_updateAmountOnVoucher";
                             cmdToExecute.CommandType = CommandType.StoredProcedure;
-                            //cmdToExecute.CommandText = "sp_updateAmountOnReceipt";sp_updateAmountOnReceiptLessThan
+                            cmdToExecute.CommandText = "sp_InsertAccountGj";
                             cmdToExecute.Connection = _mainConnection;
-                            cmdToExecute.Parameters.Add(new SqlParameter("@invoiceNo", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, invoiceNo));
-                            cmdToExecute.Parameters.Add(new SqlParameter("@paidAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, paidAmount));
-                            cmdToExecute.Parameters.Add(new SqlParameter("@balanceAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, balanceAmount));
-                            cmdToExecute.Parameters.Add(new SqlParameter("@previousPaidAmount", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, previousBalance));
-                            cmdToExecute.Parameters.Add(new SqlParameter("@vendorCOAIDX", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, customerIdx));//Receipt Voucher Trasaction Type
-                            cmdToExecute.Parameters.Add(new SqlParameter("@returnIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, returnIdx));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 5));//Receipt Voucher Trasaction Type
+
+                            cmdToExecute.Parameters.Add(new SqlParameter("@useridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.u_id));
+
+                            cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, customerIdx));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@employeeidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@customeridx", SqlDbType.Int, 25, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@coaidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, coaIdx)); //Sales
+                            cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, invoiceNo));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, credit));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, debit));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@creationDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.date_created));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@modifiedDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                            cmdToExecute.Parameters.Add(new SqlParameter("@DueDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+
                             cmdToExecute.Transaction = this.Transaction;
                             _rowsAffected = cmdToExecute.ExecuteNonQuery();
-                            int check = (Int32)cmdToExecute.Parameters["@returnIdx"].Value;
+                        
+
+                            if (paidAmount <= balanceAmount)
+                            {
+
+                                cmdToExecute = new SqlCommand();
+                                // cmdToExecute.CommandType = CommandType.StoredProcedure;
+                                cmdToExecute.CommandText = "sp_updateAmountOnVoucher";
+                                cmdToExecute.CommandType = CommandType.StoredProcedure;
+                                //cmdToExecute.CommandText = "sp_updateAmountOnReceipt";sp_updateAmountOnReceiptLessThan
+                                cmdToExecute.Connection = _mainConnection;
+                                cmdToExecute.Parameters.Add(new SqlParameter("@invoiceNo", SqlDbType.NVarChar, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, invoiceNo));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@paidAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, paidAmount));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@balanceAmount", SqlDbType.Int, 500, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, balanceAmount));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@previousPaidAmount", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, previousBalance));
+                                cmdToExecute.Parameters.Add(new SqlParameter("@vendorCOAIDX", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, customerIdx));//Receipt Voucher Trasaction Type
+                                cmdToExecute.Parameters.Add(new SqlParameter("@returnIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, returnIdx));
+                                cmdToExecute.Transaction = this.Transaction;
+                                _rowsAffected = cmdToExecute.ExecuteNonQuery();
+                                int check = (Int32)cmdToExecute.Parameters["@returnIdx"].Value;
+                            }
+
+                            foreach (DataRow row in objVoucherProperty.DetailData.Rows)
+                            {
+
+
+
+                                row["invoiceNo"] = objVoucherProperty.voucher_no;
+                                row["createDate"] = objVoucherProperty.date_created;
+                                row["userIdx"] = objVoucherProperty.u_id;
+                                row["GLIdx"] = GLIDX;
+                                row["tranTypeIdx"] = 6;
+                                row["debit"] = row["credit"];
+                                row["credit"] = 0;
+
+
+
+                            }
+
+
+                            objVoucherProperty.DetailData.AcceptChanges();
+
+                            SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
+                            objVoucherProperty.DetailData.TableName = "accountgj";
+                            sbc.ColumnMappings.Clear();
+                            sbc.ColumnMappings.Add("GLIdx", "GLIdx");
+                            sbc.ColumnMappings.Add("invoiceNo", "invoiceNo");
+                            sbc.ColumnMappings.Add("userIdx", "userIdx");
+                            sbc.ColumnMappings.Add("tranTypeIdx", "tranTypeIdx");
+                            sbc.ColumnMappings.Add("coaIdx", "coaIdx");
+                            sbc.ColumnMappings.Add("debit", "debit");
+                            sbc.ColumnMappings.Add("credit", "credit");
+                            sbc.ColumnMappings.Add("createDate", "createDate");
+
+                            sbc.DestinationTableName = objVoucherProperty.DetailData.TableName;
+                            sbc.WriteToServer(objVoucherProperty.DetailData);
+
                         }
 
-                        foreach (DataRow row in objVoucherProperty.DetailData.Rows)
+                    }
+                    #region Payment Option
+                    if (objVoucherProperty.paymentModeIdx > 0)
+                    {
+
+                        cmdToExecute = new SqlCommand();
+
+                        cmdToExecute.CommandType = CommandType.StoredProcedure;
+                        cmdToExecute.CommandText = "sp_InsertAccountGj";
+                        cmdToExecute.Connection = _mainConnection;
+                        cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX)); //Abhi k liye hard coded
+                        cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 6));//Payment Voucher Trasaction Type
+
+                        cmdToExecute.Parameters.Add(new SqlParameter("@useridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.u_id));
+
+                        cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@employeeidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@customeridx", SqlDbType.Int, 25, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                        if (objVoucherProperty.paymentModeIdx == 1)
                         {
-
-
-
-                            row["invoiceNo"] = objVoucherProperty.voucher_no;
-                            row["createDate"] = objVoucherProperty.date_created;
-                            row["userIdx"] = objVoucherProperty.u_id;
-                            row["GLIdx"] = GLIDX;
-                            row["tranTypeIdx"] = 6;
-                            row["debit"] = row["credit"];
-                            row["credit"] = 0;
-
-
-
+                            coaIdx = 54;
                         }
+                        if (objVoucherProperty.paymentModeIdx == 3 || objVoucherProperty.paymentModeIdx == 2)
+                        {
+                            coaIdx = objVoucherProperty.bankIdx; //bank coaIdx
+                        }
+                        if (objVoucherProperty.paymentModeIdx == 4)
+                        {
+                            coaIdx = 55;//customer Payment coaIdx
+                        }
+                        cmdToExecute.Parameters.Add(new SqlParameter("@coaidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, coaIdx)); //Sales
+                        cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_no));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, 0));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@creationDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.date_created));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@modifiedDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
+                        cmdToExecute.Parameters.Add(new SqlParameter("@DueDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
 
-
-                        objVoucherProperty.DetailData.AcceptChanges();
-
-                        SqlBulkCopy sbc = new SqlBulkCopy(_mainConnection, SqlBulkCopyOptions.Default, this.Transaction);
-                        objVoucherProperty.DetailData.TableName = "accountgj";
-                        sbc.ColumnMappings.Clear();
-                        sbc.ColumnMappings.Add("GLIdx", "GLIdx");
-                        sbc.ColumnMappings.Add("invoiceNo", "invoiceNo");
-                        sbc.ColumnMappings.Add("userIdx", "userIdx");
-                        sbc.ColumnMappings.Add("tranTypeIdx", "tranTypeIdx");
-                        sbc.ColumnMappings.Add("coaIdx", "coaIdx");
-                        sbc.ColumnMappings.Add("debit", "debit");
-                        sbc.ColumnMappings.Add("credit", "credit");
-                        sbc.ColumnMappings.Add("createDate", "createDate");
-
-                        sbc.DestinationTableName = objVoucherProperty.DetailData.TableName;
-                        sbc.WriteToServer(objVoucherProperty.DetailData);
-
+                        cmdToExecute.Transaction = this.Transaction;
+                        _rowsAffected = cmdToExecute.ExecuteNonQuery();
                     }
-
+                    #endregion
                 }
-                #region Payment Option
-                if (objVoucherProperty.paymentModeIdx > 0)
-                {
 
-                    cmdToExecute = new SqlCommand();
-
-                    cmdToExecute.CommandType = CommandType.StoredProcedure;
-                    cmdToExecute.CommandText = "sp_InsertAccountGj";
-                    cmdToExecute.Connection = _mainConnection;
-                    cmdToExecute.Parameters.Add(new SqlParameter("@GLIdx", SqlDbType.Int, 50, ParameterDirection.Input, true, 10, 0, "", DataRowVersion.Proposed, GLIDX)); //Abhi k liye hard coded
-                    cmdToExecute.Parameters.Add(new SqlParameter("@TransTypeIdx", SqlDbType.Int, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, 6));//Payment Voucher Trasaction Type
-
-                    cmdToExecute.Parameters.Add(new SqlParameter("@useridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.u_id));
-
-                    cmdToExecute.Parameters.Add(new SqlParameter("@vendoridx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@employeeidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@customeridx", SqlDbType.Int, 25, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
-                    if (objVoucherProperty.paymentModeIdx == 1)
-                    {
-                        coaIdx = 54;
-                    }
-                    if (objVoucherProperty.paymentModeIdx == 3 || objVoucherProperty.paymentModeIdx == 2)
-                    {
-                        coaIdx = objVoucherProperty.bankIdx; //bank coaIdx
-                    }
-                    if (objVoucherProperty.paymentModeIdx == 4)
-                    {
-                        coaIdx = 55;//customer Payment coaIdx
-                    }
-                    cmdToExecute.Parameters.Add(new SqlParameter("@coaidx", SqlDbType.Int, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, coaIdx)); //Sales
-                    cmdToExecute.Parameters.Add(new SqlParameter("@invoiceidx", SqlDbType.NVarChar, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_no));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@debit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, 0));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@credit", SqlDbType.Decimal, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.voucher_amount));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@creationDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.date_created));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@modifiedDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
-                    cmdToExecute.Parameters.Add(new SqlParameter("@DueDate", SqlDbType.Date, 500, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, null));
-
-                    cmdToExecute.Transaction = this.Transaction;
-                    _rowsAffected = cmdToExecute.ExecuteNonQuery();
-                }
-                #endregion
 
                 this.Commit();
                 if (_errorCode != (int)LLBLError.AllOk)
@@ -760,6 +917,65 @@ namespace SSS.DAL.Transactions
             }
         }
 
+        //Added By Ahsan
+        public DataTable SelectOnePaymentVoucher()
+        {
+            SqlCommand cmdToExecute = new SqlCommand();
+            cmdToExecute.CommandText = "dbo.[sp_SelctPVByid]";
+            //cmdToExecute.CommandText = "dbo.[sp_AccountsGLInsert]";
+            cmdToExecute.CommandType = CommandType.StoredProcedure;
+            DataTable toReturn = new DataTable("Banks");
+            SqlDataAdapter adapter = new SqlDataAdapter(cmdToExecute);
+
+            // Use base class' connection object
+            cmdToExecute.Connection = _mainConnection;
+
+            try
+            {
+
+                cmdToExecute.Parameters.Add(new SqlParameter("@id", SqlDbType.Int, 100, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, objVoucherProperty.idx));
+
+
+                if (_mainConnectionIsCreatedLocal)
+                {
+                    // Open connection.
+                    _mainConnection.Open();
+                }
+                else
+                {
+                    if (_mainConnectionProvider.IsTransactionPending)
+                    {
+                        cmdToExecute.Transaction = _mainConnectionProvider.CurrentTransaction;
+                    }
+                }
+                // Execute query.
+                adapter.Fill(toReturn);
+                //  _errorCode = (Int32)cmdToExecute.Parameters["@iErrorCode"].Value;
+
+                //if (_errorCode != (int)LLBLError.AllOk)
+                //{
+                //    // Throw error.
+                //    throw new Exception("Stored Procedure 'pr_PRODUCT_SETUP_SelectAll' reported the ErrorCode: " + _errorCode);
+                //}
+
+                return toReturn;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("PRODUCT_SETUP::SelectAll::Error occured.", ex);
+            }
+            finally
+            {
+                if (_mainConnectionIsCreatedLocal)
+                {
+                    // Close connection.
+                    _mainConnection.Close();
+                }
+                cmdToExecute.Dispose();
+                adapter.Dispose();
+            }
+        }
 
         public DataTable getCashBalance()
         {

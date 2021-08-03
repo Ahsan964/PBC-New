@@ -150,7 +150,7 @@ namespace SMSYSTEM.Controllers
                 if (objquotation.idx > 0)
                 {
                     objQuotationProperty.idx = objquotation.idx;
-                    objQuotationProperty.creationDate = DateTime.Now;
+                    objQuotationProperty.lastModificationDate = DateTime.Now.ToString("MM/dd/yyyy");
                     objQuotationProperty.visible = 1;
                     objQuotationProperty.createdByUserIdx = Convert.ToInt16(Session["UID"].ToString());
                     objQuotationProperty.visible = 1;

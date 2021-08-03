@@ -7,6 +7,8 @@ namespace SSS.Property.Setups
 {
     public class PurchaseDetails_Property
     {
+        // Added By Ahsan
+        public string itemName { get; set; }
         private int _idx;
         public int idx
         {

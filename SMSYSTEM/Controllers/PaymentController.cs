@@ -56,8 +56,21 @@ namespace SMSYSTEM.Controllers
             if (Session["LOGGEDIN"] != null)
             {
                 objvoucherVM = new LP_Voucher_ViewModel();
+                objvoucherVM.idx = Convert.ToInt32(id);
                 if (objvoucherVM.idx > 0)
                 {
+                    objpaymentprop = new payment_property();
+                    objpaymentprop.idx = objvoucherVM.idx;
+                    objpaymentBll = new Payment_BLL(objpaymentprop);
+
+                    objvoucherVM.BankList = Helper.ConvertDataTable<Company_Bank_Property>(GetAllCompanyBanks());
+                    objvoucherVM.Vendorlist = Helper.ConvertDataTable<Vendors_Property>(GetAllVendors());
+
+                    var dt = objpaymentBll.SelectOnePaymentVoucher();
+                    objvoucherVM.idx = Convert.ToInt16(dt.Rows[0]["idxx"].ToString());
+                    objvoucherVM.voucher_no = dt.Rows[0]["invoiceNoIdx"].ToString();
+
+                    objvoucherVM.AccountGJLST = Helper.ConvertDataTable<AccountGJ>(dt);
 
                 }
                 else
@@ -116,17 +129,17 @@ namespace SMSYSTEM.Controllers
 
                 if (objVoucher.idx > 0)
                 {
-                    ////objMRNProperty.creationDate = DateTime.Now;
-                    ////objMRNProperty.visible = 1;
-                    ////// objMRNProperty.status = "0";
-                    ////objMRNProperty.createdByUserIdx = Convert.ToInt16(Session["UID"].ToString());
-                    //objvouchermaster.creationDate = DateTime.Now;
-                    //objvouchermaster.lastModificationDate = DateTime.Now;
-                    //objvouchermaster.lastModifiedByUserIdx = Convert.ToInt16(Session["UID"].ToString());
-                    ////  objMRNVM_Property.createdByUserIdx = DateTime.Now; ;
-                    //objvouchermaster.TableName = "MRNDetails";
-                    //objMRNBll = new LP_MRN_BLL(objvouchermaster);
-                    //flag = objMRNBll.Insert();
+                    objpaymentprop.status = 0;
+                    objpaymentprop.accorChequeNumber = objVoucher.accorChequeNumber;
+                    objpaymentprop.bankIdx = objVoucher.bankIdx;
+                    objpaymentprop.paymentModeIdx = objVoucher.paymentModeIdx;
+                    objpaymentprop.voucher_amount = objVoucher.voucher_amount;
+                    objpaymentprop.DetailData = Helper.ToDataTable<AccountGJ>(objVoucher.AccountGJLST);
+                    objpaymentprop.u_id = Convert.ToInt16(Session["UID"].ToString());
+
+                    objpaymentprop.TableName = "accountGJ";
+                    objpaymentBll = new Payment_BLL(objpaymentprop);
+                    flag = objpaymentBll.InsertPayment();
                     //update
                 }
                 else

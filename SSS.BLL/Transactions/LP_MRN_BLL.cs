@@ -27,6 +27,13 @@ namespace SSS.BLL.Transactions
             _objMRDetailProperty = objMRDetailProperty;
         }
 
+        public bool Delete()
+        {
+            _objMRNDAL = new LP_MRN_DAL(_objMRMasterProperty);
+            return _objMRNDAL.Delete();
+
+        }
+
         public bool Insert()
         {
             _objMRNDAL = new LP_MRN_DAL(_objMRMasterProperty);

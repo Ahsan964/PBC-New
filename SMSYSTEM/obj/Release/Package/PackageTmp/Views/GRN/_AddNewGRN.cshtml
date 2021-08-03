@@ -41,6 +41,14 @@
                 </div>
                 @Html.ValidationMessageFor(model => model.Date_Created, "", new { @class = "text-danger" })
             </div>
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Select WareHouse*:</label>
+                    @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.WareHouseList, "idx", "WareHouseName"), "Select WareHouse", new { @Class = "form-control font-weight-bold" })
+                </div>
+                @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
+            </div>
         </div>
         <hr />
         <div class="row" id="PurchaseDetails">
@@ -66,12 +74,12 @@
                                             </thead>
                                             <tbody>
                                                 @{
-                                                if (ViewBag.DetailData != null)
+                                                if (Model.GRNDeatilList != null)
                                                 {
 
 
 
-                                                    foreach (var items in ViewBag.DetailData)
+                                                    foreach (var items in Model.GRNDeatilList)
                                                     {
                                                         <tr>
                                                             <td style="display:none">@items.Product_Id</td>
@@ -133,6 +141,20 @@
 @section MyScripts {
     <script type="text/javascript">
 
+        function onSubmitValdaitions() {
+            var result = true;
+            var Parent_DocID = $("#Parent_DocID").val();
+            var WarerHouseID = $("#WarerHouseID").val();
+            var tableCount = $("#example2 tr").length-1;
+            var totalAmount = $("#Total_Amount").val();
+            if (Number(Parent_DocID) > 0 && Number(WarerHouseID) > 0 && Number(tableCount) > 0 && Number(totalAmount) > 0) {
+                result = true
+            }
+            else {
+                result = false;
+            }
+            return result;
+        }
         $('#Date_Created').change(function () {
             var date = $(this).val();
             console.log(date, 'change')
@@ -151,7 +173,14 @@
         // Add To grid
         $("#Parent_DocID").on('change', function () {
             var ddvaue = $("#Parent_DocID option:selected").val();
-            GetPODataSet(ddvaue)
+            if (Number(ddvaue) > 0) {
+                GetPODataSet(ddvaue)
+            }
+            else
+            {
+                $("#example2 tbody").empty();
+                $("#WarerHouseID")[0].selectedIndex = 0;
+            }
 
         });
         function GetPODataSet(poid) {
@@ -160,8 +189,9 @@
                 data:{id:poid},
                 success: function (data) {
                     var POData =JSON.parse(data.data);
-                    console.log(POData);
-
+                    //console.log(POData);
+                    var WarerHouseID = POData[0].WarerHouseID;
+                    $("#WarerHouseID").val(WarerHouseID);//Added By Arsalan 08-07-21
                     $("#example2 tbody").empty();
                     $('#milestones').show();
                     var markup;
@@ -288,115 +318,126 @@
 
         //add customer button event
         $("#btnsubmit").click(function (e) {
-            console.log("here");
-            e.preventDefault();
-            var datatosend = {
-                objGRN: {
-                    ID: $('#ID').val(),
-                    Parent_DocID: $('#Parent_DocID').val(),
-                    Doc_No: $('#Doc_No').val(),
-                    Date_Created: $('#Date_Created').val(),
-                    Narration: $('#Narration').val(),
-                    Total_Amount: $('#Total_Amount').val(),
-                    //PageList:[{ID:1},{ID:2},{ID:3}]
-                    GRNDeatilList: []
-                }
 
-            }
-            var table = $("#example2 tbody");
-
-            var milestonearray = [];
-            var milestonedetails = {
-            };
-            var pomasternetamount = 0;
-            table.find('tr').each(function (i) {
-                //alert(1);
-                //console.log($(this).find('td').eq(5).find('.rcvqty').val());
-                var $tds = $(this).find('td'),
-                    productid = $tds.eq(0).text(),
-                    itemamount = $tds.eq(4).text(),
-                    unitprice = $tds.eq(3).text(),
-                    qty = $(this).find('td').eq(5).find('.rcvqty').val();
-
-                datatosend.objGRN.GRNDeatilList.push({
-                    Product_Id: productid,
-                    Quantity: qty,
-                    Rate: unitprice,
-                    TotalAmount: qty * unitprice
-                })
-
-
-            });
-
-            var form = $("#purchaseform");
-            console.log(datatosend)
-            $.validator.unobtrusive.parse(form);
-            if ($(form).valid()) {
-                $.ajax({
-                    type: "POST",
-                    url: "/GRN/AddUpdate",
-                    data: JSON.stringify(datatosend),// JSON.stringify(milestonearray),// $(form).serialize(),
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    success: function (res) {
-                        console.log(res);
-                        if (res.success) {
-                            //Command: toastr["success"]("", "Added Successfuly")
-
-                            //toastr.options = {
-                            //    "closeButton": false,
-                            //    "debug": false,
-                            //    "newestOnTop": false,
-                            //    "progressBar": true,
-                            //    "positionClass": "toast-top-center",
-                            //    "preventDuplicates": false,
-                            //    "onclick": null,
-                            //    "showDuration": "300",
-                            //    "hideDuration": "1000",
-                            //    "timeOut": "5000",
-                            //    "extendedTimeOut": "1000",
-                            //    "showEasing": "swing",
-                            //    "hideEasing": "linear",
-                            //    "showMethod": "fadeIn",
-                            //    "hideMethod": "fadeOut"
-                            //}
-                            window.location.href = res.data;
-                            //window.location.href = "/GRN/ViewGRN"
-                        }
-                        else if (res.success == false && res.msg == 'Failed') {
-                            //    Command: toastr["error"]("Invalid ", " Failed")
-
-                            //toastr.options = {
-                            //    "closeButton": false,
-                            //    "debug": false,
-                            //    "newestOnTop": false,
-                            //    "progressBar": true,
-                            //    "positionClass": "toast-top-center",
-                            //    "preventDuplicates": false,
-                            //    "onclick": null,
-                            //    "showDuration": "300",
-                            //    "hideDuration": "1000",
-                            //    "timeOut": "5000",
-                            //    "extendedTimeOut": "1000",
-                            //    "showEasing": "swing",
-                            //    "hideEasing": "linear",
-                            //    "showMethod": "fadeIn",
-                            //    "hideMethod": "fadeOut"
-                            //}
-                        }
-                    },
-                    failure: function (res) {
-                        console.log(res);
-                    },
-                    err: function (res) {
-                        console.log(res);
+            var result = onSubmitValdaitions();
+            if (result)
+            {
+                console.log("here");
+                e.preventDefault();
+                var datatosend = {
+                    objGRN: {
+                        ID: $('#ID').val(),
+                        Parent_DocID: $('#Parent_DocID').val(),
+                        Doc_No: $('#Doc_No').val(),
+                        Date_Created: $('#Date_Created').val(),
+                        Narration: $('#Narration').val(),
+                        Total_Amount: $('#Total_Amount').val(),
+                        WarerHouseID: $("#WarerHouseID option:selected").val(),
+                        //PageList:[{ID:1},{ID:2},{ID:3}]
+                        GRNDeatilList: []
                     }
 
-                })
+                }
+                var table = $("#example2 tbody");
+
+                var milestonearray = [];
+                var milestonedetails = {
+                };
+                var pomasternetamount = 0;
+                table.find('tr').each(function (i) {
+                    //alert(1);
+                    //console.log($(this).find('td').eq(5).find('.rcvqty').val());
+                    var $tds = $(this).find('td'),
+                        productid = $tds.eq(0).text(),
+                        itemamount = $tds.eq(4).text(),
+                        unitprice = $tds.eq(3).text(),
+                        qty = $(this).find('td').eq(5).find('.rcvqty').val();
+
+                    datatosend.objGRN.GRNDeatilList.push({
+                        Product_Id: productid,
+                        Quantity: qty,
+                        Rate: unitprice,
+                        TotalAmount: qty * unitprice
+                    })
+
+
+                });
+
+                var form = $("#purchaseform");
+                console.log(datatosend)
+                $.validator.unobtrusive.parse(form);
+                if ($(form).valid()) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/GRN/AddUpdate",
+                        data: JSON.stringify(datatosend),// JSON.stringify(milestonearray),// $(form).serialize(),
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        success: function (res) {
+                            console.log(res);
+                            if (res.success) {
+                                //Command: toastr["success"]("", "Added Successfuly")
+
+                                //toastr.options = {
+                                //    "closeButton": false,
+                                //    "debug": false,
+                                //    "newestOnTop": false,
+                                //    "progressBar": true,
+                                //    "positionClass": "toast-top-center",
+                                //    "preventDuplicates": false,
+                                //    "onclick": null,
+                                //    "showDuration": "300",
+                                //    "hideDuration": "1000",
+                                //    "timeOut": "5000",
+                                //    "extendedTimeOut": "1000",
+                                //    "showEasing": "swing",
+                                //    "hideEasing": "linear",
+                                //    "showMethod": "fadeIn",
+                                //    "hideMethod": "fadeOut"
+                                //}
+                                window.location.href = res.data;
+                                //window.location.href = "/GRN/ViewGRN"
+                            }
+                            else if (res.success == false && res.msg == 'Failed') {
+                                //    Command: toastr["error"]("Invalid ", " Failed")
+
+                                //toastr.options = {
+                                //    "closeButton": false,
+                                //    "debug": false,
+                                //    "newestOnTop": false,
+                                //    "progressBar": true,
+                                //    "positionClass": "toast-top-center",
+                                //    "preventDuplicates": false,
+                                //    "onclick": null,
+                                //    "showDuration": "300",
+                                //    "hideDuration": "1000",
+                                //    "timeOut": "5000",
+                                //    "extendedTimeOut": "1000",
+                                //    "showEasing": "swing",
+                                //    "hideEasing": "linear",
+                                //    "showMethod": "fadeIn",
+                                //    "hideMethod": "fadeOut"
+                                //}
+                            }
+                        },
+                        failure: function (res) {
+                            console.log(res);
+                        },
+                        err: function (res) {
+                            console.log(res);
+                        }
+
+                    })
+                }
+                else {
+                    return false;
+                }
             }
-            else {
+            else
+            {
                 return false;
             }
+            
 
         });
         function SomeDeleteRowFunction(o) {

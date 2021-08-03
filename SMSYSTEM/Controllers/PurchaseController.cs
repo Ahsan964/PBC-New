@@ -85,16 +85,18 @@ namespace SMSYSTEM.Controllers
                     objPurchaseVM_Property.MRNIdx =Convert.ToInt16(dt.Rows[0]["MRNIdx"].ToString());
                     objPurchaseVM_Property.DepartmentID = Convert.ToInt16(dt.Rows[0]["DepartmentID"].ToString());
                     objPurchaseVM_Property.totalAmount = Convert.ToDecimal(dt.Rows[0]["totalAmount"].ToString());
-                    string pdate = dt.Rows[0]["purchaseDate"].ToString();
+                    objPurchaseVM_Property.WarerHouseID = Convert.ToInt16(dt.Rows[0]["WarerHouseID"].ToString());
+                    //string pdate = dt.Rows[0]["purchaseDate"].ToString();
                     //string ndate = DateTime.Parse(pdate).ToString("yyyy-MM-dd");
-                    objPurchaseVM_Property.purchaseDate = pdate; /*DateTime.Parse(dt.Rows[0]["mrnDate"].ToString()).ToString("yyyy-MM-dd");*/
+                    //objPurchaseVM_Property.purchaseDate = pdate; /*DateTime.Parse(dt.Rows[0]["mrnDate"].ToString()).ToString("yyyy-MM-dd");*/
                     //DateTime.Parse(dt.Rows[0]["mrnDate"].ToString()).ToString("yyyy-MM-dd");
                     //foreach(DataRow dr in dt.Rows)
                     //{
                     //    objmrndetail
 
-                    //}
-                    ViewBag.DetailData = Helper.ConvertDataTable<PurchaseVM_Property>(dt);
+                    //}List<PurchaseDetails_Property> PurchaseDetailLST
+                    // ViewBag.DetailData = Helper.ConvertDataTable<PurchaseVM_Property>(dt);
+                    objPurchaseVM_Property.PurchaseDetailLST = Helper.ConvertDataTable<PurchaseDetails_Property>(dt);
                     //update
                     return View("AddNewPurchase", objPurchaseVM_Property);
                 }
@@ -161,7 +163,8 @@ namespace SMSYSTEM.Controllers
                 if (objpurchase.idx > 0)
                 {
                     objPurchaseProperty.idx = objpurchase.idx;
-                    objPurchaseProperty.creationDate = DateTime.Now;
+                    //objPurchaseProperty.creationDate = DateTime.Now;
+                    objPurchaseProperty.lastModificationDate = DateTime.Now.ToString("MM/dd/yyyy");
                     objPurchaseProperty.visible = 1;
                     objPurchaseProperty.createdByUserIdx = Convert.ToInt16(Session["UID"].ToString());
                     objPurchaseProperty.visible = 1;
@@ -197,6 +200,40 @@ namespace SMSYSTEM.Controllers
             }
         }
 
+        // Delete function
+        public JsonResult Delete(int? id)
+        {
+            if (Session["LOGGEDIN"] != null)
+            {
+                try
+                {
+                    objPurchaseProperty = new LP_Purchase_Master_Property();
+                   
+                    objPurchaseProperty.idx = int.Parse(id.ToString());
+
+                    objpurchaseBll = new LP_Purchase_BLL(objPurchaseProperty);
+                    var flag1 = objpurchaseBll.Delete();
+                    
+                    if (flag1)
+                    {
+                        return Json(new { data = "Deleted", success = flag1, statuscode = 200 }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { data = "Error", success = flag1, statuscode = 200 }, JsonRequestBehavior.DenyGet);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { data = ex.Message, success = false, statuscode = 400, count = 0 }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { data = "Session Expired", success = false, statuscode = 400, count = 0 }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         public JsonResult SelectPOById(int id)
         {

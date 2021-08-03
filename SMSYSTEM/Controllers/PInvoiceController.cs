@@ -181,6 +181,8 @@ namespace SMSYSTEM.Controllers
 
                     objPIProperty.InvoiceDetails = Helper.ToDataTable<LP_P_Invoice_Details>(objPI.InvoiceDetails);
 
+                    objPIProperty.visible = 1;
+
                     // Added By Ahsan 6/11/2021
                     if (objPIProperty.ParentDocID > 0)
                     {
@@ -271,8 +273,9 @@ namespace SMSYSTEM.Controllers
                     objPIProperty.VendorCoaidx = Convert.ToInt32(VendorsData[0].coaIdx);
 
                     objPIProperty.InvoiceDetails = Helper.ToDataTable<LP_P_Invoice_Details>(objPI.InvoiceDetails);
-
+                    
                     // Added By Ahsan 6/11/2021
+                    objPIProperty.visible = 1;
                     if (objPIProperty.ParentDocID > 0)
                     {
 

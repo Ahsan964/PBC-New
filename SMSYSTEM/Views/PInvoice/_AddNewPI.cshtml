@@ -778,17 +778,35 @@
                                     <br />
                                     <form role="form" id="purchaseform">
                                         @Html.HiddenFor(model => model.idx, new { id = "idx", value = 0 })
+                                    <div class="row">
+                                    @{
+                                            if (Model.idx > 0)
+                                            {
+                                                <div class="col-sm-3">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Select GRN:</label>
+                                                        @Html.EditorFor(model => model.ParentDocID, new { htmlAttributes = new { @placeholder = "PO Number*:", @class = "form-control", @readonly = true } })
 
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <!-- text input -->
-                                                <div class="form-group">
-                                                    <label>Select GRN:</label>
-                                                    @*@Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "idx", "PoNumber"), "Select PO", new { @Class = "form-control font-weight-bold" })*@
-                                                    @Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "GRNMasterID", "Doc_No"), "Select GRN", new { @Class = "form-control font-weight-bold" })
+                                                         </div>
+                                                    @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
                                                 </div>
-                                                @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
-                                            </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-sm-3">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Select GRN:</label>
+                                                        @*@Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "idx", "PoNumber"), "Select PO", new { @Class = "form-control font-weight-bold" })*@
+                                                        @Html.DropDownListFor(model => model.ParentDocID, new SelectList(Model.POLIST, "GRNMasterID", "Doc_No"), "Select GRN", new { @Class = "form-control font-weight-bold" })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.ParentDocID, "", new { @class = "text-danger" })
+                                                </div>
+                                            }
+                                        }
+
+                                            
                                             <div class="col-sm-3">
                                                 <!-- text input -->
                                                 <div class="form-group">

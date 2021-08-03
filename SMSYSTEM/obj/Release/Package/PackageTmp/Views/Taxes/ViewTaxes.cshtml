@@ -20,7 +20,7 @@
                                 <th>Tax Name</th>
                                 <th>Tax Percent</th>
                                 <th>Created By</th>
-                                <th>Tax Authority</th>
+                                @*<th>Tax Authority</th>*@
 
                                 <th>Actions</th>
                             </tr>
@@ -168,7 +168,7 @@
                         { data: 'taxName' },
                         { data: 'taxPercent' },
                          { data: 'userName' },
-                         { data: 'taxAuthority' },
+                         //{ data: 'taxAuthority' },
                         //or { data: 'MONTH', title: 'Month' }`
 
                         {
@@ -224,71 +224,122 @@
         }
 
         function ConfirmDelete(CustomerID) {
-
-            $.ajax({
-                type: 'GET',
-                url: '/Taxes/DeleteTaxes?id=' + CustomerID,
-                dataType: 'JSON',
-                success: function (res) {
-                    if (res.success) {
-                        swalWithBootstrapButtons.fire(
-                            'Done!',
-                            'Blocked',
-                            'success'
-                            )
-                        window.location.href = "/Client/ViewClient"
-                    }
-                    else {
-                        swalWithBootstrapButtons.fire(
-                            'Error!',
-                            'Failes',
-                            'success'
-                            )
-                    }
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
                 },
-                failure: function (res) {
-                    console.log(res);
-                },
-                err: function (res) {
-                    console.log(res);
-                }
+                buttonsStyling: false
             })
 
-            //const swalWithBootstrapButtons = Swal.mixin({
-            //    customClass: {
-            //        confirmButton: 'btn btn-success',
-            //        cancelButton: 'btn btn-danger'
-            //    },
-            //    buttonsStyling: false
-            //})
 
-            //swalWithBootstrapButtons.fire({
-            //    title: 'Are you sure?',
-            //    text: "",
-            //    type: 'warning',
-            //    showCancelButton: true,
-            //    confirmButtonText: 'Yes, Block!',
-            //    cancelButtonText: 'No, cancel!',
-            //    reverseButtons: true
-            //}).then((result) => {
-            //    if (result.value) {
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Taxes/DeleteTaxes?id=' + CustomerID,
 
 
+                        dataType: 'JSON',
+                        success: function (res) {
+                            if (res.success) {
+                                swalWithBootstrapButtons.fire(
+                                    'Done!',
+                                    'Blocked',
+                                    'success'
+                                )
+                                window.location.href = "/Taxes/ViewTaxes"
+                            }
+                        }
+                    })
 
-
-            //    } else if (
-            //        /* Read more about handling dismissals below */
-            //      result.dismiss === Swal.DismissReason.cancel
-            //    ) {
-            //        swalWithBootstrapButtons.fire(
-            //          'Cancelled',
-            //          '',
-            //          'error'
-            //        )
-            //    }
-            //})
-
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
         }
+
+        //function ConfirmDelete(CustomerID) {
+
+        //    $.ajax({
+        //        type: 'GET',
+        //        url: '/Taxes/DeleteTaxes?id=' + CustomerID,
+        //        dataType: 'JSON',
+        //        success: function (res) {
+        //            if (res.success) {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Done!',
+        //                    'Blocked',
+        //                    'success'
+        //                    )
+        //                window.location.href = "/Client/ViewClient"
+        //            }
+        //            else {
+        //                swalWithBootstrapButtons.fire(
+        //                    'Error!',
+        //                    'Failes',
+        //                    'success'
+        //                    )
+        //            }
+        //        },
+        //        failure: function (res) {
+        //            console.log(res);
+        //        },
+        //        err: function (res) {
+        //            console.log(res);
+        //        }
+        //    })
+
+        //    //const swalWithBootstrapButtons = Swal.mixin({
+        //    //    customClass: {
+        //    //        confirmButton: 'btn btn-success',
+        //    //        cancelButton: 'btn btn-danger'
+        //    //    },
+        //    //    buttonsStyling: false
+        //    //})
+
+        //    //swalWithBootstrapButtons.fire({
+        //    //    title: 'Are you sure?',
+        //    //    text: "",
+        //    //    type: 'warning',
+        //    //    showCancelButton: true,
+        //    //    confirmButtonText: 'Yes, Block!',
+        //    //    cancelButtonText: 'No, cancel!',
+        //    //    reverseButtons: true
+        //    //}).then((result) => {
+        //    //    if (result.value) {
+
+
+
+
+        //    //    } else if (
+        //    //        /* Read more about handling dismissals below */
+        //    //      result.dismiss === Swal.DismissReason.cancel
+        //    //    ) {
+        //    //        swalWithBootstrapButtons.fire(
+        //    //          'Cancelled',
+        //    //          '',
+        //    //          'error'
+        //    //        )
+        //    //    }
+        //    //})
+
+        //}
 
     </script>
 }

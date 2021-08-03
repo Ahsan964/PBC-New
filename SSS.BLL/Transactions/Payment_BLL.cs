@@ -50,6 +50,14 @@ namespace SSS.BLL.Transactions
             objDAL = new Payment_DAL();
             return objDAL.SelectAllReceiptVoucher();
         }
+
+        // Added By Ahsan
+        public DataTable SelectOnePaymentVoucher()
+        {
+            objDAL = new Payment_DAL(objpaymentprop);
+            return objDAL.SelectOnePaymentVoucher();
+        }
+
         public DataTable SelectOne()
         {
             objDAL = new Payment_DAL(objpaymentprop);

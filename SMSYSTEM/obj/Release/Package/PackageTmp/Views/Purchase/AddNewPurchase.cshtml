@@ -18,7 +18,15 @@
             @{
                 if (Model.idx > 0)
                 {
-
+                    <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                            <label>MR#*:</label>
+                            @Html.EditorFor(model => model.MRNIdx, new { htmlAttributes = new { @placeholder = "PO Number*:", @class = "form-control", @readonly = true } })
+                            @*<input type="text"  class="form-control" placeholder="@ViewBag.CustomerCode" disabled>*@
+                        </div>
+                        @Html.ValidationMessageFor(model => model.MRNIdx, "", new { @class = "text-danger" })
+                    </div>
                 }
                 else
                 {
@@ -71,6 +79,14 @@
                     @Html.DropDownListFor(model => model.DepartmentID, new SelectList(Model.DepartmentList, "idx", "Department"), "Select Department", new { @Class = "form-control font-weight-bold" })
                 </div>
                 @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-3">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Select WareHouse*:</label>
+                    @Html.DropDownListFor(model => model.WarerHouseID, new SelectList(Model.WareHouseList, "idx", "WareHouseName"), "Select WareHouse", new { @Class = "form-control font-weight-bold" })
+                </div>
+                @Html.ValidationMessageFor(model => model.WarerHouseID, "", new { @class = "text-danger" })
             </div>
         </div>
         <hr />
@@ -126,19 +142,16 @@
                                             <tbody style="background:white;color:black; ">
 
                                                 @{
-                                                    if (ViewBag.DetailData != null)
+                                                    if (Model.PurchaseDetailLST != null)
                                                     {
-
-
-
-                                                        foreach (var items in ViewBag.DetailData)
+                                                        foreach (var items in Model.PurchaseDetailLST)
                                                         {
                                                             <tr>
                                                                 <td style="display:none">@items.itemIdx</td>
                                                                 <td>@items.itemName</td>
                                                                 <td>@items.qty</td>
-                                                                <td><input type="text" placeholder="Enter Unit Price" onkeyup="changeinunitprice(this)" value="@items.unitPrice" id="unitprice" class="form-control" /></td>
-                                                               
+                                                                @*<td><input type="text" placeholder="Enter Unit Price" onkeyup="changeinunitprice(this)" value="@items.unitPrice" id="unitprice" class="form-control" /></td>*@
+                                                                <td id="unitPrice">@items.unitPrice</td>
                                                                 <td>@items.amount</td>
                                                                 <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
                                                             </tr>
@@ -203,7 +216,24 @@
 @section MyScripts
     {
 <script type="text/javascript">
+      
 
+    function onSubmitValdaitions() {
+        var result = true;
+        var vendorIdx = $("#vendorIdx").val();
+        var WarerHouseID = $("#WarerHouseID").val();
+        var tableCount = $("#example2 tr").length;
+        var totalAmount = $("#totalAmount").val();
+        if (Number(vendorIdx) > 0 && Number(WarerHouseID) > 0 && Number(tableCount) > 0 && Number(totalAmount) > 0)
+        {
+            result = true
+        }
+        else
+        {
+            result = false;
+        }
+        return result;
+    }
     // Add To grid
     $("#MRNIdx").on('change', function () {
         var ddvaue = $("#MRNIdx option:selected").val();
@@ -215,6 +245,7 @@
         {
             $("#example2 tbody").empty();
             $('#btnaddtogrid').attr('disabled', false);
+            $("#WarerHouseID")[0].selectedIndex = 0;
             $("#totalAmount").val("0");
         }
 
@@ -227,7 +258,8 @@
             success: function (data) {
                 var POData = JSON.parse(data.data);
                 console.log(POData);
-
+                var warehouseIdx = POData[0].WarerHouseID;
+                $("#WarerHouseID").val(warehouseIdx);
                 $("#example2 tbody").empty();
                 $('#milestones').show();
                 var markup;
@@ -492,106 +524,111 @@
     });
 
     $("#btnAddPO").click(function (e) {
+        var result = onSubmitValdaitions();
+        if (result) {
+            e.preventDefault();
+            var datatosend = {
+                objpurchase: {
+                    idx: $('#idx').val(),
+                    poNumber: $('#poNumber').val(),
+                    vendorIdx: $('#vendorIdx').val(),
+                    purchaseDate: $('#purchaseDate').val(),
+                    description: $('#description').val(),
+                    totalAmount: $('#totalAmount').val(),
+                    MRNIdx: $("#MRNIdx option:selected").val(),
+                    description: $("#description").val(),
+                    DepartmentID: $("#DepartmentID option:selected").val(),
+                    WarerHouseID: $("#WarerHouseID option:selected").val(),
+                    //PageList:[{ID:1},{ID:2},{ID:3}]
+                    PurchaseDetailLST: []
+                }
 
-        e.preventDefault();
-        var datatosend = {
-            objpurchase: {
-                idx: $('#idx').val(),
-                poNumber: $('#poNumber').val(),
-                vendorIdx: $('#vendorIdx').val(),
-                purchaseDate: $('#purchaseDate').val(),
-                description: $('#description').val(),
-                totalAmount: $('#totalAmount').val(),
-                MRNIdx: $("#MRNIdx option:selected").val(),
-                description: $("#description").val(),
-                DepartmentID: $("#DepartmentID option:selected").val(),
-                //PageList:[{ID:1},{ID:2},{ID:3}]
-                PurchaseDetailLST: []
+            }
+            var table = $("#example2 tbody");
+
+            var milestonearray = [];
+            var milestonedetails = {
+            };
+            var pomasternetamount = 0;
+            var mrnIdx = $("#MRNIdx option:selected").val();
+            if (mrnIdx == "" || mrnIdx == "0") {
+                table.find('tr').each(function (i) {
+                    var $tds = $(this).find('td'),
+                        productid = $tds.eq(0).text(),
+                        qty = $tds.eq(2).text(),
+                        unitprice = $tds.eq(3).val(),
+                        itemamount = $tds.eq(4).text();
+
+                    datatosend.objpurchase.PurchaseDetailLST.push({
+                        itemIdx: productid,
+                        qty: qty,
+                        unitprice: $("#unitPrice").val(),
+                        productTypeIdx: 1,
+                        amount: itemamount
+                    })
+                    ;
+
+                });
+            }
+            else {
+                table.find('tr').each(function (i) {
+                    var $tds = $(this).find('td'),
+                        productid = $tds.eq(0).text(),
+                        qty = $tds.eq(2).text(),
+                        unitprice = $tds.eq(3).find('#unitprice').val(),
+                        itemamount = $tds.eq(4).text();
+
+                    datatosend.objpurchase.PurchaseDetailLST.push({
+                        itemIdx: productid,
+                        qty: qty,
+                        unitprice: unitprice,
+                        productTypeIdx: 1,
+                        amount: itemamount
+                    })
+                    ;
+
+                });
             }
 
-        }
-        var table = $("#example2 tbody");
 
-        var milestonearray = [];
-        var milestonedetails = {
-        };
-        var pomasternetamount = 0;
-        var mrnIdx=$("#MRNIdx option:selected").val();
-        if (mrnIdx == "" || mrnIdx == "0")
-        {
-            table.find('tr').each(function (i) {
-                var $tds = $(this).find('td'),
-                    productid = $tds.eq(0).text(),
-                    qty = $tds.eq(2).text(),
-                    unitprice = $tds.eq(3).text(),
-                    itemamount = $tds.eq(4).text();
 
-                datatosend.objpurchase.PurchaseDetailLST.push({
-                    itemIdx: productid,
-                    qty: qty,
-                    unitprice: unitprice,
-                    productTypeIdx: 1,
-                    amount: itemamount
+
+
+            var form = $("#purchaseform");
+            console.log(datatosend)
+            $.validator.unobtrusive.parse(form);
+            //if ($(form).valid()) // using not operator for a time being
+            if (true) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Purchase/AddUpdate",
+                    data: JSON.stringify(datatosend),// JSON.stringify(milestonearray),// $(form).serialize(),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log(res);
+                        if (res.success) {
+                            window.location.href = res.data;
+                        }
+                        else if (res.success == false && res.msg == 'Failed') {
+
+                        }
+                    },
+                    failure: function (res) {
+                        console.log(res);
+                    },
+                    err: function (res) {
+                        console.log(res);
+                    }
+
                 })
-                ;
-
-            });
+            }
+            else {
+                return false;
+            }
         }
         else
         {
-            table.find('tr').each(function (i) {
-                var $tds = $(this).find('td'),
-                    productid = $tds.eq(0).text(),
-                    qty = $tds.eq(2).text(),
-                    unitprice = $tds.eq(3).find('#unitprice').val(),
-                    itemamount = $tds.eq(4).text();
-
-                datatosend.objpurchase.PurchaseDetailLST.push({
-                    itemIdx: productid,
-                    qty: qty,
-                    unitprice: unitprice,
-                    productTypeIdx: 1,
-                    amount: itemamount
-                })
-                ;
-
-            });
-        }
-        
-
-
-
-
-        var form = $("#purchaseform");
-        console.log(datatosend)
-        $.validator.unobtrusive.parse(form);
-        //if ($(form).valid()) // using not operator for a time being
-        if (true) {
-            $.ajax({
-                type: "POST",
-                url: "/Purchase/AddUpdate",
-                data: JSON.stringify(datatosend),// JSON.stringify(milestonearray),// $(form).serialize(),
-                contentType: 'application/json',
-                dataType: 'json',
-                success: function (res) {
-                    console.log(res);
-                    if (res.success) {
-                        window.location.href = res.data;
-                    }
-                    else if (res.success == false && res.msg == 'Failed') {
-
-                    }
-                },
-                failure: function (res) {
-                    console.log(res);
-                },
-                err: function (res) {
-                    console.log(res);
-                }
-
-            })
-        }
-        else {
             return false;
         }
 
