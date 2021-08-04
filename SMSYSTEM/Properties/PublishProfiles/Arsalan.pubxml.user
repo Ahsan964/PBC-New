@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Publish PBC\Publish 3-8-21</_PublishTargetUrl>
+    <_PublishTargetUrl>H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Publish PBC\Publish PBC 4-8-21</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -142,19 +142,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2021 22:18:30</publishTime>
     </File>
     <File Include="bin/SMSYSTEM.dll">
-      <publishTime>08/03/2021 02:02:06</publishTime>
+      <publishTime>08/03/2021 04:06:54</publishTime>
     </File>
     <File Include="bin/SSS.BLL.dll">
-      <publishTime>08/03/2021 02:02:01</publishTime>
+      <publishTime>08/03/2021 04:06:49</publishTime>
     </File>
     <File Include="bin/SSS.DAL.dll">
-      <publishTime>08/03/2021 02:01:59</publishTime>
+      <publishTime>08/03/2021 04:06:46</publishTime>
     </File>
     <File Include="bin/SSS.Property.dll">
-      <publishTime>08/03/2021 02:01:57</publishTime>
+      <publishTime>08/03/2021 04:06:44</publishTime>
     </File>
     <File Include="bin/SSS.Utility.dll">
-      <publishTime>08/03/2021 02:02:00</publishTime>
+      <publishTime>08/03/2021 04:06:48</publishTime>
     </File>
     <File Include="bin/stdole.dll">
       <publishTime>07/07/2015 13:51:38</publishTime>
@@ -991,7 +991,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2021 02:04:52</publishTime>
     </File>
     <File Include="Views/GRN/_AddNewGRN.cshtml">
-      <publishTime>07/23/2021 05:49:20</publishTime>
+      <publishTime>08/03/2021 03:30:33</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/05/2021 22:18:30</publishTime>
@@ -1012,7 +1012,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2021 22:18:30</publishTime>
     </File>
     <File Include="Views/MRN/AddNewMRN.cshtml">
-      <publishTime>05/05/2021 22:18:30</publishTime>
+      <publishTime>08/03/2021 03:26:19</publishTime>
     </File>
     <File Include="Views/MRN/ViewMRN.cshtml">
       <publishTime>08/03/2021 00:30:36</publishTime>
@@ -1027,7 +1027,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/11/2021 03:31:41</publishTime>
     </File>
     <File Include="Views/Payment/Vouchers.cshtml">
-      <publishTime>07/28/2021 06:43:14</publishTime>
+      <publishTime>08/03/2021 03:33:26</publishTime>
     </File>
     <File Include="Views/Payment/_AddVoucher.cshtml">
       <publishTime>07/28/2021 08:07:56</publishTime>
@@ -1045,7 +1045,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2021 22:18:30</publishTime>
     </File>
     <File Include="Views/PInvoice/_AddNewPI.cshtml">
-      <publishTime>08/02/2021 02:20:27</publishTime>
+      <publishTime>08/03/2021 03:31:52</publishTime>
     </File>
     <File Include="Views/Product/ViewProduct.cshtml">
       <publishTime>07/25/2021 22:54:21</publishTime>
@@ -1066,7 +1066,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2021 22:18:30</publishTime>
     </File>
     <File Include="Views/Purchase/AddNewPurchase.cshtml">
-      <publishTime>08/03/2021 01:44:45</publishTime>
+      <publishTime>08/03/2021 03:28:46</publishTime>
     </File>
     <File Include="Views/Purchase/ViewPurchase.cshtml">
       <publishTime>08/03/2021 00:46:24</publishTime>
@@ -1087,7 +1087,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2021 01:38:53</publishTime>
     </File>
     <File Include="Views/Receipt/_AddReceipt.cshtml">
-      <publishTime>07/23/2021 04:14:07</publishTime>
+      <publishTime>08/03/2021 04:05:19</publishTime>
     </File>
     <File Include="Views/Reporting/ViewReports.cshtml">
       <publishTime>07/27/2021 00:29:39</publishTime>

@@ -150,8 +150,8 @@
                                                                 <td style="display:none">@items.itemIdx</td>
                                                                 <td>@items.itemName</td>
                                                                 <td>@items.qty</td>
-                                                                @*<td><input type="text" placeholder="Enter Unit Price" onkeyup="changeinunitprice(this)" value="@items.unitPrice" id="unitprice" class="form-control" /></td>*@
-                                                                <td id="unitPrice">@items.unitPrice</td>
+                                                                <td><input type="text" placeholder="Enter Unit Price" onkeyup="changeinunitprice(this)" value="@items.unitPrice" id="unitprice" class="form-control" /></td>
+                                                                @*<td>@items.unitPrice</td>*@
                                                                 <td>@items.amount</td>
                                                                 <td><button id="deleterow" onclick="SomeDeleteRowFunction(this)" class="close btn btn-outline-danger"><i class="fa fa-trash menu-icon"></i></button></td>
                                                             </tr>
@@ -332,9 +332,11 @@
         var ProductID = $("#itemIdx option:selected").val();
         var Qty = $("#qty").val();
         var unitprice = $("#unitPrice").val();
+        var unitPrice = '<input type="text" placeholder="Enter unit Price" onkeyup="changeinunitprice(this)" value="' + unitprice + '"  id="unitprice" class="form-control" />';
+
         var totalamount = $("#amount").val();
         //var duedate = $("#DueDate").val();
-        var markup = "<tr><td style='display:none;'>" + ProductID + "</td><td>" + productname + "</td><td>" + Qty + "</td><td>" + unitprice + "</td><td class='tamnt'>" + totalamount + "</td><td>" + closebutton + "</td></tr>";
+        var markup = "<tr><td style='display:none;'>" + ProductID + "</td><td>" + productname + "</td><td>" + Qty + "</td><td>" + unitPrice + "</td><td class='tamnt'>" + totalamount + "</td><td>" + closebutton + "</td></tr>";
         //if (milestone == "") {
         //    alert("Enter milestone");
         //    return;
@@ -556,13 +558,13 @@
                     var $tds = $(this).find('td'),
                         productid = $tds.eq(0).text(),
                         qty = $tds.eq(2).text(),
-                        unitprice = $tds.eq(3).val(),
+                        unitprice = $tds.eq(3).text(),
                         itemamount = $tds.eq(4).text();
 
                     datatosend.objpurchase.PurchaseDetailLST.push({
                         itemIdx: productid,
                         qty: qty,
-                        unitprice: $("#unitPrice").val(),
+                        unitprice: unitprice,
                         productTypeIdx: 1,
                         amount: itemamount
                     })
@@ -608,7 +610,8 @@
                     success: function (res) {
                         console.log(res);
                         if (res.success) {
-                            window.location.href = res.data;
+                            //window.location.href = res.data;
+                            window.location.href = "/Purchase/ViewPurchase/";
                         }
                         else if (res.success == false && res.msg == 'Failed') {
 

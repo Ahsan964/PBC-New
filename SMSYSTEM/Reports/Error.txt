@@ -5458,3 +5458,36 @@ System.TypeInitializationException: The type initializer for 'CrystalDecisions.C
    at CrystalDecisions.CrystalReports.Engine.ReportDocument..ctor()
    at SMSYSTEM.Controllers.BaseController.GenerateReport(Nullable`1 id, Nullable`1 query, String ReportName) in H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\Controllers\BaseController.cs:line 620
 03/08/2021 3:30:55 am
+03/08/2021 7:39:05 am
+The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception.
+System.IO.FileNotFoundException: Could not load file or assembly 'CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304' or one of its dependencies. The system cannot find the file specified.
+File name: 'CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304'
+   at CrystalDecisions.CrystalReports.Engine.ReportDocument..cctor()
+
+=== Pre-bind state information ===
+LOG: DisplayName = CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304
+ (Fully-specified)
+LOG: Appbase = file:///H:/office/Pakistan business consultant/PBC/pbcprojectanddb/Pakistan-Consultant-master/SMSYSTEM/
+LOG: Initial PrivatePath = H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\bin
+Calling assembly : CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304.
+===
+LOG: This bind starts in default load context.
+LOG: Using application configuration file: H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\web.config
+LOG: Using host configuration file: C:\Users\Ahsi\Documents\IISExpress\config\aspnet.config
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config.
+LOG: Post-policy reference: CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304
+LOG: Attempting download of new URL file:///C:/Users/Ahsi/AppData/Local/Temp/Temporary ASP.NET Files/root/9b0752c2/f948e992/CrystalDecisions.ReportAppServer.CommLayer.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Ahsi/AppData/Local/Temp/Temporary ASP.NET Files/root/9b0752c2/f948e992/CrystalDecisions.ReportAppServer.CommLayer/CrystalDecisions.ReportAppServer.CommLayer.DLL.
+LOG: Attempting download of new URL file:///H:/office/Pakistan business consultant/PBC/pbcprojectanddb/Pakistan-Consultant-master/SMSYSTEM/bin/CrystalDecisions.ReportAppServer.CommLayer.DLL.
+LOG: Attempting download of new URL file:///H:/office/Pakistan business consultant/PBC/pbcprojectanddb/Pakistan-Consultant-master/SMSYSTEM/bin/CrystalDecisions.ReportAppServer.CommLayer/CrystalDecisions.ReportAppServer.CommLayer.DLL.
+LOG: Attempting download of new URL file:///C:/Users/Ahsi/AppData/Local/Temp/Temporary ASP.NET Files/root/9b0752c2/f948e992/CrystalDecisions.ReportAppServer.CommLayer.EXE.
+LOG: Attempting download of new URL file:///C:/Users/Ahsi/AppData/Local/Temp/Temporary ASP.NET Files/root/9b0752c2/f948e992/CrystalDecisions.ReportAppServer.CommLayer/CrystalDecisions.ReportAppServer.CommLayer.EXE.
+LOG: Attempting download of new URL file:///H:/office/Pakistan business consultant/PBC/pbcprojectanddb/Pakistan-Consultant-master/SMSYSTEM/bin/CrystalDecisions.ReportAppServer.CommLayer.EXE.
+LOG: Attempting download of new URL file:///H:/office/Pakistan business consultant/PBC/pbcprojectanddb/Pakistan-Consultant-master/SMSYSTEM/bin/CrystalDecisions.ReportAppServer.CommLayer/CrystalDecisions.ReportAppServer.CommLayer.EXE.
+
+System.TypeInitializationException: The type initializer for 'CrystalDecisions.CrystalReports.Engine.ReportDocument' threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly 'CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304' or one of its dependencies. The system cannot find the file specified.
+   at CrystalDecisions.CrystalReports.Engine.ReportDocument..cctor()
+   --- End of inner exception stack trace ---
+   at CrystalDecisions.CrystalReports.Engine.ReportDocument..ctor()
+   at SMSYSTEM.Controllers.BaseController.GenerateReport(Nullable`1 id, Nullable`1 query, String ReportName) in H:\office\Pakistan business consultant\PBC\pbcprojectanddb\Pakistan-Consultant-master\SMSYSTEM\Controllers\BaseController.cs:line 620
+03/08/2021 7:39:05 am
