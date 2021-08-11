@@ -362,6 +362,7 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Reporting\ViewReports.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -494,6 +495,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reporting\ViewReports.aspx.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reporting\ViewReports.aspx.designer.cs">
+      <DependentUpon>ViewReports.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -587,9 +594,6 @@
     <Content Include="Views\SalesPerson\AddNewSalesPerson.cshtml" />
     <Content Include="Views\Payment\Vouchers.cshtml" />
     <Content Include="Views\Payment\_AddVoucher.cshtml" />
-    <Content Include="Test_Pakistan_ConsultantDataSet.xsc">
-      <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
-    </Content>
     <Content Include="Test_Pakistan_Consultant.xsc">
       <DependentUpon>Test_Pakistan_Consultant.xsd</DependentUpon>
     </Content>
@@ -601,6 +605,9 @@
     <Content Include="Test_Pakistan_Consultant.xss">
       <DependentUpon>Test_Pakistan_Consultant.xsd</DependentUpon>
     </Content>
+    <Content Include="Test_Pakistan_ConsultantDataSet.xsc">
+      <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Test_Pakistan_ConsultantDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Test_Pakistan_ConsultantDataSet.Designer.cs</LastGenOutput>
@@ -609,7 +616,6 @@
     <Content Include="Test_Pakistan_ConsultantDataSet.xss">
       <DependentUpon>Test_Pakistan_ConsultantDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="Views\Reporting\ViewReports.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -685,6 +691,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SaleQouteReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reporting\Report2.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
